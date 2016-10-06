@@ -35,12 +35,63 @@ public class UmlRtTextParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getRootAccess().getGroup(), "rule__Root__Group__0");
+					put(grammarAccess.getPackageableElementAccess().getAlternatives(), "rule__PackageableElement__Alternatives");
+					put(grammarAccess.getClassAccess().getAlternatives(), "rule__Class__Alternatives");
+					put(grammarAccess.getPropertyAccess().getAlternatives(), "rule__Property__Alternatives");
+					put(grammarAccess.getPortAccess().getAlternatives(), "rule__Port__Alternatives");
+					put(grammarAccess.getConnectorAccess().getAlternatives(), "rule__Connector__Alternatives");
+					put(grammarAccess.getRedefinableElementAccess().getAlternatives(), "rule__RedefinableElement__Alternatives");
+					put(grammarAccess.getPackageAccess().getAlternatives(), "rule__Package__Alternatives");
+					put(grammarAccess.getInterfaceAccess().getAlternatives(), "rule__Interface__Alternatives");
+					put(grammarAccess.getCollaborationAccess().getAlternatives(), "rule__Collaboration__Alternatives");
+					put(grammarAccess.getProtocolContainerAccess().getPackagedElementAlternatives_4_0(), "rule__ProtocolContainer__PackagedElementAlternatives_4_0");
+					put(grammarAccess.getPortRegistrationTypeAccess().getAlternatives(), "rule__PortRegistrationType__Alternatives");
+					put(grammarAccess.getRTMessageKindAccess().getAlternatives(), "rule__RTMessageKind__Alternatives");
+					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
+					put(grammarAccess.getClassAccess().getGroup_1(), "rule__Class__Group_1__0");
+					put(grammarAccess.getPropertyAccess().getGroup_1(), "rule__Property__Group_1__0");
+					put(grammarAccess.getPortAccess().getGroup_1(), "rule__Port__Group_1__0");
+					put(grammarAccess.getConnectorAccess().getGroup_1(), "rule__Connector__Group_1__0");
+					put(grammarAccess.getRedefinableElementAccess().getGroup_1(), "rule__RedefinableElement__Group_1__0");
+					put(grammarAccess.getPackageAccess().getGroup_2(), "rule__Package__Group_2__0");
+					put(grammarAccess.getInterfaceAccess().getGroup_1(), "rule__Interface__Group_1__0");
+					put(grammarAccess.getCollaborationAccess().getGroup_1(), "rule__Collaboration__Group_1__0");
+					put(grammarAccess.getCapsuleAccess().getGroup(), "rule__Capsule__Group__0");
+					put(grammarAccess.getCapsulePartAccess().getGroup(), "rule__CapsulePart__Group__0");
 					put(grammarAccess.getProtocolAccess().getGroup(), "rule__Protocol__Group__0");
-					put(grammarAccess.getFQNAccess().getGroup(), "rule__FQN__Group__0");
-					put(grammarAccess.getFQNAccess().getGroup_1(), "rule__FQN__Group_1__0");
-					put(grammarAccess.getRootAccess().getPackagedElementAssignment_1(), "rule__Root__PackagedElementAssignment_1");
+					put(grammarAccess.getRTPortAccess().getGroup(), "rule__RTPort__Group__0");
+					put(grammarAccess.getRTConnectorAccess().getGroup(), "rule__RTConnector__Group__0");
+					put(grammarAccess.getProtocolContainerAccess().getGroup(), "rule__ProtocolContainer__Group__0");
+					put(grammarAccess.getRTRedefinedElementAccess().getGroup(), "rule__RTRedefinedElement__Group__0");
+					put(grammarAccess.getRTRedefinedElementAccess().getGroup_3(), "rule__RTRedefinedElement__Group_3__0");
+					put(grammarAccess.getRTMessageSetAccess().getGroup(), "rule__RTMessageSet__Group__0");
+					put(grammarAccess.getModelAccess().getNameAssignment_2(), "rule__Model__NameAssignment_2");
+					put(grammarAccess.getModelAccess().getPackagedElementAssignment_4(), "rule__Model__PackagedElementAssignment_4");
+					put(grammarAccess.getClassAccess().getNameAssignment_1_2(), "rule__Class__NameAssignment_1_2");
+					put(grammarAccess.getPropertyAccess().getNameAssignment_1_2(), "rule__Property__NameAssignment_1_2");
+					put(grammarAccess.getPortAccess().getNameAssignment_1_2(), "rule__Port__NameAssignment_1_2");
+					put(grammarAccess.getConnectorAccess().getNameAssignment_1_2(), "rule__Connector__NameAssignment_1_2");
+					put(grammarAccess.getRedefinableElementAccess().getNameAssignment_1_2(), "rule__RedefinableElement__NameAssignment_1_2");
+					put(grammarAccess.getPackageAccess().getNameAssignment_2_2(), "rule__Package__NameAssignment_2_2");
+					put(grammarAccess.getInterfaceAccess().getNameAssignment_1_2(), "rule__Interface__NameAssignment_1_2");
+					put(grammarAccess.getCollaborationAccess().getNameAssignment_1_2(), "rule__Collaboration__NameAssignment_1_2");
+					put(grammarAccess.getCapsuleAccess().getNameAssignment_2(), "rule__Capsule__NameAssignment_2");
+					put(grammarAccess.getCapsuleAccess().getNestedClassifierAssignment_3(), "rule__Capsule__NestedClassifierAssignment_3");
+					put(grammarAccess.getCapsulePartAccess().getNameAssignment_2(), "rule__CapsulePart__NameAssignment_2");
+					put(grammarAccess.getCapsulePartAccess().getIsNotificationAssignment_4(), "rule__CapsulePart__IsNotificationAssignment_4");
+					put(grammarAccess.getCapsulePartAccess().getIsPublishAssignment_6(), "rule__CapsulePart__IsPublishAssignment_6");
+					put(grammarAccess.getCapsulePartAccess().getIsWiredAssignment_8(), "rule__CapsulePart__IsWiredAssignment_8");
+					put(grammarAccess.getCapsulePartAccess().getRegistrationAssignment_10(), "rule__CapsulePart__RegistrationAssignment_10");
+					put(grammarAccess.getCapsulePartAccess().getRegistrationOverrideAssignment_12(), "rule__CapsulePart__RegistrationOverrideAssignment_12");
 					put(grammarAccess.getProtocolAccess().getNameAssignment_2(), "rule__Protocol__NameAssignment_2");
+					put(grammarAccess.getRTPortAccess().getNameAssignment_2(), "rule__RTPort__NameAssignment_2");
+					put(grammarAccess.getRTConnectorAccess().getNameAssignment_2(), "rule__RTConnector__NameAssignment_2");
+					put(grammarAccess.getProtocolContainerAccess().getNameAssignment_2(), "rule__ProtocolContainer__NameAssignment_2");
+					put(grammarAccess.getProtocolContainerAccess().getPackagedElementAssignment_4(), "rule__ProtocolContainer__PackagedElementAssignment_4");
+					put(grammarAccess.getRTRedefinedElementAccess().getNameAssignment_2(), "rule__RTRedefinedElement__NameAssignment_2");
+					put(grammarAccess.getRTRedefinedElementAccess().getRootFragmentAssignment_3_1(), "rule__RTRedefinedElement__RootFragmentAssignment_3_1");
+					put(grammarAccess.getRTMessageSetAccess().getNameAssignment_2(), "rule__RTMessageSet__NameAssignment_2");
+					put(grammarAccess.getRTMessageSetAccess().getRtMsgKindAssignment_4(), "rule__RTMessageSet__RtMsgKindAssignment_4");
 				}
 			};
 		}
@@ -51,7 +102,7 @@ public class UmlRtTextParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			InternalUmlRtTextParser typedParser = (InternalUmlRtTextParser) parser;
-			typedParser.entryRuleRoot();
+			typedParser.entryRuleModel();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

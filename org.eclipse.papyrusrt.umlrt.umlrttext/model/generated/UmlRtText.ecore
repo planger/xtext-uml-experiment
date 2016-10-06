@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="umlrt" nsURI="http://www.eclipse.org/papyrus/umlrt" nsPrefix="umlrt">
+  <eClassifiers xsi:type="ecore:EClass" name="Capsule" eSuperTypes="platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//Class"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CapsulePart" eSuperTypes="platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isNotification" eType="ecore:EDataType platform:/resource/org.eclipse.uml2.types/model/Types.ecore#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPublish" eType="ecore:EDataType platform:/resource/org.eclipse.uml2.types/model/Types.ecore#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isWired" eType="ecore:EDataType platform:/resource/org.eclipse.uml2.types/model/Types.ecore#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="registration" eType="#//PortRegistrationType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="registrationOverride" eType="ecore:EDataType platform:/resource/org.eclipse.uml2.types/model/Types.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Protocol" eSuperTypes="platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//Collaboration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RTPort" eSuperTypes="platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//Port"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RTConnector" eSuperTypes="platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//Connector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProtocolContainer" eSuperTypes="platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RTRedefinedElement" eSuperTypes="platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//RedefinableElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rootFragment" eType="ecore:EClass platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//RedefinableElement"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RTMessageSet" eSuperTypes="platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//Interface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rtMsgKind" eType="#//RTMessageKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PortRegistrationType">
+    <eLiterals name="Automatic" literal="Automatic"/>
+    <eLiterals name="Application" value="1" literal="Application"/>
+    <eLiterals name="AutomaticLocked" value="2" literal="AutomaticLocked"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RTMessageKind">
+    <eLiterals name="in" literal="in"/>
+    <eLiterals name="out" value="1" literal="out"/>
+    <eLiterals name="inOut" value="2" literal="inOut"/>
+  </eClassifiers>
+</ecore:EPackage>

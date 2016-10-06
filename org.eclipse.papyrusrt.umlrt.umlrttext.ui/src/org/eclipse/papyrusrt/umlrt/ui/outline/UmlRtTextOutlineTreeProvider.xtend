@@ -4,6 +4,8 @@
 package org.eclipse.papyrusrt.umlrt.ui.outline
 
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 
 /**
  * Customization of the default outline structure.
@@ -11,5 +13,9 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#outline
  */
 class UmlRtTextOutlineTreeProvider extends DefaultOutlineTreeProvider {
-
+	override createChildren(IOutlineNode parent, EObject modelElement){
+		super.createChildren(parent, modelElement);
+		/** TODO **/
+		println(modelElement.toString);
+	} 
 }

@@ -13,7 +13,11 @@ Require-Bundle: org.eclipse.uml2.uml;bundle-version="[5.1.0,6.0.0)",
  org.eclipse.xtext.xbase.lib,
  org.antlr.runtime,
  org.eclipse.xtext.util,
- org.eclipse.xtend.lib
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.eclipse.xtext.common.types,
+ org.eclipse.uml2.types
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipse.papyrusrt.umlrt.serializer,
  org.eclipse.papyrusrt.umlrt.validation,
@@ -23,5 +27,8 @@ Export-Package: org.eclipse.papyrusrt.umlrt.serializer,
  org.eclipse.papyrusrt.umlrt.parser.antlr.internal,
  org.eclipse.papyrusrt.umlrt.services,
  org.eclipse.papyrusrt.umlrt.parser.antlr,
- org.eclipse.papyrusrt.umlrt.scoping
+ org.eclipse.papyrusrt.umlrt.scoping,
+ org.eclipse.papyrusrt.umlrt.umlrt,
+ org.eclipse.papyrusrt.umlrt.umlrt.util,
+ org.eclipse.papyrusrt.umlrt.umlrt.impl
 Import-Package: org.apache.log4j

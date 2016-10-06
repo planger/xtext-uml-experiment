@@ -13,6 +13,7 @@ public abstract class AbstractUmlRtTextValidator extends AbstractDeclarativeVali
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
+		result.add(org.eclipse.papyrusrt.umlrt.umlrt.UmlrtPackage.eINSTANCE);
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/uml2/5.0.0/UML"));
 		return result;
 	}

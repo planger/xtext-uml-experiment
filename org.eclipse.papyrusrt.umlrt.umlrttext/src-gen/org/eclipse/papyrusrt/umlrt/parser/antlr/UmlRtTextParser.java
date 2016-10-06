@@ -27,7 +27,7 @@ public class UmlRtTextParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Root";
+		return "Model";
 	}
 
 	public UmlRtTextGrammarAccess getGrammarAccess() {

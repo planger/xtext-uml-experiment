@@ -18,7 +18,7 @@ class UmlRtTextLabelProvider extends DefaultEObjectLabelProvider {
 	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
-
+	
 	// Labels and icons can be computed like this:
 	
 //	def text(Greeting ele) {
