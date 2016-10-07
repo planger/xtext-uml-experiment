@@ -36,4 +36,5 @@ public class UmlRtTextFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap(0, 1, 2).before(f.getML_COMMENTRule());
 		c.setLinewrap(0, 1, 1).after(f.getML_COMMENTRule());
 	}
+	
 }

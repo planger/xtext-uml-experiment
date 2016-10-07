@@ -7,9 +7,9 @@
   <genPackages prefix="Umlrt" basePackage="org.eclipse.papyrusrt.umlrt" disposableProviderFactory="true"
       fileExtensions="umlrttext" ecorePackage="UmlRtText.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="UmlRtText.ecore#//PortRegistrationType">
-      <genEnumLiterals ecoreEnumLiteral="UmlRtText.ecore#//PortRegistrationType/Automatic"/>
-      <genEnumLiterals ecoreEnumLiteral="UmlRtText.ecore#//PortRegistrationType/Application"/>
-      <genEnumLiterals ecoreEnumLiteral="UmlRtText.ecore#//PortRegistrationType/AutomaticLocked"/>
+      <genEnumLiterals ecoreEnumLiteral="UmlRtText.ecore#//PortRegistrationType/automatic"/>
+      <genEnumLiterals ecoreEnumLiteral="UmlRtText.ecore#//PortRegistrationType/application"/>
+      <genEnumLiterals ecoreEnumLiteral="UmlRtText.ecore#//PortRegistrationType/automaticLocked"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="UmlRtText.ecore#//RTMessageKind">
       <genEnumLiterals ecoreEnumLiteral="UmlRtText.ecore#//RTMessageKind/in"/>
@@ -34,5 +34,13 @@
     <genClasses ecoreClass="UmlRtText.ecore#//RTMessageSet">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlRtText.ecore#//RTMessageSet/rtMsgKind"/>
     </genClasses>
+    <genClasses ecoreClass="UmlRtText.ecore#//RTStateMachine">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UmlRtText.ecore#//RTStateMachine/isPassive"/>
+    </genClasses>
+    <genClasses ecoreClass="UmlRtText.ecore#//RTRegion"/>
+    <genClasses ecoreClass="UmlRtText.ecore#//RTState"/>
+    <genClasses ecoreClass="UmlRtText.ecore#//RTPseudostate"/>
+    <genClasses ecoreClass="UmlRtText.ecore#//RTTrigger"/>
+    <genClasses ecoreClass="UmlRtText.ecore#//RTGuard"/>
   </genPackages>
 </genmodel:GenModel>

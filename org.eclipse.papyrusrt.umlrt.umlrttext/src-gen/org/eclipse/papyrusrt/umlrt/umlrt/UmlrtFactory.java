@@ -96,6 +96,60 @@ public interface UmlrtFactory extends EFactory
   RTMessageSet createRTMessageSet();
 
   /**
+   * Returns a new object of class '<em>RT State Machine</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>RT State Machine</em>'.
+   * @generated
+   */
+  RTStateMachine createRTStateMachine();
+
+  /**
+   * Returns a new object of class '<em>RT Region</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>RT Region</em>'.
+   * @generated
+   */
+  RTRegion createRTRegion();
+
+  /**
+   * Returns a new object of class '<em>RT State</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>RT State</em>'.
+   * @generated
+   */
+  RTState createRTState();
+
+  /**
+   * Returns a new object of class '<em>RT Pseudostate</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>RT Pseudostate</em>'.
+   * @generated
+   */
+  RTPseudostate createRTPseudostate();
+
+  /**
+   * Returns a new object of class '<em>RT Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>RT Trigger</em>'.
+   * @generated
+   */
+  RTTrigger createRTTrigger();
+
+  /**
+   * Returns a new object of class '<em>RT Guard</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>RT Guard</em>'.
+   * @generated
+   */
+  RTGuard createRTGuard();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

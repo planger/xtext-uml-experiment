@@ -13,17 +13,29 @@ import org.eclipse.papyrusrt.umlrt.umlrt.CapsulePart;
 import org.eclipse.papyrusrt.umlrt.umlrt.Protocol;
 import org.eclipse.papyrusrt.umlrt.umlrt.ProtocolContainer;
 import org.eclipse.papyrusrt.umlrt.umlrt.RTConnector;
+import org.eclipse.papyrusrt.umlrt.umlrt.RTGuard;
 import org.eclipse.papyrusrt.umlrt.umlrt.RTMessageSet;
 import org.eclipse.papyrusrt.umlrt.umlrt.RTPort;
+import org.eclipse.papyrusrt.umlrt.umlrt.RTPseudostate;
 import org.eclipse.papyrusrt.umlrt.umlrt.RTRedefinedElement;
+import org.eclipse.papyrusrt.umlrt.umlrt.RTRegion;
+import org.eclipse.papyrusrt.umlrt.umlrt.RTState;
+import org.eclipse.papyrusrt.umlrt.umlrt.RTStateMachine;
+import org.eclipse.papyrusrt.umlrt.umlrt.RTTrigger;
 import org.eclipse.papyrusrt.umlrt.umlrt.UmlrtPackage;
 import org.eclipse.uml2.uml.Collaboration;
 import org.eclipse.uml2.uml.Connector;
+import org.eclipse.uml2.uml.Constraint;
 import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.Model;
+import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Port;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Pseudostate;
 import org.eclipse.uml2.uml.RedefinableElement;
+import org.eclipse.uml2.uml.Region;
+import org.eclipse.uml2.uml.State;
+import org.eclipse.uml2.uml.StateMachine;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
@@ -56,11 +68,17 @@ public class UmlRtTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case UMLPackage.CONNECTOR:
 				sequence_Connector(context, (Connector) semanticObject); 
 				return; 
+			case UMLPackage.CONSTRAINT:
+				sequence_Constraint(context, (Constraint) semanticObject); 
+				return; 
 			case UMLPackage.INTERFACE:
 				sequence_Interface(context, (Interface) semanticObject); 
 				return; 
 			case UMLPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case UMLPackage.OPERATION:
+				sequence_Operation(context, (Operation) semanticObject); 
 				return; 
 			case UMLPackage.PACKAGE:
 				sequence_Package(context, (org.eclipse.uml2.uml.Package) semanticObject); 
@@ -71,8 +89,20 @@ public class UmlRtTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case UMLPackage.PROPERTY:
 				sequence_Property(context, (Property) semanticObject); 
 				return; 
+			case UMLPackage.PSEUDOSTATE:
+				sequence_Pseudostate(context, (Pseudostate) semanticObject); 
+				return; 
 			case UMLPackage.REDEFINABLE_ELEMENT:
 				sequence_RedefinableElement(context, (RedefinableElement) semanticObject); 
+				return; 
+			case UMLPackage.REGION:
+				sequence_Region(context, (Region) semanticObject); 
+				return; 
+			case UMLPackage.STATE:
+				sequence_State(context, (State) semanticObject); 
+				return; 
+			case UMLPackage.STATE_MACHINE:
+				sequence_StateMachine(context, (StateMachine) semanticObject); 
 				return; 
 			}
 		else if (epackage == UmlrtPackage.eINSTANCE)
@@ -92,14 +122,32 @@ public class UmlRtTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case UmlrtPackage.RT_CONNECTOR:
 				sequence_RTConnector(context, (RTConnector) semanticObject); 
 				return; 
+			case UmlrtPackage.RT_GUARD:
+				sequence_RTGuard(context, (RTGuard) semanticObject); 
+				return; 
 			case UmlrtPackage.RT_MESSAGE_SET:
 				sequence_RTMessageSet(context, (RTMessageSet) semanticObject); 
 				return; 
 			case UmlrtPackage.RT_PORT:
 				sequence_RTPort(context, (RTPort) semanticObject); 
 				return; 
+			case UmlrtPackage.RT_PSEUDOSTATE:
+				sequence_RTPseudostate(context, (RTPseudostate) semanticObject); 
+				return; 
 			case UmlrtPackage.RT_REDEFINED_ELEMENT:
 				sequence_RTRedefinedElement(context, (RTRedefinedElement) semanticObject); 
+				return; 
+			case UmlrtPackage.RT_REGION:
+				sequence_RTRegion(context, (RTRegion) semanticObject); 
+				return; 
+			case UmlrtPackage.RT_STATE:
+				sequence_RTState(context, (RTState) semanticObject); 
+				return; 
+			case UmlrtPackage.RT_STATE_MACHINE:
+				sequence_RTStateMachine(context, (RTStateMachine) semanticObject); 
+				return; 
+			case UmlrtPackage.RT_TRIGGER:
+				sequence_RTTrigger(context, (RTTrigger) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -154,7 +202,7 @@ public class UmlRtTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Capsule returns Capsule
 	 *
 	 * Constraint:
-	 *     (name=ID nestedClassifier+=Class)
+	 *     (name=ID ownedBehavior+=StateMachine*)
 	 */
 	protected void sequence_Capsule(ISerializationContext context, Capsule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -175,7 +223,7 @@ public class UmlRtTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getClassAccess().getNameIDTerminalRuleCall_1_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getClassAccess().getNameIDTerminalRuleCall_0_1_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -218,6 +266,24 @@ public class UmlRtTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
+	 *     Constraint returns Constraint
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_Constraint(ISerializationContext context, Constraint semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getConstraintAccess().getNameIDTerminalRuleCall_1_2_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Interface returns Interface
 	 *
 	 * Constraint:
@@ -245,6 +311,24 @@ public class UmlRtTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Operation returns Operation
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_Operation(ISerializationContext context, Operation semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getOperationAccess().getNameIDTerminalRuleCall_1_2_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -338,6 +422,24 @@ public class UmlRtTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
+	 *     Pseudostate returns Pseudostate
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_Pseudostate(ISerializationContext context, Pseudostate semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPseudostateAccess().getNameIDTerminalRuleCall_1_2_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Connector returns RTConnector
 	 *     RTConnector returns RTConnector
 	 *
@@ -357,22 +459,41 @@ public class UmlRtTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
+	 *     Constraint returns RTGuard
+	 *     RTGuard returns RTGuard
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_RTGuard(ISerializationContext context, RTGuard semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRTGuardAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Interface returns RTMessageSet
 	 *     RTMessageSet returns RTMessageSet
 	 *
 	 * Constraint:
-	 *     (name=ID rtMsgKind=RTMessageKind)
+	 *     (rtMsgKind=RTMessageKind name=ID)
 	 */
 	protected void sequence_RTMessageSet(ISerializationContext context, RTMessageSet semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME));
 			if (transientValues.isValueTransient(semanticObject, UmlrtPackage.Literals.RT_MESSAGE_SET__RT_MSG_KIND) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UmlrtPackage.Literals.RT_MESSAGE_SET__RT_MSG_KIND));
+			if (transientValues.isValueTransient(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRTMessageSetAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getRTMessageSetAccess().getRtMsgKindRTMessageKindEnumRuleCall_4_0(), semanticObject.getRtMsgKind());
+		feeder.accept(grammarAccess.getRTMessageSetAccess().getRtMsgKindRTMessageKindEnumRuleCall_1_0(), semanticObject.getRtMsgKind());
+		feeder.accept(grammarAccess.getRTMessageSetAccess().getNameIDTerminalRuleCall_3_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -398,6 +519,19 @@ public class UmlRtTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
+	 *     Pseudostate returns RTPseudostate
+	 *     RTPseudostate returns RTPseudostate
+	 *
+	 * Constraint:
+	 *     ((kind=PseudostateKind | visibility=VisibilityKind)* name=ID)
+	 */
+	protected void sequence_RTPseudostate(ISerializationContext context, RTPseudostate semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     RedefinableElement returns RTRedefinedElement
 	 *     RTRedefinedElement returns RTRedefinedElement
 	 *
@@ -406,6 +540,64 @@ public class UmlRtTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 */
 	protected void sequence_RTRedefinedElement(ISerializationContext context, RTRedefinedElement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Region returns RTRegion
+	 *     RTRegion returns RTRegion
+	 *
+	 * Constraint:
+	 *     (visibility=VisibilityKind? name=ID (subvertex+=RTState | subvertex+=RTPseudostate)*)
+	 */
+	protected void sequence_RTRegion(ISerializationContext context, RTRegion semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     StateMachine returns RTStateMachine
+	 *     RTStateMachine returns RTStateMachine
+	 *
+	 * Constraint:
+	 *     (visibility=VisibilityKind? name=ID isPassive=UML_BOOLEAN? region+=Region+)
+	 */
+	protected void sequence_RTStateMachine(ISerializationContext context, RTStateMachine semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     State returns RTState
+	 *     RTState returns RTState
+	 *
+	 * Constraint:
+	 *     (visibility=VisibilityKind? name=ID)
+	 */
+	protected void sequence_RTState(ISerializationContext context, RTState semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Operation returns RTTrigger
+	 *     RTTrigger returns RTTrigger
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_RTTrigger(ISerializationContext context, RTTrigger semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRTTriggerAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -423,6 +615,60 @@ public class UmlRtTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getRedefinableElementAccess().getNameIDTerminalRuleCall_1_2_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Region returns Region
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_Region(ISerializationContext context, Region semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRegionAccess().getNameIDTerminalRuleCall_1_2_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     StateMachine returns StateMachine
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_StateMachine(ISerializationContext context, StateMachine semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getStateMachineAccess().getNameIDTerminalRuleCall_1_2_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     State returns State
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_State(ISerializationContext context, State semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getStateAccess().getNameIDTerminalRuleCall_1_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

@@ -2976,6 +2976,1920 @@ public interface UmlrtPackage extends EPackage
   int RT_MESSAGE_SET_FEATURE_COUNT = UMLPackage.INTERFACE_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.eclipse.papyrusrt.umlrt.umlrt.impl.RTStateMachineImpl <em>RT State Machine</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.RTStateMachineImpl
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.UmlrtPackageImpl#getRTStateMachine()
+   * @generated
+   */
+  int RT_STATE_MACHINE = 8;
+
+  /**
+   * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__EANNOTATIONS = UMLPackage.STATE_MACHINE__EANNOTATIONS;
+
+  /**
+   * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__OWNED_COMMENT = UMLPackage.STATE_MACHINE__OWNED_COMMENT;
+
+  /**
+   * The feature id for the '<em><b>Owned Element</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__OWNED_ELEMENT = UMLPackage.STATE_MACHINE__OWNED_ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Owner</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__OWNER = UMLPackage.STATE_MACHINE__OWNER;
+
+  /**
+   * The feature id for the '<em><b>Client Dependency</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__CLIENT_DEPENDENCY = UMLPackage.STATE_MACHINE__CLIENT_DEPENDENCY;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__NAME = UMLPackage.STATE_MACHINE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Name Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__NAME_EXPRESSION = UMLPackage.STATE_MACHINE__NAME_EXPRESSION;
+
+  /**
+   * The feature id for the '<em><b>Namespace</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__NAMESPACE = UMLPackage.STATE_MACHINE__NAMESPACE;
+
+  /**
+   * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__QUALIFIED_NAME = UMLPackage.STATE_MACHINE__QUALIFIED_NAME;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__VISIBILITY = UMLPackage.STATE_MACHINE__VISIBILITY;
+
+  /**
+   * The feature id for the '<em><b>Owned Rule</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__OWNED_RULE = UMLPackage.STATE_MACHINE__OWNED_RULE;
+
+  /**
+   * The feature id for the '<em><b>Element Import</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__ELEMENT_IMPORT = UMLPackage.STATE_MACHINE__ELEMENT_IMPORT;
+
+  /**
+   * The feature id for the '<em><b>Package Import</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__PACKAGE_IMPORT = UMLPackage.STATE_MACHINE__PACKAGE_IMPORT;
+
+  /**
+   * The feature id for the '<em><b>Owned Member</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__OWNED_MEMBER = UMLPackage.STATE_MACHINE__OWNED_MEMBER;
+
+  /**
+   * The feature id for the '<em><b>Imported Member</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__IMPORTED_MEMBER = UMLPackage.STATE_MACHINE__IMPORTED_MEMBER;
+
+  /**
+   * The feature id for the '<em><b>Member</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__MEMBER = UMLPackage.STATE_MACHINE__MEMBER;
+
+  /**
+   * The feature id for the '<em><b>Is Leaf</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__IS_LEAF = UMLPackage.STATE_MACHINE__IS_LEAF;
+
+  /**
+   * The feature id for the '<em><b>Redefined Element</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__REDEFINED_ELEMENT = UMLPackage.STATE_MACHINE__REDEFINED_ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Redefinition Context</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__REDEFINITION_CONTEXT = UMLPackage.STATE_MACHINE__REDEFINITION_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Owning Template Parameter</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__OWNING_TEMPLATE_PARAMETER = UMLPackage.STATE_MACHINE__OWNING_TEMPLATE_PARAMETER;
+
+  /**
+   * The feature id for the '<em><b>Template Parameter</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__TEMPLATE_PARAMETER = UMLPackage.STATE_MACHINE__TEMPLATE_PARAMETER;
+
+  /**
+   * The feature id for the '<em><b>Package</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__PACKAGE = UMLPackage.STATE_MACHINE__PACKAGE;
+
+  /**
+   * The feature id for the '<em><b>Template Binding</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__TEMPLATE_BINDING = UMLPackage.STATE_MACHINE__TEMPLATE_BINDING;
+
+  /**
+   * The feature id for the '<em><b>Owned Template Signature</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__OWNED_TEMPLATE_SIGNATURE = UMLPackage.STATE_MACHINE__OWNED_TEMPLATE_SIGNATURE;
+
+  /**
+   * The feature id for the '<em><b>Feature</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__FEATURE = UMLPackage.STATE_MACHINE__FEATURE;
+
+  /**
+   * The feature id for the '<em><b>Attribute</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__ATTRIBUTE = UMLPackage.STATE_MACHINE__ATTRIBUTE;
+
+  /**
+   * The feature id for the '<em><b>Collaboration Use</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__COLLABORATION_USE = UMLPackage.STATE_MACHINE__COLLABORATION_USE;
+
+  /**
+   * The feature id for the '<em><b>General</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__GENERAL = UMLPackage.STATE_MACHINE__GENERAL;
+
+  /**
+   * The feature id for the '<em><b>Generalization</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__GENERALIZATION = UMLPackage.STATE_MACHINE__GENERALIZATION;
+
+  /**
+   * The feature id for the '<em><b>Powertype Extent</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__POWERTYPE_EXTENT = UMLPackage.STATE_MACHINE__POWERTYPE_EXTENT;
+
+  /**
+   * The feature id for the '<em><b>Inherited Member</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__INHERITED_MEMBER = UMLPackage.STATE_MACHINE__INHERITED_MEMBER;
+
+  /**
+   * The feature id for the '<em><b>Is Abstract</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__IS_ABSTRACT = UMLPackage.STATE_MACHINE__IS_ABSTRACT;
+
+  /**
+   * The feature id for the '<em><b>Is Final Specialization</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__IS_FINAL_SPECIALIZATION = UMLPackage.STATE_MACHINE__IS_FINAL_SPECIALIZATION;
+
+  /**
+   * The feature id for the '<em><b>Owned Use Case</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__OWNED_USE_CASE = UMLPackage.STATE_MACHINE__OWNED_USE_CASE;
+
+  /**
+   * The feature id for the '<em><b>Use Case</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__USE_CASE = UMLPackage.STATE_MACHINE__USE_CASE;
+
+  /**
+   * The feature id for the '<em><b>Redefined Classifier</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__REDEFINED_CLASSIFIER = UMLPackage.STATE_MACHINE__REDEFINED_CLASSIFIER;
+
+  /**
+   * The feature id for the '<em><b>Representation</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__REPRESENTATION = UMLPackage.STATE_MACHINE__REPRESENTATION;
+
+  /**
+   * The feature id for the '<em><b>Substitution</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__SUBSTITUTION = UMLPackage.STATE_MACHINE__SUBSTITUTION;
+
+  /**
+   * The feature id for the '<em><b>Owned Attribute</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__OWNED_ATTRIBUTE = UMLPackage.STATE_MACHINE__OWNED_ATTRIBUTE;
+
+  /**
+   * The feature id for the '<em><b>Owned Connector</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__OWNED_CONNECTOR = UMLPackage.STATE_MACHINE__OWNED_CONNECTOR;
+
+  /**
+   * The feature id for the '<em><b>Part</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__PART = UMLPackage.STATE_MACHINE__PART;
+
+  /**
+   * The feature id for the '<em><b>Role</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__ROLE = UMLPackage.STATE_MACHINE__ROLE;
+
+  /**
+   * The feature id for the '<em><b>Owned Port</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__OWNED_PORT = UMLPackage.STATE_MACHINE__OWNED_PORT;
+
+  /**
+   * The feature id for the '<em><b>Classifier Behavior</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__CLASSIFIER_BEHAVIOR = UMLPackage.STATE_MACHINE__CLASSIFIER_BEHAVIOR;
+
+  /**
+   * The feature id for the '<em><b>Interface Realization</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__INTERFACE_REALIZATION = UMLPackage.STATE_MACHINE__INTERFACE_REALIZATION;
+
+  /**
+   * The feature id for the '<em><b>Owned Behavior</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__OWNED_BEHAVIOR = UMLPackage.STATE_MACHINE__OWNED_BEHAVIOR;
+
+  /**
+   * The feature id for the '<em><b>Owned Operation</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__OWNED_OPERATION = UMLPackage.STATE_MACHINE__OWNED_OPERATION;
+
+  /**
+   * The feature id for the '<em><b>Extension</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__EXTENSION = UMLPackage.STATE_MACHINE__EXTENSION;
+
+  /**
+   * The feature id for the '<em><b>Is Active</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__IS_ACTIVE = UMLPackage.STATE_MACHINE__IS_ACTIVE;
+
+  /**
+   * The feature id for the '<em><b>Nested Classifier</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__NESTED_CLASSIFIER = UMLPackage.STATE_MACHINE__NESTED_CLASSIFIER;
+
+  /**
+   * The feature id for the '<em><b>Owned Reception</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__OWNED_RECEPTION = UMLPackage.STATE_MACHINE__OWNED_RECEPTION;
+
+  /**
+   * The feature id for the '<em><b>Super Class</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__SUPER_CLASS = UMLPackage.STATE_MACHINE__SUPER_CLASS;
+
+  /**
+   * The feature id for the '<em><b>Specification</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__SPECIFICATION = UMLPackage.STATE_MACHINE__SPECIFICATION;
+
+  /**
+   * The feature id for the '<em><b>Context</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__CONTEXT = UMLPackage.STATE_MACHINE__CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Is Reentrant</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__IS_REENTRANT = UMLPackage.STATE_MACHINE__IS_REENTRANT;
+
+  /**
+   * The feature id for the '<em><b>Owned Parameter</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__OWNED_PARAMETER = UMLPackage.STATE_MACHINE__OWNED_PARAMETER;
+
+  /**
+   * The feature id for the '<em><b>Owned Parameter Set</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__OWNED_PARAMETER_SET = UMLPackage.STATE_MACHINE__OWNED_PARAMETER_SET;
+
+  /**
+   * The feature id for the '<em><b>Postcondition</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__POSTCONDITION = UMLPackage.STATE_MACHINE__POSTCONDITION;
+
+  /**
+   * The feature id for the '<em><b>Precondition</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__PRECONDITION = UMLPackage.STATE_MACHINE__PRECONDITION;
+
+  /**
+   * The feature id for the '<em><b>Redefined Behavior</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__REDEFINED_BEHAVIOR = UMLPackage.STATE_MACHINE__REDEFINED_BEHAVIOR;
+
+  /**
+   * The feature id for the '<em><b>Connection Point</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__CONNECTION_POINT = UMLPackage.STATE_MACHINE__CONNECTION_POINT;
+
+  /**
+   * The feature id for the '<em><b>Submachine State</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__SUBMACHINE_STATE = UMLPackage.STATE_MACHINE__SUBMACHINE_STATE;
+
+  /**
+   * The feature id for the '<em><b>Region</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__REGION = UMLPackage.STATE_MACHINE__REGION;
+
+  /**
+   * The feature id for the '<em><b>Extended State Machine</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__EXTENDED_STATE_MACHINE = UMLPackage.STATE_MACHINE__EXTENDED_STATE_MACHINE;
+
+  /**
+   * The feature id for the '<em><b>Is Passive</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE__IS_PASSIVE = UMLPackage.STATE_MACHINE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>RT State Machine</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_MACHINE_FEATURE_COUNT = UMLPackage.STATE_MACHINE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.eclipse.papyrusrt.umlrt.umlrt.impl.RTRegionImpl <em>RT Region</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.RTRegionImpl
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.UmlrtPackageImpl#getRTRegion()
+   * @generated
+   */
+  int RT_REGION = 9;
+
+  /**
+   * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__EANNOTATIONS = UMLPackage.REGION__EANNOTATIONS;
+
+  /**
+   * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__OWNED_COMMENT = UMLPackage.REGION__OWNED_COMMENT;
+
+  /**
+   * The feature id for the '<em><b>Owned Element</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__OWNED_ELEMENT = UMLPackage.REGION__OWNED_ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Owner</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__OWNER = UMLPackage.REGION__OWNER;
+
+  /**
+   * The feature id for the '<em><b>Client Dependency</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__CLIENT_DEPENDENCY = UMLPackage.REGION__CLIENT_DEPENDENCY;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__NAME = UMLPackage.REGION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Name Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__NAME_EXPRESSION = UMLPackage.REGION__NAME_EXPRESSION;
+
+  /**
+   * The feature id for the '<em><b>Namespace</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__NAMESPACE = UMLPackage.REGION__NAMESPACE;
+
+  /**
+   * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__QUALIFIED_NAME = UMLPackage.REGION__QUALIFIED_NAME;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__VISIBILITY = UMLPackage.REGION__VISIBILITY;
+
+  /**
+   * The feature id for the '<em><b>Owned Rule</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__OWNED_RULE = UMLPackage.REGION__OWNED_RULE;
+
+  /**
+   * The feature id for the '<em><b>Element Import</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__ELEMENT_IMPORT = UMLPackage.REGION__ELEMENT_IMPORT;
+
+  /**
+   * The feature id for the '<em><b>Package Import</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__PACKAGE_IMPORT = UMLPackage.REGION__PACKAGE_IMPORT;
+
+  /**
+   * The feature id for the '<em><b>Owned Member</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__OWNED_MEMBER = UMLPackage.REGION__OWNED_MEMBER;
+
+  /**
+   * The feature id for the '<em><b>Imported Member</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__IMPORTED_MEMBER = UMLPackage.REGION__IMPORTED_MEMBER;
+
+  /**
+   * The feature id for the '<em><b>Member</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__MEMBER = UMLPackage.REGION__MEMBER;
+
+  /**
+   * The feature id for the '<em><b>Is Leaf</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__IS_LEAF = UMLPackage.REGION__IS_LEAF;
+
+  /**
+   * The feature id for the '<em><b>Redefined Element</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__REDEFINED_ELEMENT = UMLPackage.REGION__REDEFINED_ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Redefinition Context</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__REDEFINITION_CONTEXT = UMLPackage.REGION__REDEFINITION_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Extended Region</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__EXTENDED_REGION = UMLPackage.REGION__EXTENDED_REGION;
+
+  /**
+   * The feature id for the '<em><b>State</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__STATE = UMLPackage.REGION__STATE;
+
+  /**
+   * The feature id for the '<em><b>State Machine</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__STATE_MACHINE = UMLPackage.REGION__STATE_MACHINE;
+
+  /**
+   * The feature id for the '<em><b>Transition</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__TRANSITION = UMLPackage.REGION__TRANSITION;
+
+  /**
+   * The feature id for the '<em><b>Subvertex</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION__SUBVERTEX = UMLPackage.REGION__SUBVERTEX;
+
+  /**
+   * The number of structural features of the '<em>RT Region</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_REGION_FEATURE_COUNT = UMLPackage.REGION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.eclipse.papyrusrt.umlrt.umlrt.impl.RTStateImpl <em>RT State</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.RTStateImpl
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.UmlrtPackageImpl#getRTState()
+   * @generated
+   */
+  int RT_STATE = 10;
+
+  /**
+   * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__EANNOTATIONS = UMLPackage.STATE__EANNOTATIONS;
+
+  /**
+   * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__OWNED_COMMENT = UMLPackage.STATE__OWNED_COMMENT;
+
+  /**
+   * The feature id for the '<em><b>Owned Element</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__OWNED_ELEMENT = UMLPackage.STATE__OWNED_ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Owner</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__OWNER = UMLPackage.STATE__OWNER;
+
+  /**
+   * The feature id for the '<em><b>Client Dependency</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__CLIENT_DEPENDENCY = UMLPackage.STATE__CLIENT_DEPENDENCY;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__NAME = UMLPackage.STATE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Name Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__NAME_EXPRESSION = UMLPackage.STATE__NAME_EXPRESSION;
+
+  /**
+   * The feature id for the '<em><b>Namespace</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__NAMESPACE = UMLPackage.STATE__NAMESPACE;
+
+  /**
+   * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__QUALIFIED_NAME = UMLPackage.STATE__QUALIFIED_NAME;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__VISIBILITY = UMLPackage.STATE__VISIBILITY;
+
+  /**
+   * The feature id for the '<em><b>Owned Rule</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__OWNED_RULE = UMLPackage.STATE__OWNED_RULE;
+
+  /**
+   * The feature id for the '<em><b>Element Import</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__ELEMENT_IMPORT = UMLPackage.STATE__ELEMENT_IMPORT;
+
+  /**
+   * The feature id for the '<em><b>Package Import</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__PACKAGE_IMPORT = UMLPackage.STATE__PACKAGE_IMPORT;
+
+  /**
+   * The feature id for the '<em><b>Owned Member</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__OWNED_MEMBER = UMLPackage.STATE__OWNED_MEMBER;
+
+  /**
+   * The feature id for the '<em><b>Imported Member</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__IMPORTED_MEMBER = UMLPackage.STATE__IMPORTED_MEMBER;
+
+  /**
+   * The feature id for the '<em><b>Member</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__MEMBER = UMLPackage.STATE__MEMBER;
+
+  /**
+   * The feature id for the '<em><b>Is Leaf</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__IS_LEAF = UMLPackage.STATE__IS_LEAF;
+
+  /**
+   * The feature id for the '<em><b>Redefined Element</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__REDEFINED_ELEMENT = UMLPackage.STATE__REDEFINED_ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Redefinition Context</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__REDEFINITION_CONTEXT = UMLPackage.STATE__REDEFINITION_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Container</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__CONTAINER = UMLPackage.STATE__CONTAINER;
+
+  /**
+   * The feature id for the '<em><b>Incoming</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__INCOMING = UMLPackage.STATE__INCOMING;
+
+  /**
+   * The feature id for the '<em><b>Outgoing</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__OUTGOING = UMLPackage.STATE__OUTGOING;
+
+  /**
+   * The feature id for the '<em><b>Connection</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__CONNECTION = UMLPackage.STATE__CONNECTION;
+
+  /**
+   * The feature id for the '<em><b>Connection Point</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__CONNECTION_POINT = UMLPackage.STATE__CONNECTION_POINT;
+
+  /**
+   * The feature id for the '<em><b>Deferrable Trigger</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__DEFERRABLE_TRIGGER = UMLPackage.STATE__DEFERRABLE_TRIGGER;
+
+  /**
+   * The feature id for the '<em><b>Do Activity</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__DO_ACTIVITY = UMLPackage.STATE__DO_ACTIVITY;
+
+  /**
+   * The feature id for the '<em><b>Entry</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__ENTRY = UMLPackage.STATE__ENTRY;
+
+  /**
+   * The feature id for the '<em><b>Exit</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__EXIT = UMLPackage.STATE__EXIT;
+
+  /**
+   * The feature id for the '<em><b>Is Composite</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__IS_COMPOSITE = UMLPackage.STATE__IS_COMPOSITE;
+
+  /**
+   * The feature id for the '<em><b>Is Orthogonal</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__IS_ORTHOGONAL = UMLPackage.STATE__IS_ORTHOGONAL;
+
+  /**
+   * The feature id for the '<em><b>Is Simple</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__IS_SIMPLE = UMLPackage.STATE__IS_SIMPLE;
+
+  /**
+   * The feature id for the '<em><b>Is Submachine State</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__IS_SUBMACHINE_STATE = UMLPackage.STATE__IS_SUBMACHINE_STATE;
+
+  /**
+   * The feature id for the '<em><b>Redefined State</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__REDEFINED_STATE = UMLPackage.STATE__REDEFINED_STATE;
+
+  /**
+   * The feature id for the '<em><b>State Invariant</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__STATE_INVARIANT = UMLPackage.STATE__STATE_INVARIANT;
+
+  /**
+   * The feature id for the '<em><b>Submachine</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__SUBMACHINE = UMLPackage.STATE__SUBMACHINE;
+
+  /**
+   * The feature id for the '<em><b>Region</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE__REGION = UMLPackage.STATE__REGION;
+
+  /**
+   * The number of structural features of the '<em>RT State</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_STATE_FEATURE_COUNT = UMLPackage.STATE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.eclipse.papyrusrt.umlrt.umlrt.impl.RTPseudostateImpl <em>RT Pseudostate</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.RTPseudostateImpl
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.UmlrtPackageImpl#getRTPseudostate()
+   * @generated
+   */
+  int RT_PSEUDOSTATE = 11;
+
+  /**
+   * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE__EANNOTATIONS = UMLPackage.PSEUDOSTATE__EANNOTATIONS;
+
+  /**
+   * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE__OWNED_COMMENT = UMLPackage.PSEUDOSTATE__OWNED_COMMENT;
+
+  /**
+   * The feature id for the '<em><b>Owned Element</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE__OWNED_ELEMENT = UMLPackage.PSEUDOSTATE__OWNED_ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Owner</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE__OWNER = UMLPackage.PSEUDOSTATE__OWNER;
+
+  /**
+   * The feature id for the '<em><b>Client Dependency</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE__CLIENT_DEPENDENCY = UMLPackage.PSEUDOSTATE__CLIENT_DEPENDENCY;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE__NAME = UMLPackage.PSEUDOSTATE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Name Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE__NAME_EXPRESSION = UMLPackage.PSEUDOSTATE__NAME_EXPRESSION;
+
+  /**
+   * The feature id for the '<em><b>Namespace</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE__NAMESPACE = UMLPackage.PSEUDOSTATE__NAMESPACE;
+
+  /**
+   * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE__QUALIFIED_NAME = UMLPackage.PSEUDOSTATE__QUALIFIED_NAME;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE__VISIBILITY = UMLPackage.PSEUDOSTATE__VISIBILITY;
+
+  /**
+   * The feature id for the '<em><b>Container</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE__CONTAINER = UMLPackage.PSEUDOSTATE__CONTAINER;
+
+  /**
+   * The feature id for the '<em><b>Incoming</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE__INCOMING = UMLPackage.PSEUDOSTATE__INCOMING;
+
+  /**
+   * The feature id for the '<em><b>Outgoing</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE__OUTGOING = UMLPackage.PSEUDOSTATE__OUTGOING;
+
+  /**
+   * The feature id for the '<em><b>State</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE__STATE = UMLPackage.PSEUDOSTATE__STATE;
+
+  /**
+   * The feature id for the '<em><b>Kind</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE__KIND = UMLPackage.PSEUDOSTATE__KIND;
+
+  /**
+   * The feature id for the '<em><b>State Machine</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE__STATE_MACHINE = UMLPackage.PSEUDOSTATE__STATE_MACHINE;
+
+  /**
+   * The number of structural features of the '<em>RT Pseudostate</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_PSEUDOSTATE_FEATURE_COUNT = UMLPackage.PSEUDOSTATE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.eclipse.papyrusrt.umlrt.umlrt.impl.RTTriggerImpl <em>RT Trigger</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.RTTriggerImpl
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.UmlrtPackageImpl#getRTTrigger()
+   * @generated
+   */
+  int RT_TRIGGER = 12;
+
+  /**
+   * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__EANNOTATIONS = UMLPackage.OPERATION__EANNOTATIONS;
+
+  /**
+   * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__OWNED_COMMENT = UMLPackage.OPERATION__OWNED_COMMENT;
+
+  /**
+   * The feature id for the '<em><b>Owned Element</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__OWNED_ELEMENT = UMLPackage.OPERATION__OWNED_ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Owner</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__OWNER = UMLPackage.OPERATION__OWNER;
+
+  /**
+   * The feature id for the '<em><b>Client Dependency</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__CLIENT_DEPENDENCY = UMLPackage.OPERATION__CLIENT_DEPENDENCY;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__NAME = UMLPackage.OPERATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Name Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__NAME_EXPRESSION = UMLPackage.OPERATION__NAME_EXPRESSION;
+
+  /**
+   * The feature id for the '<em><b>Namespace</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__NAMESPACE = UMLPackage.OPERATION__NAMESPACE;
+
+  /**
+   * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__QUALIFIED_NAME = UMLPackage.OPERATION__QUALIFIED_NAME;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__VISIBILITY = UMLPackage.OPERATION__VISIBILITY;
+
+  /**
+   * The feature id for the '<em><b>Owned Rule</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__OWNED_RULE = UMLPackage.OPERATION__OWNED_RULE;
+
+  /**
+   * The feature id for the '<em><b>Element Import</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__ELEMENT_IMPORT = UMLPackage.OPERATION__ELEMENT_IMPORT;
+
+  /**
+   * The feature id for the '<em><b>Package Import</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__PACKAGE_IMPORT = UMLPackage.OPERATION__PACKAGE_IMPORT;
+
+  /**
+   * The feature id for the '<em><b>Owned Member</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__OWNED_MEMBER = UMLPackage.OPERATION__OWNED_MEMBER;
+
+  /**
+   * The feature id for the '<em><b>Imported Member</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__IMPORTED_MEMBER = UMLPackage.OPERATION__IMPORTED_MEMBER;
+
+  /**
+   * The feature id for the '<em><b>Member</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__MEMBER = UMLPackage.OPERATION__MEMBER;
+
+  /**
+   * The feature id for the '<em><b>Is Leaf</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__IS_LEAF = UMLPackage.OPERATION__IS_LEAF;
+
+  /**
+   * The feature id for the '<em><b>Redefined Element</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__REDEFINED_ELEMENT = UMLPackage.OPERATION__REDEFINED_ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Redefinition Context</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__REDEFINITION_CONTEXT = UMLPackage.OPERATION__REDEFINITION_CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Featuring Classifier</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__FEATURING_CLASSIFIER = UMLPackage.OPERATION__FEATURING_CLASSIFIER;
+
+  /**
+   * The feature id for the '<em><b>Is Static</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__IS_STATIC = UMLPackage.OPERATION__IS_STATIC;
+
+  /**
+   * The feature id for the '<em><b>Concurrency</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__CONCURRENCY = UMLPackage.OPERATION__CONCURRENCY;
+
+  /**
+   * The feature id for the '<em><b>Is Abstract</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__IS_ABSTRACT = UMLPackage.OPERATION__IS_ABSTRACT;
+
+  /**
+   * The feature id for the '<em><b>Method</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__METHOD = UMLPackage.OPERATION__METHOD;
+
+  /**
+   * The feature id for the '<em><b>Owned Parameter</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__OWNED_PARAMETER = UMLPackage.OPERATION__OWNED_PARAMETER;
+
+  /**
+   * The feature id for the '<em><b>Owned Parameter Set</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__OWNED_PARAMETER_SET = UMLPackage.OPERATION__OWNED_PARAMETER_SET;
+
+  /**
+   * The feature id for the '<em><b>Raised Exception</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__RAISED_EXCEPTION = UMLPackage.OPERATION__RAISED_EXCEPTION;
+
+  /**
+   * The feature id for the '<em><b>Owning Template Parameter</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__OWNING_TEMPLATE_PARAMETER = UMLPackage.OPERATION__OWNING_TEMPLATE_PARAMETER;
+
+  /**
+   * The feature id for the '<em><b>Template Parameter</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__TEMPLATE_PARAMETER = UMLPackage.OPERATION__TEMPLATE_PARAMETER;
+
+  /**
+   * The feature id for the '<em><b>Template Binding</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__TEMPLATE_BINDING = UMLPackage.OPERATION__TEMPLATE_BINDING;
+
+  /**
+   * The feature id for the '<em><b>Owned Template Signature</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__OWNED_TEMPLATE_SIGNATURE = UMLPackage.OPERATION__OWNED_TEMPLATE_SIGNATURE;
+
+  /**
+   * The feature id for the '<em><b>Body Condition</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__BODY_CONDITION = UMLPackage.OPERATION__BODY_CONDITION;
+
+  /**
+   * The feature id for the '<em><b>Class</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__CLASS = UMLPackage.OPERATION__CLASS;
+
+  /**
+   * The feature id for the '<em><b>Datatype</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__DATATYPE = UMLPackage.OPERATION__DATATYPE;
+
+  /**
+   * The feature id for the '<em><b>Interface</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__INTERFACE = UMLPackage.OPERATION__INTERFACE;
+
+  /**
+   * The feature id for the '<em><b>Is Ordered</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__IS_ORDERED = UMLPackage.OPERATION__IS_ORDERED;
+
+  /**
+   * The feature id for the '<em><b>Is Query</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__IS_QUERY = UMLPackage.OPERATION__IS_QUERY;
+
+  /**
+   * The feature id for the '<em><b>Is Unique</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__IS_UNIQUE = UMLPackage.OPERATION__IS_UNIQUE;
+
+  /**
+   * The feature id for the '<em><b>Lower</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__LOWER = UMLPackage.OPERATION__LOWER;
+
+  /**
+   * The feature id for the '<em><b>Postcondition</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__POSTCONDITION = UMLPackage.OPERATION__POSTCONDITION;
+
+  /**
+   * The feature id for the '<em><b>Precondition</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__PRECONDITION = UMLPackage.OPERATION__PRECONDITION;
+
+  /**
+   * The feature id for the '<em><b>Redefined Operation</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__REDEFINED_OPERATION = UMLPackage.OPERATION__REDEFINED_OPERATION;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__TYPE = UMLPackage.OPERATION__TYPE;
+
+  /**
+   * The feature id for the '<em><b>Upper</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER__UPPER = UMLPackage.OPERATION__UPPER;
+
+  /**
+   * The number of structural features of the '<em>RT Trigger</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_TRIGGER_FEATURE_COUNT = UMLPackage.OPERATION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.eclipse.papyrusrt.umlrt.umlrt.impl.RTGuardImpl <em>RT Guard</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.RTGuardImpl
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.UmlrtPackageImpl#getRTGuard()
+   * @generated
+   */
+  int RT_GUARD = 13;
+
+  /**
+   * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_GUARD__EANNOTATIONS = UMLPackage.CONSTRAINT__EANNOTATIONS;
+
+  /**
+   * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_GUARD__OWNED_COMMENT = UMLPackage.CONSTRAINT__OWNED_COMMENT;
+
+  /**
+   * The feature id for the '<em><b>Owned Element</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_GUARD__OWNED_ELEMENT = UMLPackage.CONSTRAINT__OWNED_ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Owner</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_GUARD__OWNER = UMLPackage.CONSTRAINT__OWNER;
+
+  /**
+   * The feature id for the '<em><b>Client Dependency</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_GUARD__CLIENT_DEPENDENCY = UMLPackage.CONSTRAINT__CLIENT_DEPENDENCY;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_GUARD__NAME = UMLPackage.CONSTRAINT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Name Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_GUARD__NAME_EXPRESSION = UMLPackage.CONSTRAINT__NAME_EXPRESSION;
+
+  /**
+   * The feature id for the '<em><b>Namespace</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_GUARD__NAMESPACE = UMLPackage.CONSTRAINT__NAMESPACE;
+
+  /**
+   * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_GUARD__QUALIFIED_NAME = UMLPackage.CONSTRAINT__QUALIFIED_NAME;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_GUARD__VISIBILITY = UMLPackage.CONSTRAINT__VISIBILITY;
+
+  /**
+   * The feature id for the '<em><b>Owning Template Parameter</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_GUARD__OWNING_TEMPLATE_PARAMETER = UMLPackage.CONSTRAINT__OWNING_TEMPLATE_PARAMETER;
+
+  /**
+   * The feature id for the '<em><b>Template Parameter</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_GUARD__TEMPLATE_PARAMETER = UMLPackage.CONSTRAINT__TEMPLATE_PARAMETER;
+
+  /**
+   * The feature id for the '<em><b>Constrained Element</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_GUARD__CONSTRAINED_ELEMENT = UMLPackage.CONSTRAINT__CONSTRAINED_ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Context</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_GUARD__CONTEXT = UMLPackage.CONSTRAINT__CONTEXT;
+
+  /**
+   * The feature id for the '<em><b>Specification</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_GUARD__SPECIFICATION = UMLPackage.CONSTRAINT__SPECIFICATION;
+
+  /**
+   * The number of structural features of the '<em>RT Guard</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RT_GUARD_FEATURE_COUNT = UMLPackage.CONSTRAINT_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link org.eclipse.papyrusrt.umlrt.umlrt.PortRegistrationType <em>Port Registration Type</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2983,7 +4897,7 @@ public interface UmlrtPackage extends EPackage
    * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.UmlrtPackageImpl#getPortRegistrationType()
    * @generated
    */
-  int PORT_REGISTRATION_TYPE = 8;
+  int PORT_REGISTRATION_TYPE = 14;
 
   /**
    * The meta object id for the '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTMessageKind <em>RT Message Kind</em>}' enum.
@@ -2993,7 +4907,7 @@ public interface UmlrtPackage extends EPackage
    * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.UmlrtPackageImpl#getRTMessageKind()
    * @generated
    */
-  int RT_MESSAGE_KIND = 9;
+  int RT_MESSAGE_KIND = 15;
 
 
   /**
@@ -3152,6 +5066,77 @@ public interface UmlrtPackage extends EPackage
    * @generated
    */
   EAttribute getRTMessageSet_RtMsgKind();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTStateMachine <em>RT State Machine</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>RT State Machine</em>'.
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTStateMachine
+   * @generated
+   */
+  EClass getRTStateMachine();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTStateMachine#isIsPassive <em>Is Passive</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Passive</em>'.
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTStateMachine#isIsPassive()
+   * @see #getRTStateMachine()
+   * @generated
+   */
+  EAttribute getRTStateMachine_IsPassive();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTRegion <em>RT Region</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>RT Region</em>'.
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTRegion
+   * @generated
+   */
+  EClass getRTRegion();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTState <em>RT State</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>RT State</em>'.
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTState
+   * @generated
+   */
+  EClass getRTState();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTPseudostate <em>RT Pseudostate</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>RT Pseudostate</em>'.
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTPseudostate
+   * @generated
+   */
+  EClass getRTPseudostate();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTTrigger <em>RT Trigger</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>RT Trigger</em>'.
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTTrigger
+   * @generated
+   */
+  EClass getRTTrigger();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTGuard <em>RT Guard</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>RT Guard</em>'.
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTGuard
+   * @generated
+   */
+  EClass getRTGuard();
 
   /**
    * Returns the meta object for enum '{@link org.eclipse.papyrusrt.umlrt.umlrt.PortRegistrationType <em>Port Registration Type</em>}'.
@@ -3331,6 +5316,74 @@ public interface UmlrtPackage extends EPackage
      * @generated
      */
     EAttribute RT_MESSAGE_SET__RT_MSG_KIND = eINSTANCE.getRTMessageSet_RtMsgKind();
+
+    /**
+     * The meta object literal for the '{@link org.eclipse.papyrusrt.umlrt.umlrt.impl.RTStateMachineImpl <em>RT State Machine</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.RTStateMachineImpl
+     * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.UmlrtPackageImpl#getRTStateMachine()
+     * @generated
+     */
+    EClass RT_STATE_MACHINE = eINSTANCE.getRTStateMachine();
+
+    /**
+     * The meta object literal for the '<em><b>Is Passive</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RT_STATE_MACHINE__IS_PASSIVE = eINSTANCE.getRTStateMachine_IsPassive();
+
+    /**
+     * The meta object literal for the '{@link org.eclipse.papyrusrt.umlrt.umlrt.impl.RTRegionImpl <em>RT Region</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.RTRegionImpl
+     * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.UmlrtPackageImpl#getRTRegion()
+     * @generated
+     */
+    EClass RT_REGION = eINSTANCE.getRTRegion();
+
+    /**
+     * The meta object literal for the '{@link org.eclipse.papyrusrt.umlrt.umlrt.impl.RTStateImpl <em>RT State</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.RTStateImpl
+     * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.UmlrtPackageImpl#getRTState()
+     * @generated
+     */
+    EClass RT_STATE = eINSTANCE.getRTState();
+
+    /**
+     * The meta object literal for the '{@link org.eclipse.papyrusrt.umlrt.umlrt.impl.RTPseudostateImpl <em>RT Pseudostate</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.RTPseudostateImpl
+     * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.UmlrtPackageImpl#getRTPseudostate()
+     * @generated
+     */
+    EClass RT_PSEUDOSTATE = eINSTANCE.getRTPseudostate();
+
+    /**
+     * The meta object literal for the '{@link org.eclipse.papyrusrt.umlrt.umlrt.impl.RTTriggerImpl <em>RT Trigger</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.RTTriggerImpl
+     * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.UmlrtPackageImpl#getRTTrigger()
+     * @generated
+     */
+    EClass RT_TRIGGER = eINSTANCE.getRTTrigger();
+
+    /**
+     * The meta object literal for the '{@link org.eclipse.papyrusrt.umlrt.umlrt.impl.RTGuardImpl <em>RT Guard</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.RTGuardImpl
+     * @see org.eclipse.papyrusrt.umlrt.umlrt.impl.UmlrtPackageImpl#getRTGuard()
+     * @generated
+     */
+    EClass RT_GUARD = eINSTANCE.getRTGuard();
 
     /**
      * The meta object literal for the '{@link org.eclipse.papyrusrt.umlrt.umlrt.PortRegistrationType <em>Port Registration Type</em>}' enum.

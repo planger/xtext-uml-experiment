@@ -28,7 +28,7 @@ public enum PortRegistrationType implements Enumerator
    * @generated
    * @ordered
    */
-  AUTOMATIC(0, "Automatic", "Automatic"),
+  AUTOMATIC(0, "automatic", "automatic"),
 
   /**
    * The '<em><b>Application</b></em>' literal object.
@@ -38,7 +38,7 @@ public enum PortRegistrationType implements Enumerator
    * @generated
    * @ordered
    */
-  APPLICATION(1, "Application", "Application"),
+  APPLICATION(1, "application", "application"),
 
   /**
    * The '<em><b>Automatic Locked</b></em>' literal object.
@@ -48,7 +48,7 @@ public enum PortRegistrationType implements Enumerator
    * @generated
    * @ordered
    */
-  AUTOMATIC_LOCKED(2, "AutomaticLocked", "AutomaticLocked");
+  AUTOMATIC_LOCKED(2, "automaticLocked", "automaticLocked");
 
   /**
    * The '<em><b>Automatic</b></em>' literal value.
@@ -59,7 +59,7 @@ public enum PortRegistrationType implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #AUTOMATIC
-   * @model name="Automatic"
+   * @model name="automatic"
    * @generated
    * @ordered
    */
@@ -74,7 +74,7 @@ public enum PortRegistrationType implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #APPLICATION
-   * @model name="Application"
+   * @model name="application"
    * @generated
    * @ordered
    */
@@ -89,7 +89,7 @@ public enum PortRegistrationType implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #AUTOMATIC_LOCKED
-   * @model name="AutomaticLocked"
+   * @model name="automaticLocked"
    * @generated
    * @ordered
    */

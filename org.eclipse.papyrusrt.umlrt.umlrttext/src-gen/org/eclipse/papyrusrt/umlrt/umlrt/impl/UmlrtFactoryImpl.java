@@ -74,6 +74,12 @@ public class UmlrtFactoryImpl extends EFactoryImpl implements UmlrtFactory
       case UmlrtPackage.PROTOCOL_CONTAINER: return createProtocolContainer();
       case UmlrtPackage.RT_REDEFINED_ELEMENT: return createRTRedefinedElement();
       case UmlrtPackage.RT_MESSAGE_SET: return createRTMessageSet();
+      case UmlrtPackage.RT_STATE_MACHINE: return createRTStateMachine();
+      case UmlrtPackage.RT_REGION: return createRTRegion();
+      case UmlrtPackage.RT_STATE: return createRTState();
+      case UmlrtPackage.RT_PSEUDOSTATE: return createRTPseudostate();
+      case UmlrtPackage.RT_TRIGGER: return createRTTrigger();
+      case UmlrtPackage.RT_GUARD: return createRTGuard();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -203,6 +209,72 @@ public class UmlrtFactoryImpl extends EFactoryImpl implements UmlrtFactory
   {
     RTMessageSetImpl rtMessageSet = new RTMessageSetImpl();
     return rtMessageSet;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RTStateMachine createRTStateMachine()
+  {
+    RTStateMachineImpl rtStateMachine = new RTStateMachineImpl();
+    return rtStateMachine;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RTRegion createRTRegion()
+  {
+    RTRegionImpl rtRegion = new RTRegionImpl();
+    return rtRegion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RTState createRTState()
+  {
+    RTStateImpl rtState = new RTStateImpl();
+    return rtState;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RTPseudostate createRTPseudostate()
+  {
+    RTPseudostateImpl rtPseudostate = new RTPseudostateImpl();
+    return rtPseudostate;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RTTrigger createRTTrigger()
+  {
+    RTTriggerImpl rtTrigger = new RTTriggerImpl();
+    return rtTrigger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RTGuard createRTGuard()
+  {
+    RTGuardImpl rtGuard = new RTGuardImpl();
+    return rtGuard;
   }
 
   /**

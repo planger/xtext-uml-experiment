@@ -31,9 +31,11 @@ import org.eclipse.xtext.parser.antlr.AntlrTokenDefProvider;
 import org.eclipse.xtext.parser.antlr.AntlrTokenToStringConverter;
 import org.eclipse.xtext.parser.antlr.IAntlrTokenFileProvider;
 import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
+import org.eclipse.xtext.parser.antlr.IUnorderedGroupHelper;
 import org.eclipse.xtext.parser.antlr.Lexer;
 import org.eclipse.xtext.parser.antlr.LexerBindings;
 import org.eclipse.xtext.parser.antlr.LexerProvider;
+import org.eclipse.xtext.parser.antlr.UnorderedGroupHelper;
 import org.eclipse.xtext.resource.IContainer;
 import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.resource.containers.IAllContainersState;
@@ -137,6 +139,11 @@ public abstract class AbstractUmlRtTextRuntimeModule extends DefaultRuntimeModul
 		binder.bind(Lexer.class)
 			.annotatedWith(Names.named(LexerBindings.RUNTIME))
 			.to(InternalUmlRtTextLexer.class);
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
+	public Class<? extends IUnorderedGroupHelper> bindIUnorderedGroupHelper() {
+		return UnorderedGroupHelper.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2

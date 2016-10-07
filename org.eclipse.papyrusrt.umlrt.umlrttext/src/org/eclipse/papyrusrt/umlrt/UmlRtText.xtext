@@ -10,111 +10,177 @@ import "http://www.eclipse.org/uml2/5.0.0/Types" as types
 /** UML Profile **/
 generate umlrt "http://www.eclipse.org/papyrus/umlrt" as umlrt
 
+
+/**************************** CORE - UML *******************************/
+
+/** Model **/
 Model returns uml::Model:
 	'model' {uml::Model} name=ID '{'
 		packagedElement+=(PackageableElement)*
-	'}'
+	'}' 
 ;
 
+/** PackageableElement **/
 PackageableElement returns uml::PackageableElement:
 	Package | Class
 ;
 
-/**************************************************************/
-
 /** Class **/
 Class returns uml::Class:
-	(Capsule | 'Class' {uml::Class} name=ID)
+	(Capsule | 'class' {uml::Class} name=ID) ('{' 
+		
+	'}')?
 		
 ;
 
 /** Property **/
 Property returns uml::Property:
-	(CapsulePart | 'Property' {uml::Property} name=ID)
+	(CapsulePart | 'property' {uml::Property} name=ID)
 ;
 
 /** Port **/
 Port returns uml::Port:
-	(RTPort | 'Port' {uml::Port} name=ID)
+	(RTPort | 'port' {uml::Port} name=ID)
 ;
 
 /** Connector **/
 Connector returns uml::Connector:
-	(RTConnector | 'Connector' {uml::Connector} name=ID)
+	(RTConnector | 'connector' {uml::Connector} name=ID)
 ;
 
 /** RedefinableElement **/
 RedefinableElement returns uml::RedefinableElement:
-	(RTRedefinedElement | 'RedefinableElement' {uml::RedefinableElement} name=ID)
+	(RTRedefinedElement | 'redefinable_element' {uml::RedefinableElement} name=ID)
 ;
 
 /** Package **/
 Package returns uml::Package:
-	(ProtocolContainer | Model | 'Package' {uml::Package} name=ID)
+	(ProtocolContainer | Model | 'package' {uml::Package} name=ID)
 ;
 
 /** Interface **/
 Interface returns uml::Interface:
-	(RTMessageSet | 'Interface' {uml::Interface} name=ID)
+	(RTMessageSet | 'interface' {uml::Interface} name=ID)
 ;
 
 /** Collaboration **/
 Collaboration returns uml::Collaboration:
-	(Protocol | 'Collaboration' {uml::Collaboration} name=ID)
+	(Protocol | 'collaboration' {uml::Collaboration} name=ID)
 ;
 
-/**************************************************************/
+/******************** STATE MACHINE - UML ***************************/
+
+StateMachine returns uml::StateMachine:
+	(RTStateMachine | 'state_machine' {uml::StateMachine} name=ID)
+;
+
+Region returns uml::Region:
+	(RTRegion | 'region' {uml::Region} name=ID)
+;
+
+State returns uml::State:
+	(RTState | 'state' {uml::State} name=ID)
+;
+
+Pseudostate returns uml::Pseudostate:
+	(RTPseudostate | 'pseudostate' {uml::Pseudostate} name=ID)
+;
+
+Operation returns uml::Operation:
+	(RTTrigger | 'operation' {uml::Operation} name=ID)
+;
+
+Constraint returns uml::Constraint:
+	(RTGuard | 'constraint' {uml::Constraint} name=ID)
+;
+
+/*************************** CORE - UMLRT ******************************/
 
 /** Capsule **/
 Capsule returns umlrt::Capsule:
-	'Capsule' {umlrt::Capsule} name=ID
-		// it can have statemachines
-		nestedClassifier+=Class
+	'capsule' {umlrt::Capsule} name=ID ('{' 
+		(ownedBehavior+=StateMachine)*
+	'}')?
 ;
 
 /** CapsulePart **/
 CapsulePart returns umlrt::CapsulePart:
-	'CapsulePart' {umlrt::CapsulePart} name=ID
-		'IsNotification' isNotification = UML_BOOLEAN
-		'IsPublish' isPublish = UML_BOOLEAN
-		'IsWired' isWired = UML_BOOLEAN
-		'Registration' registration = PortRegistrationType
-		'RegistrationOverride' registrationOverride = UML_STRING
+	'capsule_part' {umlrt::CapsulePart} name=ID
+		'is_notification' isNotification = UML_BOOLEAN
+		'is_publish' isPublish = UML_BOOLEAN
+		'is_wired' isWired = UML_BOOLEAN
+		'registration' registration = PortRegistrationType
+		'registration_override' registrationOverride = UML_STRING
 ;
 
 /** Protocol **/
 Protocol returns umlrt::Protocol:
-	'Protocol' {umlrt::Protocol} name=ID
+	'protocol' {umlrt::Protocol} name=ID
 			
 ;
 
 /** RTPort **/
 RTPort returns umlrt::RTPort:
-	'RTPort' {umlrt::RTPort} name=ID
+	'rt_port' {umlrt::RTPort} name=ID
 ;
 
 /** RTConnector **/
 RTConnector returns umlrt::RTConnector:
-	'RTConnector' {umlrt::RTConnector} name=ID
+	'rt_connector' {umlrt::RTConnector} name=ID
 ;
 
 /** ProtocolContainer **/
 ProtocolContainer returns umlrt::ProtocolContainer:
-	'ProtocolContainer' {umlrt::ProtocolContainer} name=ID '{'
+	'protocol_container' {umlrt::ProtocolContainer} name=ID '{'
 		packagedElement+=(Protocol|RTMessageSet)*
 	'}'
 ;
 
 /** RTRedefinedElement **/
 RTRedefinedElement returns umlrt::RTRedefinedElement:
-	'RTRedefinedElement' {umlrt::RTRedefinedElement} name=ID
-		('RootFragment' rootFragment = RedefinableElement)?
+	'rt_redefined_element' {umlrt::RTRedefinedElement} name=ID
+		('root_fragment' rootFragment = RedefinableElement)?
 ;
 
-/** RTMessageSet **/
+/** RTMessageSet (in, out, inout) **/
 RTMessageSet returns umlrt::RTMessageSet:
-	'RTMessageSet' {umlrt::RTMessageSet} name=ID
-		'RTMsgKind' rtMsgKind = RTMessageKind
+	{umlrt::RTMessageSet}
+	rtMsgKind=RTMessageKind 'rt_message_set' name=ID
+;
+
+/******************** STATE MACHINE - UMLRT *************************/
+
+RTStateMachine returns umlrt::RTStateMachine:
+	{umlrt::RTStateMachine}
+	(visibility=VisibilityKind)? 'rt_state_machine' name=ID
+		('is_passive' isPassive=UML_BOOLEAN)?
+		(region+=Region)+
+;
+
+RTRegion returns umlrt::RTRegion:
+	{umlrt::RTRegion}
+	(visibility=VisibilityKind)? 'rt_region' name=ID
+		(subvertex+=(RTState|RTPseudostate))*
+;
+
+RTState returns umlrt::RTState:
+	{umlrt::RTState} 
+	(visibility=VisibilityKind)? 'rt_state' name=ID 
+		
+;
+
+RTPseudostate returns umlrt::RTPseudostate:
+	{umlrt::RTPseudostate}
+	(kind=PseudostateKind & (visibility=VisibilityKind)?) 'rt_pseudostate' name=ID
+;
+
+RTTrigger returns umlrt::RTTrigger:
+	'rt_trigger' {umlrt::RTTrigger} name=ID
+;
+
+RTGuard returns umlrt::RTGuard:
+	'rt_guard' {umlrt::RTGuard} name=ID
+		
 ;
 
 /**************************************************************/
@@ -130,12 +196,31 @@ terminal UML_STRING returns types::String:
 	"'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'"
 ;
 
+/** Whitespace-aware delimiters **/
+// terminal BEGIN: 'synthetic:BEGIN';
+// terminal END: 'synthetic:END';
+
+/********************* CORE - UML-RT - ENUM ******************/
+
 /** PortRegistrationType **/
 enum PortRegistrationType returns umlrt::PortRegistrationType:
-	Automatic | Application | AutomaticLocked
+	automatic | application | automaticLocked
 ;
 
 /** RTMessageKind **/
 enum RTMessageKind returns umlrt::RTMessageKind:
 	in | out | inOut
+;
+
+/** VisibilityKind **/
+enum VisibilityKind returns uml::VisibilityKind:
+	public | private | protected | package
+;
+
+/**************** STATE MACHINE - UML-RT - ENUM *************/
+
+/** PseudostateKind **/
+enum PseudostateKind returns uml::PseudostateKind:
+	initial | deepHistory | shallowHistory | join | fork | 
+	junction | choice | entryPoint | exitPoint | terminate
 ;

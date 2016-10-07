@@ -11,11 +11,14 @@ import org.eclipse.emf.ecore.util.Switch;
 
 import org.eclipse.papyrusrt.umlrt.umlrt.*;
 
+import org.eclipse.uml2.uml.Behavior;
+import org.eclipse.uml2.uml.BehavioralFeature;
 import org.eclipse.uml2.uml.BehavioredClassifier;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Collaboration;
 import org.eclipse.uml2.uml.ConnectableElement;
 import org.eclipse.uml2.uml.Connector;
+import org.eclipse.uml2.uml.Constraint;
 import org.eclipse.uml2.uml.DeploymentTarget;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.EncapsulatedClassifier;
@@ -24,16 +27,22 @@ import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.MultiplicityElement;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
+import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.ParameterableElement;
 import org.eclipse.uml2.uml.Port;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Pseudostate;
 import org.eclipse.uml2.uml.RedefinableElement;
+import org.eclipse.uml2.uml.Region;
+import org.eclipse.uml2.uml.State;
+import org.eclipse.uml2.uml.StateMachine;
 import org.eclipse.uml2.uml.StructuralFeature;
 import org.eclipse.uml2.uml.StructuredClassifier;
 import org.eclipse.uml2.uml.TemplateableElement;
 import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.TypedElement;
+import org.eclipse.uml2.uml.Vertex;
 
 /**
  * <!-- begin-user-doc -->
@@ -235,6 +244,98 @@ public class UmlrtSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case UmlrtPackage.RT_STATE_MACHINE:
+      {
+        RTStateMachine rtStateMachine = (RTStateMachine)theEObject;
+        T result = caseRTStateMachine(rtStateMachine);
+        if (result == null) result = caseStateMachine(rtStateMachine);
+        if (result == null) result = caseBehavior(rtStateMachine);
+        if (result == null) result = caseClass(rtStateMachine);
+        if (result == null) result = caseEncapsulatedClassifier(rtStateMachine);
+        if (result == null) result = caseBehavioredClassifier(rtStateMachine);
+        if (result == null) result = caseStructuredClassifier(rtStateMachine);
+        if (result == null) result = caseClassifier(rtStateMachine);
+        if (result == null) result = caseNamespace(rtStateMachine);
+        if (result == null) result = caseRedefinableElement(rtStateMachine);
+        if (result == null) result = caseType(rtStateMachine);
+        if (result == null) result = caseTemplateableElement(rtStateMachine);
+        if (result == null) result = casePackageableElement(rtStateMachine);
+        if (result == null) result = caseNamedElement(rtStateMachine);
+        if (result == null) result = caseParameterableElement(rtStateMachine);
+        if (result == null) result = caseElement(rtStateMachine);
+        if (result == null) result = caseEModelElement(rtStateMachine);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UmlrtPackage.RT_REGION:
+      {
+        RTRegion rtRegion = (RTRegion)theEObject;
+        T result = caseRTRegion(rtRegion);
+        if (result == null) result = caseRegion(rtRegion);
+        if (result == null) result = caseNamespace(rtRegion);
+        if (result == null) result = caseRedefinableElement(rtRegion);
+        if (result == null) result = caseNamedElement(rtRegion);
+        if (result == null) result = caseElement(rtRegion);
+        if (result == null) result = caseEModelElement(rtRegion);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UmlrtPackage.RT_STATE:
+      {
+        RTState rtState = (RTState)theEObject;
+        T result = caseRTState(rtState);
+        if (result == null) result = caseState(rtState);
+        if (result == null) result = caseNamespace(rtState);
+        if (result == null) result = caseRedefinableElement(rtState);
+        if (result == null) result = caseVertex(rtState);
+        if (result == null) result = caseNamedElement(rtState);
+        if (result == null) result = caseElement(rtState);
+        if (result == null) result = caseEModelElement(rtState);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UmlrtPackage.RT_PSEUDOSTATE:
+      {
+        RTPseudostate rtPseudostate = (RTPseudostate)theEObject;
+        T result = caseRTPseudostate(rtPseudostate);
+        if (result == null) result = casePseudostate(rtPseudostate);
+        if (result == null) result = caseVertex(rtPseudostate);
+        if (result == null) result = caseNamedElement(rtPseudostate);
+        if (result == null) result = caseElement(rtPseudostate);
+        if (result == null) result = caseEModelElement(rtPseudostate);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UmlrtPackage.RT_TRIGGER:
+      {
+        RTTrigger rtTrigger = (RTTrigger)theEObject;
+        T result = caseRTTrigger(rtTrigger);
+        if (result == null) result = caseOperation(rtTrigger);
+        if (result == null) result = caseBehavioralFeature(rtTrigger);
+        if (result == null) result = caseParameterableElement(rtTrigger);
+        if (result == null) result = caseTemplateableElement(rtTrigger);
+        if (result == null) result = caseNamespace(rtTrigger);
+        if (result == null) result = caseFeature(rtTrigger);
+        if (result == null) result = caseRedefinableElement(rtTrigger);
+        if (result == null) result = caseNamedElement(rtTrigger);
+        if (result == null) result = caseElement(rtTrigger);
+        if (result == null) result = caseEModelElement(rtTrigger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UmlrtPackage.RT_GUARD:
+      {
+        RTGuard rtGuard = (RTGuard)theEObject;
+        T result = caseRTGuard(rtGuard);
+        if (result == null) result = caseConstraint(rtGuard);
+        if (result == null) result = casePackageableElement(rtGuard);
+        if (result == null) result = caseNamedElement(rtGuard);
+        if (result == null) result = caseParameterableElement(rtGuard);
+        if (result == null) result = caseElement(rtGuard);
+        if (result == null) result = caseEModelElement(rtGuard);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -363,6 +464,102 @@ public class UmlrtSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRTMessageSet(RTMessageSet object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>RT State Machine</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>RT State Machine</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRTStateMachine(RTStateMachine object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>RT Region</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>RT Region</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRTRegion(RTRegion object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>RT State</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>RT State</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRTState(RTState object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>RT Pseudostate</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>RT Pseudostate</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRTPseudostate(RTPseudostate object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>RT Trigger</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>RT Trigger</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRTTrigger(RTTrigger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>RT Guard</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>RT Guard</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRTGuard(RTGuard object)
   {
     return null;
   }
@@ -779,6 +976,150 @@ public class UmlrtSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseInterface(Interface object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Behavior</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Behavior</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBehavior(Behavior object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>State Machine</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>State Machine</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStateMachine(StateMachine object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Region</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Region</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRegion(Region object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Vertex</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Vertex</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVertex(Vertex object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>State</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>State</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseState(State object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Pseudostate</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Pseudostate</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePseudostate(Pseudostate object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Behavioral Feature</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Behavioral Feature</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBehavioralFeature(BehavioralFeature object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOperation(Operation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Constraint</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConstraint(Constraint object)
   {
     return null;
   }

@@ -17,10 +17,16 @@ import org.eclipse.papyrusrt.umlrt.umlrt.PortRegistrationType;
 import org.eclipse.papyrusrt.umlrt.umlrt.Protocol;
 import org.eclipse.papyrusrt.umlrt.umlrt.ProtocolContainer;
 import org.eclipse.papyrusrt.umlrt.umlrt.RTConnector;
+import org.eclipse.papyrusrt.umlrt.umlrt.RTGuard;
 import org.eclipse.papyrusrt.umlrt.umlrt.RTMessageKind;
 import org.eclipse.papyrusrt.umlrt.umlrt.RTMessageSet;
 import org.eclipse.papyrusrt.umlrt.umlrt.RTPort;
+import org.eclipse.papyrusrt.umlrt.umlrt.RTPseudostate;
 import org.eclipse.papyrusrt.umlrt.umlrt.RTRedefinedElement;
+import org.eclipse.papyrusrt.umlrt.umlrt.RTRegion;
+import org.eclipse.papyrusrt.umlrt.umlrt.RTState;
+import org.eclipse.papyrusrt.umlrt.umlrt.RTStateMachine;
+import org.eclipse.papyrusrt.umlrt.umlrt.RTTrigger;
 import org.eclipse.papyrusrt.umlrt.umlrt.UmlrtFactory;
 import org.eclipse.papyrusrt.umlrt.umlrt.UmlrtPackage;
 
@@ -91,6 +97,48 @@ public class UmlrtPackageImpl extends EPackageImpl implements UmlrtPackage
    * @generated
    */
   private EClass rtMessageSetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rtStateMachineEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rtRegionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rtStateEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rtPseudostateEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rtTriggerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rtGuardEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -328,6 +376,76 @@ public class UmlrtPackageImpl extends EPackageImpl implements UmlrtPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getRTStateMachine()
+  {
+    return rtStateMachineEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRTStateMachine_IsPassive()
+  {
+    return (EAttribute)rtStateMachineEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRTRegion()
+  {
+    return rtRegionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRTState()
+  {
+    return rtStateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRTPseudostate()
+  {
+    return rtPseudostateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRTTrigger()
+  {
+    return rtTriggerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRTGuard()
+  {
+    return rtGuardEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getPortRegistrationType()
   {
     return portRegistrationTypeEEnum;
@@ -396,6 +514,19 @@ public class UmlrtPackageImpl extends EPackageImpl implements UmlrtPackage
     rtMessageSetEClass = createEClass(RT_MESSAGE_SET);
     createEAttribute(rtMessageSetEClass, RT_MESSAGE_SET__RT_MSG_KIND);
 
+    rtStateMachineEClass = createEClass(RT_STATE_MACHINE);
+    createEAttribute(rtStateMachineEClass, RT_STATE_MACHINE__IS_PASSIVE);
+
+    rtRegionEClass = createEClass(RT_REGION);
+
+    rtStateEClass = createEClass(RT_STATE);
+
+    rtPseudostateEClass = createEClass(RT_PSEUDOSTATE);
+
+    rtTriggerEClass = createEClass(RT_TRIGGER);
+
+    rtGuardEClass = createEClass(RT_GUARD);
+
     // Create enums
     portRegistrationTypeEEnum = createEEnum(PORT_REGISTRATION_TYPE);
     rtMessageKindEEnum = createEEnum(RT_MESSAGE_KIND);
@@ -442,6 +573,12 @@ public class UmlrtPackageImpl extends EPackageImpl implements UmlrtPackage
     protocolContainerEClass.getESuperTypes().add(theUMLPackage.getPackage());
     rtRedefinedElementEClass.getESuperTypes().add(theUMLPackage.getRedefinableElement());
     rtMessageSetEClass.getESuperTypes().add(theUMLPackage.getInterface());
+    rtStateMachineEClass.getESuperTypes().add(theUMLPackage.getStateMachine());
+    rtRegionEClass.getESuperTypes().add(theUMLPackage.getRegion());
+    rtStateEClass.getESuperTypes().add(theUMLPackage.getState());
+    rtPseudostateEClass.getESuperTypes().add(theUMLPackage.getPseudostate());
+    rtTriggerEClass.getESuperTypes().add(theUMLPackage.getOperation());
+    rtGuardEClass.getESuperTypes().add(theUMLPackage.getConstraint());
 
     // Initialize classes and features; add operations and parameters
     initEClass(capsuleEClass, Capsule.class, "Capsule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -466,6 +603,19 @@ public class UmlrtPackageImpl extends EPackageImpl implements UmlrtPackage
 
     initEClass(rtMessageSetEClass, RTMessageSet.class, "RTMessageSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRTMessageSet_RtMsgKind(), this.getRTMessageKind(), "rtMsgKind", null, 0, 1, RTMessageSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(rtStateMachineEClass, RTStateMachine.class, "RTStateMachine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRTStateMachine_IsPassive(), theTypesPackage.getBoolean(), "isPassive", null, 0, 1, RTStateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(rtRegionEClass, RTRegion.class, "RTRegion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(rtStateEClass, RTState.class, "RTState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(rtPseudostateEClass, RTPseudostate.class, "RTPseudostate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(rtTriggerEClass, RTTrigger.class, "RTTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(rtGuardEClass, RTGuard.class, "RTGuard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Initialize enums and add enum literals
     initEEnum(portRegistrationTypeEEnum, PortRegistrationType.class, "PortRegistrationType");
