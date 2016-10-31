@@ -9,8 +9,6 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.EnumLiteralDeclaration;
-import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -20,7 +18,6 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.UnorderedGroup;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
-import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -39,7 +36,7 @@ public class UmlRtTextGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPackagedElementPackageableElementParserRuleCall_4_0 = (RuleCall)cPackagedElementAssignment_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		/// **************************** CORE - UML ******************************* / / ** Model ** / Model uml::Model:
+		/// ** UML::Model ** / Model uml::Model:
 		//	'model' {uml::Model} name=ID '{'
 		//	packagedElement+=PackageableElement*
 		//	'}'
@@ -74,231 +71,26 @@ public class UmlRtTextGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class PackageableElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.PackageableElement");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cPackageParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cClassParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cPackageParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		/// ** PackageableElement ** / PackageableElement uml::PackageableElement:
-		//	Package | Class
+		/// ** UML::PackageableElement ** / PackageableElement uml::PackageableElement:
+		//	Package
 		@Override public ParserRule getRule() { return rule; }
-		
-		//Package | Class
-		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Package
-		public RuleCall getPackageParserRuleCall_0() { return cPackageParserRuleCall_0; }
-		
-		//Class
-		public RuleCall getClassParserRuleCall_1() { return cClassParserRuleCall_1; }
-	}
-	public class ClassElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.Class");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final RuleCall cCapsuleParserRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
-		private final Group cGroup_0_1 = (Group)cAlternatives_0.eContents().get(1);
-		private final Keyword cClassKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
-		private final Action cClassAction_0_1_1 = (Action)cGroup_0_1.eContents().get(1);
-		private final Assignment cNameAssignment_0_1_2 = (Assignment)cGroup_0_1.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_0_1_2_0 = (RuleCall)cNameAssignment_0_1_2.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		
-		/// ** Class ** / Class uml::Class:
-		//	(Capsule | 'class' {uml::Class} name=ID) ('{'
-		//	'}')?
-		@Override public ParserRule getRule() { return rule; }
-		
-		//(Capsule | 'class' {uml::Class} name=ID) ('{' '}')?
-		public Group getGroup() { return cGroup; }
-		
-		//(Capsule | 'class' {uml::Class} name=ID)
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
-		
-		//Capsule
-		public RuleCall getCapsuleParserRuleCall_0_0() { return cCapsuleParserRuleCall_0_0; }
-		
-		//'class' {uml::Class} name=ID
-		public Group getGroup_0_1() { return cGroup_0_1; }
-		
-		//'class'
-		public Keyword getClassKeyword_0_1_0() { return cClassKeyword_0_1_0; }
-		
-		//{uml::Class}
-		public Action getClassAction_0_1_1() { return cClassAction_0_1_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_0_1_2() { return cNameAssignment_0_1_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_1_2_0() { return cNameIDTerminalRuleCall_0_1_2_0; }
-		
-		//('{' '}')?
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1_0() { return cLeftCurlyBracketKeyword_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_1_1() { return cRightCurlyBracketKeyword_1_1; }
-	}
-	public class PropertyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.Property");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cCapsulePartParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cPropertyKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Action cPropertyAction_1_1 = (Action)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
-		
-		/// ** Property ** / Property uml::Property:
-		//	CapsulePart | 'property' {uml::Property} name=ID
-		@Override public ParserRule getRule() { return rule; }
-		
-		//CapsulePart | 'property' {uml::Property} name=ID
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//CapsulePart
-		public RuleCall getCapsulePartParserRuleCall_0() { return cCapsulePartParserRuleCall_0; }
-		
-		//'property' {uml::Property} name=ID
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'property'
-		public Keyword getPropertyKeyword_1_0() { return cPropertyKeyword_1_0; }
-		
-		//{uml::Property}
-		public Action getPropertyAction_1_1() { return cPropertyAction_1_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_2_0() { return cNameIDTerminalRuleCall_1_2_0; }
-	}
-	public class PortElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.Port");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cRTPortParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cPortKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Action cPortAction_1_1 = (Action)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
-		
-		/// ** Port ** / Port uml::Port:
-		//	RTPort | 'port' {uml::Port} name=ID
-		@Override public ParserRule getRule() { return rule; }
-		
-		//RTPort | 'port' {uml::Port} name=ID
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//RTPort
-		public RuleCall getRTPortParserRuleCall_0() { return cRTPortParserRuleCall_0; }
-		
-		//'port' {uml::Port} name=ID
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'port'
-		public Keyword getPortKeyword_1_0() { return cPortKeyword_1_0; }
-		
-		//{uml::Port}
-		public Action getPortAction_1_1() { return cPortAction_1_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_2_0() { return cNameIDTerminalRuleCall_1_2_0; }
-	}
-	public class ConnectorElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.Connector");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cRTConnectorParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cConnectorKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Action cConnectorAction_1_1 = (Action)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
-		
-		/// ** Connector ** / Connector uml::Connector:
-		//	RTConnector | 'connector' {uml::Connector} name=ID
-		@Override public ParserRule getRule() { return rule; }
-		
-		//RTConnector | 'connector' {uml::Connector} name=ID
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//RTConnector
-		public RuleCall getRTConnectorParserRuleCall_0() { return cRTConnectorParserRuleCall_0; }
-		
-		//'connector' {uml::Connector} name=ID
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'connector'
-		public Keyword getConnectorKeyword_1_0() { return cConnectorKeyword_1_0; }
-		
-		//{uml::Connector}
-		public Action getConnectorAction_1_1() { return cConnectorAction_1_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_2_0() { return cNameIDTerminalRuleCall_1_2_0; }
-	}
-	public class RedefinableElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.RedefinableElement");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cRTRedefinedElementParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cRedefinable_elementKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Action cRedefinableElementAction_1_1 = (Action)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
-		
-		/// ** RedefinableElement ** / RedefinableElement uml::RedefinableElement:
-		//	RTRedefinedElement | 'redefinable_element' {uml::RedefinableElement} name=ID
-		@Override public ParserRule getRule() { return rule; }
-		
-		//RTRedefinedElement | 'redefinable_element' {uml::RedefinableElement} name=ID
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//RTRedefinedElement
-		public RuleCall getRTRedefinedElementParserRuleCall_0() { return cRTRedefinedElementParserRuleCall_0; }
-		
-		//'redefinable_element' {uml::RedefinableElement} name=ID
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'redefinable_element'
-		public Keyword getRedefinable_elementKeyword_1_0() { return cRedefinable_elementKeyword_1_0; }
-		
-		//{uml::RedefinableElement}
-		public Action getRedefinableElementAction_1_1() { return cRedefinableElementAction_1_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_2_0() { return cNameIDTerminalRuleCall_1_2_0; }
+		public RuleCall getPackageParserRuleCall() { return cPackageParserRuleCall; }
 	}
 	public class PackageElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.Package");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cProtocolContainerParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cModelParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cPackageKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Action cPackageAction_2_1 = (Action)cGroup_2.eContents().get(1);
-		private final Assignment cNameAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_2_0 = (RuleCall)cNameAssignment_2_2.eContents().get(0);
 		
-		/// ** Package ** / Package uml::Package:
-		//	ProtocolContainer | Model | 'package' {uml::Package} name=ID
+		/// ** UML::Package ** / Package uml::Package:
+		//	ProtocolContainer | Model
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ProtocolContainer | Model | 'package' {uml::Package} name=ID
+		//ProtocolContainer | Model
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ProtocolContainer
@@ -306,444 +98,52 @@ public class UmlRtTextGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Model
 		public RuleCall getModelParserRuleCall_1() { return cModelParserRuleCall_1; }
-		
-		//'package' {uml::Package} name=ID
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'package'
-		public Keyword getPackageKeyword_2_0() { return cPackageKeyword_2_0; }
-		
-		//{uml::Package}
-		public Action getPackageAction_2_1() { return cPackageAction_2_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_2_2() { return cNameAssignment_2_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_2_0() { return cNameIDTerminalRuleCall_2_2_0; }
 	}
-	public class InterfaceElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.Interface");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cRTMessageSetParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cInterfaceKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Action cInterfaceAction_1_1 = (Action)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
+	public class ProtocolContainerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.ProtocolContainer");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cProtocolContainerAction_0 = (Action)cGroup.eContents().get(0);
+		private final UnorderedGroup cUnorderedGroup_1 = (UnorderedGroup)cGroup.eContents().get(1);
+		private final Assignment cPackagedElementAssignment_1_0 = (Assignment)cUnorderedGroup_1.eContents().get(0);
+		private final RuleCall cPackagedElementProtocolParserRuleCall_1_0_0 = (RuleCall)cPackagedElementAssignment_1_0.eContents().get(0);
+		private final Assignment cPackagedElementAssignment_1_1 = (Assignment)cUnorderedGroup_1.eContents().get(1);
+		private final RuleCall cPackagedElementRTMessageSetParserRuleCall_1_1_0 = (RuleCall)cPackagedElementAssignment_1_1.eContents().get(0);
 		
-		/// ** Interface ** / Interface uml::Interface:
-		//	RTMessageSet | 'interface' {uml::Interface} name=ID
+		/// ** UML-RT::ProtocolContainer ** / ProtocolContainer umlrt::ProtocolContainer:
+		//	{umlrt::ProtocolContainer} (packagedElement+=Protocol & packagedElement+=RTMessageSet*)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//RTMessageSet | 'interface' {uml::Interface} name=ID
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//{umlrt::ProtocolContainer} (packagedElement+=Protocol & packagedElement+=RTMessageSet*)
+		public Group getGroup() { return cGroup; }
+		
+		//{umlrt::ProtocolContainer}
+		public Action getProtocolContainerAction_0() { return cProtocolContainerAction_0; }
+		
+		//(packagedElement+=Protocol & packagedElement+=RTMessageSet*)
+		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
+		
+		//packagedElement+=Protocol
+		public Assignment getPackagedElementAssignment_1_0() { return cPackagedElementAssignment_1_0; }
+		
+		//Protocol
+		public RuleCall getPackagedElementProtocolParserRuleCall_1_0_0() { return cPackagedElementProtocolParserRuleCall_1_0_0; }
+		
+		//packagedElement+=RTMessageSet*
+		public Assignment getPackagedElementAssignment_1_1() { return cPackagedElementAssignment_1_1; }
 		
 		//RTMessageSet
-		public RuleCall getRTMessageSetParserRuleCall_0() { return cRTMessageSetParserRuleCall_0; }
-		
-		//'interface' {uml::Interface} name=ID
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'interface'
-		public Keyword getInterfaceKeyword_1_0() { return cInterfaceKeyword_1_0; }
-		
-		//{uml::Interface}
-		public Action getInterfaceAction_1_1() { return cInterfaceAction_1_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_2_0() { return cNameIDTerminalRuleCall_1_2_0; }
+		public RuleCall getPackagedElementRTMessageSetParserRuleCall_1_1_0() { return cPackagedElementRTMessageSetParserRuleCall_1_1_0; }
 	}
 	public class CollaborationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.Collaboration");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cProtocolParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cCollaborationKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Action cCollaborationAction_1_1 = (Action)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
+		private final RuleCall cProtocolParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		/// ** Collaboration ** / Collaboration uml::Collaboration:
-		//	Protocol | 'collaboration' {uml::Collaboration} name=ID
+		/// ** UML::Interface ** / Collaboration uml::Collaboration:
+		//	Protocol
 		@Override public ParserRule getRule() { return rule; }
-		
-		//Protocol | 'collaboration' {uml::Collaboration} name=ID
-		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Protocol
-		public RuleCall getProtocolParserRuleCall_0() { return cProtocolParserRuleCall_0; }
-		
-		//'collaboration' {uml::Collaboration} name=ID
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'collaboration'
-		public Keyword getCollaborationKeyword_1_0() { return cCollaborationKeyword_1_0; }
-		
-		//{uml::Collaboration}
-		public Action getCollaborationAction_1_1() { return cCollaborationAction_1_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_2_0() { return cNameIDTerminalRuleCall_1_2_0; }
-	}
-	public class StateMachineElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.StateMachine");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cRTStateMachineParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cState_machineKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Action cStateMachineAction_1_1 = (Action)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
-		
-		/// ******************** STATE MACHINE - UML *************************** / StateMachine uml::StateMachine:
-		//	RTStateMachine | 'state_machine' {uml::StateMachine} name=ID
-		@Override public ParserRule getRule() { return rule; }
-		
-		//RTStateMachine | 'state_machine' {uml::StateMachine} name=ID
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//RTStateMachine
-		public RuleCall getRTStateMachineParserRuleCall_0() { return cRTStateMachineParserRuleCall_0; }
-		
-		//'state_machine' {uml::StateMachine} name=ID
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'state_machine'
-		public Keyword getState_machineKeyword_1_0() { return cState_machineKeyword_1_0; }
-		
-		//{uml::StateMachine}
-		public Action getStateMachineAction_1_1() { return cStateMachineAction_1_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_2_0() { return cNameIDTerminalRuleCall_1_2_0; }
-	}
-	public class RegionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.Region");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cRTRegionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cRegionKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Action cRegionAction_1_1 = (Action)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
-		
-		//Region uml::Region:
-		//	RTRegion | 'region' {uml::Region} name=ID
-		@Override public ParserRule getRule() { return rule; }
-		
-		//RTRegion | 'region' {uml::Region} name=ID
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//RTRegion
-		public RuleCall getRTRegionParserRuleCall_0() { return cRTRegionParserRuleCall_0; }
-		
-		//'region' {uml::Region} name=ID
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'region'
-		public Keyword getRegionKeyword_1_0() { return cRegionKeyword_1_0; }
-		
-		//{uml::Region}
-		public Action getRegionAction_1_1() { return cRegionAction_1_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_2_0() { return cNameIDTerminalRuleCall_1_2_0; }
-	}
-	public class StateElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.State");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cRTStateParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cStateKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Action cStateAction_1_1 = (Action)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
-		
-		//State uml::State:
-		//	RTState | 'state' {uml::State} name=ID
-		@Override public ParserRule getRule() { return rule; }
-		
-		//RTState | 'state' {uml::State} name=ID
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//RTState
-		public RuleCall getRTStateParserRuleCall_0() { return cRTStateParserRuleCall_0; }
-		
-		//'state' {uml::State} name=ID
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'state'
-		public Keyword getStateKeyword_1_0() { return cStateKeyword_1_0; }
-		
-		//{uml::State}
-		public Action getStateAction_1_1() { return cStateAction_1_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_2_0() { return cNameIDTerminalRuleCall_1_2_0; }
-	}
-	public class PseudostateElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.Pseudostate");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cRTPseudostateParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cPseudostateKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Action cPseudostateAction_1_1 = (Action)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
-		
-		//Pseudostate uml::Pseudostate:
-		//	RTPseudostate | 'pseudostate' {uml::Pseudostate} name=ID
-		@Override public ParserRule getRule() { return rule; }
-		
-		//RTPseudostate | 'pseudostate' {uml::Pseudostate} name=ID
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//RTPseudostate
-		public RuleCall getRTPseudostateParserRuleCall_0() { return cRTPseudostateParserRuleCall_0; }
-		
-		//'pseudostate' {uml::Pseudostate} name=ID
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'pseudostate'
-		public Keyword getPseudostateKeyword_1_0() { return cPseudostateKeyword_1_0; }
-		
-		//{uml::Pseudostate}
-		public Action getPseudostateAction_1_1() { return cPseudostateAction_1_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_2_0() { return cNameIDTerminalRuleCall_1_2_0; }
-	}
-	public class OperationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.Operation");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cRTTriggerParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cOperationKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Action cOperationAction_1_1 = (Action)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
-		
-		//Operation uml::Operation:
-		//	RTTrigger | 'operation' {uml::Operation} name=ID
-		@Override public ParserRule getRule() { return rule; }
-		
-		//RTTrigger | 'operation' {uml::Operation} name=ID
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//RTTrigger
-		public RuleCall getRTTriggerParserRuleCall_0() { return cRTTriggerParserRuleCall_0; }
-		
-		//'operation' {uml::Operation} name=ID
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'operation'
-		public Keyword getOperationKeyword_1_0() { return cOperationKeyword_1_0; }
-		
-		//{uml::Operation}
-		public Action getOperationAction_1_1() { return cOperationAction_1_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_2_0() { return cNameIDTerminalRuleCall_1_2_0; }
-	}
-	public class ConstraintElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.Constraint");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cRTGuardParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cConstraintKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Action cConstraintAction_1_1 = (Action)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
-		
-		//Constraint uml::Constraint:
-		//	RTGuard | 'constraint' {uml::Constraint} name=ID
-		@Override public ParserRule getRule() { return rule; }
-		
-		//RTGuard | 'constraint' {uml::Constraint} name=ID
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//RTGuard
-		public RuleCall getRTGuardParserRuleCall_0() { return cRTGuardParserRuleCall_0; }
-		
-		//'constraint' {uml::Constraint} name=ID
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'constraint'
-		public Keyword getConstraintKeyword_1_0() { return cConstraintKeyword_1_0; }
-		
-		//{uml::Constraint}
-		public Action getConstraintAction_1_1() { return cConstraintAction_1_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_2_0() { return cNameIDTerminalRuleCall_1_2_0; }
-	}
-	public class CapsuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.Capsule");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCapsuleKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Action cCapsuleAction_1 = (Action)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cLeftCurlyBracketKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cOwnedBehaviorAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cOwnedBehaviorStateMachineParserRuleCall_3_1_0 = (RuleCall)cOwnedBehaviorAssignment_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
-		
-		/// *************************** CORE - UMLRT ****************************** / / ** Capsule ** / Capsule umlrt::Capsule:
-		//	'capsule' {umlrt::Capsule} name=ID ('{'
-		//	ownedBehavior+=StateMachine*
-		//	'}')?
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'capsule' {umlrt::Capsule} name=ID ('{' ownedBehavior+=StateMachine* '}')?
-		public Group getGroup() { return cGroup; }
-		
-		//'capsule'
-		public Keyword getCapsuleKeyword_0() { return cCapsuleKeyword_0; }
-		
-		//{umlrt::Capsule}
-		public Action getCapsuleAction_1() { return cCapsuleAction_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
-		
-		//('{' ownedBehavior+=StateMachine* '}')?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3_0() { return cLeftCurlyBracketKeyword_3_0; }
-		
-		//ownedBehavior+=StateMachine*
-		public Assignment getOwnedBehaviorAssignment_3_1() { return cOwnedBehaviorAssignment_3_1; }
-		
-		//StateMachine
-		public RuleCall getOwnedBehaviorStateMachineParserRuleCall_3_1_0() { return cOwnedBehaviorStateMachineParserRuleCall_3_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_3_2() { return cRightCurlyBracketKeyword_3_2; }
-	}
-	public class CapsulePartElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.CapsulePart");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCapsule_partKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Action cCapsulePartAction_1 = (Action)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cIs_notificationKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cIsNotificationAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cIsNotificationUML_BOOLEANTerminalRuleCall_4_0 = (RuleCall)cIsNotificationAssignment_4.eContents().get(0);
-		private final Keyword cIs_publishKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cIsPublishAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cIsPublishUML_BOOLEANTerminalRuleCall_6_0 = (RuleCall)cIsPublishAssignment_6.eContents().get(0);
-		private final Keyword cIs_wiredKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cIsWiredAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cIsWiredUML_BOOLEANTerminalRuleCall_8_0 = (RuleCall)cIsWiredAssignment_8.eContents().get(0);
-		private final Keyword cRegistrationKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cRegistrationAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cRegistrationPortRegistrationTypeEnumRuleCall_10_0 = (RuleCall)cRegistrationAssignment_10.eContents().get(0);
-		private final Keyword cRegistration_overrideKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Assignment cRegistrationOverrideAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cRegistrationOverrideUML_STRINGTerminalRuleCall_12_0 = (RuleCall)cRegistrationOverrideAssignment_12.eContents().get(0);
-		
-		/// ** CapsulePart ** / CapsulePart umlrt::CapsulePart:
-		//	'capsule_part' {umlrt::CapsulePart} name=ID
-		//	'is_notification' isNotification=UML_BOOLEAN
-		//	'is_publish' isPublish=UML_BOOLEAN
-		//	'is_wired' isWired=UML_BOOLEAN
-		//	'registration' registration=PortRegistrationType
-		//	'registration_override' registrationOverride=UML_STRING
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'capsule_part' {umlrt::CapsulePart} name=ID 'is_notification' isNotification=UML_BOOLEAN 'is_publish'
-		//isPublish=UML_BOOLEAN 'is_wired' isWired=UML_BOOLEAN 'registration' registration=PortRegistrationType
-		//'registration_override' registrationOverride=UML_STRING
-		public Group getGroup() { return cGroup; }
-		
-		//'capsule_part'
-		public Keyword getCapsule_partKeyword_0() { return cCapsule_partKeyword_0; }
-		
-		//{umlrt::CapsulePart}
-		public Action getCapsulePartAction_1() { return cCapsulePartAction_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
-		
-		//'is_notification'
-		public Keyword getIs_notificationKeyword_3() { return cIs_notificationKeyword_3; }
-		
-		//isNotification=UML_BOOLEAN
-		public Assignment getIsNotificationAssignment_4() { return cIsNotificationAssignment_4; }
-		
-		//UML_BOOLEAN
-		public RuleCall getIsNotificationUML_BOOLEANTerminalRuleCall_4_0() { return cIsNotificationUML_BOOLEANTerminalRuleCall_4_0; }
-		
-		//'is_publish'
-		public Keyword getIs_publishKeyword_5() { return cIs_publishKeyword_5; }
-		
-		//isPublish=UML_BOOLEAN
-		public Assignment getIsPublishAssignment_6() { return cIsPublishAssignment_6; }
-		
-		//UML_BOOLEAN
-		public RuleCall getIsPublishUML_BOOLEANTerminalRuleCall_6_0() { return cIsPublishUML_BOOLEANTerminalRuleCall_6_0; }
-		
-		//'is_wired'
-		public Keyword getIs_wiredKeyword_7() { return cIs_wiredKeyword_7; }
-		
-		//isWired=UML_BOOLEAN
-		public Assignment getIsWiredAssignment_8() { return cIsWiredAssignment_8; }
-		
-		//UML_BOOLEAN
-		public RuleCall getIsWiredUML_BOOLEANTerminalRuleCall_8_0() { return cIsWiredUML_BOOLEANTerminalRuleCall_8_0; }
-		
-		//'registration'
-		public Keyword getRegistrationKeyword_9() { return cRegistrationKeyword_9; }
-		
-		//registration=PortRegistrationType
-		public Assignment getRegistrationAssignment_10() { return cRegistrationAssignment_10; }
-		
-		//PortRegistrationType
-		public RuleCall getRegistrationPortRegistrationTypeEnumRuleCall_10_0() { return cRegistrationPortRegistrationTypeEnumRuleCall_10_0; }
-		
-		//'registration_override'
-		public Keyword getRegistration_overrideKeyword_11() { return cRegistration_overrideKeyword_11; }
-		
-		//registrationOverride=UML_STRING
-		public Assignment getRegistrationOverrideAssignment_12() { return cRegistrationOverrideAssignment_12; }
-		
-		//UML_STRING
-		public RuleCall getRegistrationOverrideUML_STRINGTerminalRuleCall_12_0() { return cRegistrationOverrideUML_STRINGTerminalRuleCall_12_0; }
+		public RuleCall getProtocolParserRuleCall() { return cProtocolParserRuleCall; }
 	}
 	public class ProtocolElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.Protocol");
@@ -753,7 +153,7 @@ public class UmlRtTextGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
-		/// ** Protocol ** / Protocol umlrt::Protocol:
+		/// ** UML-RT::Protocol ** / Protocol umlrt::Protocol:
 		//	'protocol' {umlrt::Protocol} name=ID
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -772,433 +172,37 @@ public class UmlRtTextGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 	}
-	public class RTPortElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.RTPort");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cRt_portKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Action cRTPortAction_1 = (Action)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+	public class InterfaceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.Interface");
+		private final RuleCall cRTMessageSetParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		/// ** RTPort ** / RTPort umlrt::RTPort:
-		//	'rt_port' {umlrt::RTPort} name=ID
+		/// ** UML::Interface ** / Interface uml::Interface:
+		//	RTMessageSet
 		@Override public ParserRule getRule() { return rule; }
-		
-		//'rt_port' {umlrt::RTPort} name=ID
-		public Group getGroup() { return cGroup; }
-		
-		//'rt_port'
-		public Keyword getRt_portKeyword_0() { return cRt_portKeyword_0; }
-		
-		//{umlrt::RTPort}
-		public Action getRTPortAction_1() { return cRTPortAction_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
-	}
-	public class RTConnectorElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.RTConnector");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cRt_connectorKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Action cRTConnectorAction_1 = (Action)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		
-		/// ** RTConnector ** / RTConnector umlrt::RTConnector:
-		//	'rt_connector' {umlrt::RTConnector} name=ID
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'rt_connector' {umlrt::RTConnector} name=ID
-		public Group getGroup() { return cGroup; }
-		
-		//'rt_connector'
-		public Keyword getRt_connectorKeyword_0() { return cRt_connectorKeyword_0; }
-		
-		//{umlrt::RTConnector}
-		public Action getRTConnectorAction_1() { return cRTConnectorAction_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
-	}
-	public class ProtocolContainerElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.ProtocolContainer");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cProtocol_containerKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Action cProtocolContainerAction_1 = (Action)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cPackagedElementAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final Alternatives cPackagedElementAlternatives_4_0 = (Alternatives)cPackagedElementAssignment_4.eContents().get(0);
-		private final RuleCall cPackagedElementProtocolParserRuleCall_4_0_0 = (RuleCall)cPackagedElementAlternatives_4_0.eContents().get(0);
-		private final RuleCall cPackagedElementRTMessageSetParserRuleCall_4_0_1 = (RuleCall)cPackagedElementAlternatives_4_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		
-		/// ** ProtocolContainer ** / ProtocolContainer umlrt::ProtocolContainer:
-		//	'protocol_container' {umlrt::ProtocolContainer} name=ID '{'
-		//	packagedElement+=(Protocol | RTMessageSet)*
-		//	'}'
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'protocol_container' {umlrt::ProtocolContainer} name=ID '{' packagedElement+=(Protocol | RTMessageSet)* '}'
-		public Group getGroup() { return cGroup; }
-		
-		//'protocol_container'
-		public Keyword getProtocol_containerKeyword_0() { return cProtocol_containerKeyword_0; }
-		
-		//{umlrt::ProtocolContainer}
-		public Action getProtocolContainerAction_1() { return cProtocolContainerAction_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
-		
-		//packagedElement+=(Protocol | RTMessageSet)*
-		public Assignment getPackagedElementAssignment_4() { return cPackagedElementAssignment_4; }
-		
-		//(Protocol | RTMessageSet)
-		public Alternatives getPackagedElementAlternatives_4_0() { return cPackagedElementAlternatives_4_0; }
-		
-		//Protocol
-		public RuleCall getPackagedElementProtocolParserRuleCall_4_0_0() { return cPackagedElementProtocolParserRuleCall_4_0_0; }
 		
 		//RTMessageSet
-		public RuleCall getPackagedElementRTMessageSetParserRuleCall_4_0_1() { return cPackagedElementRTMessageSetParserRuleCall_4_0_1; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
-	}
-	public class RTRedefinedElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.RTRedefinedElement");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cRt_redefined_elementKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Action cRTRedefinedElementAction_1 = (Action)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cRoot_fragmentKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cRootFragmentAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cRootFragmentRedefinableElementParserRuleCall_3_1_0 = (RuleCall)cRootFragmentAssignment_3_1.eContents().get(0);
-		
-		/// ** RTRedefinedElement ** / RTRedefinedElement umlrt::RTRedefinedElement:
-		//	'rt_redefined_element' {umlrt::RTRedefinedElement} name=ID ('root_fragment' rootFragment=RedefinableElement)?
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'rt_redefined_element' {umlrt::RTRedefinedElement} name=ID ('root_fragment' rootFragment=RedefinableElement)?
-		public Group getGroup() { return cGroup; }
-		
-		//'rt_redefined_element'
-		public Keyword getRt_redefined_elementKeyword_0() { return cRt_redefined_elementKeyword_0; }
-		
-		//{umlrt::RTRedefinedElement}
-		public Action getRTRedefinedElementAction_1() { return cRTRedefinedElementAction_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
-		
-		//('root_fragment' rootFragment=RedefinableElement)?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'root_fragment'
-		public Keyword getRoot_fragmentKeyword_3_0() { return cRoot_fragmentKeyword_3_0; }
-		
-		//rootFragment=RedefinableElement
-		public Assignment getRootFragmentAssignment_3_1() { return cRootFragmentAssignment_3_1; }
-		
-		//RedefinableElement
-		public RuleCall getRootFragmentRedefinableElementParserRuleCall_3_1_0() { return cRootFragmentRedefinableElementParserRuleCall_3_1_0; }
+		public RuleCall getRTMessageSetParserRuleCall() { return cRTMessageSetParserRuleCall; }
 	}
 	public class RTMessageSetElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.RTMessageSet");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cRTMessageSetAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cRtMsgKindAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cRtMsgKindRTMessageKindEnumRuleCall_1_0 = (RuleCall)cRtMsgKindAssignment_1.eContents().get(0);
-		private final Keyword cRt_message_setKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cInterfaceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Action cRTMessageSetAction_1 = (Action)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
-		/// ** RTMessageSet (in, out, inout) ** / RTMessageSet umlrt::RTMessageSet:
-		//	{umlrt::RTMessageSet} rtMsgKind=RTMessageKind 'rt_message_set' name=ID
+		/// ** UML-RT::RTMessageSet ** / RTMessageSet umlrt::RTMessageSet:
+		//	'interface' {umlrt::RTMessageSet} name=ID
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{umlrt::RTMessageSet} rtMsgKind=RTMessageKind 'rt_message_set' name=ID
+		//'interface' {umlrt::RTMessageSet} name=ID
 		public Group getGroup() { return cGroup; }
+		
+		//'interface'
+		public Keyword getInterfaceKeyword_0() { return cInterfaceKeyword_0; }
 		
 		//{umlrt::RTMessageSet}
-		public Action getRTMessageSetAction_0() { return cRTMessageSetAction_0; }
-		
-		//rtMsgKind=RTMessageKind
-		public Assignment getRtMsgKindAssignment_1() { return cRtMsgKindAssignment_1; }
-		
-		//RTMessageKind
-		public RuleCall getRtMsgKindRTMessageKindEnumRuleCall_1_0() { return cRtMsgKindRTMessageKindEnumRuleCall_1_0; }
-		
-		//'rt_message_set'
-		public Keyword getRt_message_setKeyword_2() { return cRt_message_setKeyword_2; }
-		
-		//name=ID
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
-	}
-	public class RTStateMachineElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.RTStateMachine");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cRTStateMachineAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cVisibilityAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cVisibilityVisibilityKindEnumRuleCall_1_0 = (RuleCall)cVisibilityAssignment_1.eContents().get(0);
-		private final Keyword cRt_state_machineKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cIs_passiveKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cIsPassiveAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cIsPassiveUML_BOOLEANTerminalRuleCall_4_1_0 = (RuleCall)cIsPassiveAssignment_4_1.eContents().get(0);
-		private final Assignment cRegionAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cRegionRegionParserRuleCall_5_0 = (RuleCall)cRegionAssignment_5.eContents().get(0);
-		
-		/// ******************** STATE MACHINE - UMLRT ************************* / RTStateMachine umlrt::RTStateMachine:
-		//	{umlrt::RTStateMachine} visibility=VisibilityKind? 'rt_state_machine' name=ID ('is_passive' isPassive=UML_BOOLEAN)?
-		//	region+=Region+
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{umlrt::RTStateMachine} visibility=VisibilityKind? 'rt_state_machine' name=ID ('is_passive' isPassive=UML_BOOLEAN)?
-		//region+=Region+
-		public Group getGroup() { return cGroup; }
-		
-		//{umlrt::RTStateMachine}
-		public Action getRTStateMachineAction_0() { return cRTStateMachineAction_0; }
-		
-		//visibility=VisibilityKind?
-		public Assignment getVisibilityAssignment_1() { return cVisibilityAssignment_1; }
-		
-		//VisibilityKind
-		public RuleCall getVisibilityVisibilityKindEnumRuleCall_1_0() { return cVisibilityVisibilityKindEnumRuleCall_1_0; }
-		
-		//'rt_state_machine'
-		public Keyword getRt_state_machineKeyword_2() { return cRt_state_machineKeyword_2; }
-		
-		//name=ID
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
-		
-		//('is_passive' isPassive=UML_BOOLEAN)?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'is_passive'
-		public Keyword getIs_passiveKeyword_4_0() { return cIs_passiveKeyword_4_0; }
-		
-		//isPassive=UML_BOOLEAN
-		public Assignment getIsPassiveAssignment_4_1() { return cIsPassiveAssignment_4_1; }
-		
-		//UML_BOOLEAN
-		public RuleCall getIsPassiveUML_BOOLEANTerminalRuleCall_4_1_0() { return cIsPassiveUML_BOOLEANTerminalRuleCall_4_1_0; }
-		
-		//region+=Region+
-		public Assignment getRegionAssignment_5() { return cRegionAssignment_5; }
-		
-		//Region
-		public RuleCall getRegionRegionParserRuleCall_5_0() { return cRegionRegionParserRuleCall_5_0; }
-	}
-	public class RTRegionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.RTRegion");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cRTRegionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cVisibilityAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cVisibilityVisibilityKindEnumRuleCall_1_0 = (RuleCall)cVisibilityAssignment_1.eContents().get(0);
-		private final Keyword cRt_regionKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Assignment cSubvertexAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final Alternatives cSubvertexAlternatives_4_0 = (Alternatives)cSubvertexAssignment_4.eContents().get(0);
-		private final RuleCall cSubvertexRTStateParserRuleCall_4_0_0 = (RuleCall)cSubvertexAlternatives_4_0.eContents().get(0);
-		private final RuleCall cSubvertexRTPseudostateParserRuleCall_4_0_1 = (RuleCall)cSubvertexAlternatives_4_0.eContents().get(1);
-		
-		//RTRegion umlrt::RTRegion:
-		//	{umlrt::RTRegion} visibility=VisibilityKind? 'rt_region' name=ID
-		//	subvertex+=(RTState | RTPseudostate)*
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{umlrt::RTRegion} visibility=VisibilityKind? 'rt_region' name=ID subvertex+=(RTState | RTPseudostate)*
-		public Group getGroup() { return cGroup; }
-		
-		//{umlrt::RTRegion}
-		public Action getRTRegionAction_0() { return cRTRegionAction_0; }
-		
-		//visibility=VisibilityKind?
-		public Assignment getVisibilityAssignment_1() { return cVisibilityAssignment_1; }
-		
-		//VisibilityKind
-		public RuleCall getVisibilityVisibilityKindEnumRuleCall_1_0() { return cVisibilityVisibilityKindEnumRuleCall_1_0; }
-		
-		//'rt_region'
-		public Keyword getRt_regionKeyword_2() { return cRt_regionKeyword_2; }
-		
-		//name=ID
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
-		
-		//subvertex+=(RTState | RTPseudostate)*
-		public Assignment getSubvertexAssignment_4() { return cSubvertexAssignment_4; }
-		
-		//(RTState | RTPseudostate)
-		public Alternatives getSubvertexAlternatives_4_0() { return cSubvertexAlternatives_4_0; }
-		
-		//RTState
-		public RuleCall getSubvertexRTStateParserRuleCall_4_0_0() { return cSubvertexRTStateParserRuleCall_4_0_0; }
-		
-		//RTPseudostate
-		public RuleCall getSubvertexRTPseudostateParserRuleCall_4_0_1() { return cSubvertexRTPseudostateParserRuleCall_4_0_1; }
-	}
-	public class RTStateElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.RTState");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cRTStateAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cVisibilityAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cVisibilityVisibilityKindEnumRuleCall_1_0 = (RuleCall)cVisibilityAssignment_1.eContents().get(0);
-		private final Keyword cRt_stateKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		
-		//RTState umlrt::RTState:
-		//	{umlrt::RTState} visibility=VisibilityKind? 'rt_state' name=ID
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{umlrt::RTState} visibility=VisibilityKind? 'rt_state' name=ID
-		public Group getGroup() { return cGroup; }
-		
-		//{umlrt::RTState}
-		public Action getRTStateAction_0() { return cRTStateAction_0; }
-		
-		//visibility=VisibilityKind?
-		public Assignment getVisibilityAssignment_1() { return cVisibilityAssignment_1; }
-		
-		//VisibilityKind
-		public RuleCall getVisibilityVisibilityKindEnumRuleCall_1_0() { return cVisibilityVisibilityKindEnumRuleCall_1_0; }
-		
-		//'rt_state'
-		public Keyword getRt_stateKeyword_2() { return cRt_stateKeyword_2; }
-		
-		//name=ID
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
-	}
-	public class RTPseudostateElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.RTPseudostate");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cRTPseudostateAction_0 = (Action)cGroup.eContents().get(0);
-		private final UnorderedGroup cUnorderedGroup_1 = (UnorderedGroup)cGroup.eContents().get(1);
-		private final Assignment cKindAssignment_1_0 = (Assignment)cUnorderedGroup_1.eContents().get(0);
-		private final RuleCall cKindPseudostateKindEnumRuleCall_1_0_0 = (RuleCall)cKindAssignment_1_0.eContents().get(0);
-		private final Assignment cVisibilityAssignment_1_1 = (Assignment)cUnorderedGroup_1.eContents().get(1);
-		private final RuleCall cVisibilityVisibilityKindEnumRuleCall_1_1_0 = (RuleCall)cVisibilityAssignment_1_1.eContents().get(0);
-		private final Keyword cRt_pseudostateKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		
-		//RTPseudostate umlrt::RTPseudostate:
-		//	{umlrt::RTPseudostate} (kind=PseudostateKind & visibility=VisibilityKind?) 'rt_pseudostate' name=ID
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{umlrt::RTPseudostate} (kind=PseudostateKind & visibility=VisibilityKind?) 'rt_pseudostate' name=ID
-		public Group getGroup() { return cGroup; }
-		
-		//{umlrt::RTPseudostate}
-		public Action getRTPseudostateAction_0() { return cRTPseudostateAction_0; }
-		
-		//(kind=PseudostateKind & visibility=VisibilityKind?)
-		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
-		
-		//kind=PseudostateKind
-		public Assignment getKindAssignment_1_0() { return cKindAssignment_1_0; }
-		
-		//PseudostateKind
-		public RuleCall getKindPseudostateKindEnumRuleCall_1_0_0() { return cKindPseudostateKindEnumRuleCall_1_0_0; }
-		
-		//visibility=VisibilityKind?
-		public Assignment getVisibilityAssignment_1_1() { return cVisibilityAssignment_1_1; }
-		
-		//VisibilityKind
-		public RuleCall getVisibilityVisibilityKindEnumRuleCall_1_1_0() { return cVisibilityVisibilityKindEnumRuleCall_1_1_0; }
-		
-		//'rt_pseudostate'
-		public Keyword getRt_pseudostateKeyword_2() { return cRt_pseudostateKeyword_2; }
-		
-		//name=ID
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
-	}
-	public class RTTriggerElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.RTTrigger");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cRt_triggerKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Action cRTTriggerAction_1 = (Action)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		
-		//RTTrigger umlrt::RTTrigger:
-		//	'rt_trigger' {umlrt::RTTrigger} name=ID
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'rt_trigger' {umlrt::RTTrigger} name=ID
-		public Group getGroup() { return cGroup; }
-		
-		//'rt_trigger'
-		public Keyword getRt_triggerKeyword_0() { return cRt_triggerKeyword_0; }
-		
-		//{umlrt::RTTrigger}
-		public Action getRTTriggerAction_1() { return cRTTriggerAction_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
-	}
-	public class RTGuardElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.RTGuard");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cRt_guardKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Action cRTGuardAction_1 = (Action)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		
-		//RTGuard umlrt::RTGuard:
-		//	'rt_guard' {umlrt::RTGuard} name=ID
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'rt_guard' {umlrt::RTGuard} name=ID
-		public Group getGroup() { return cGroup; }
-		
-		//'rt_guard'
-		public Keyword getRt_guardKeyword_0() { return cRt_guardKeyword_0; }
-		
-		//{umlrt::RTGuard}
-		public Action getRTGuardAction_1() { return cRTGuardAction_1; }
+		public Action getRTMessageSetAction_1() { return cRTMessageSetAction_1; }
 		
 		//name=ID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
@@ -1207,248 +211,15 @@ public class UmlRtTextGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 	}
 	
-	public class PortRegistrationTypeElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.PortRegistrationType");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cAutomaticEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cAutomaticAutomaticKeyword_0_0 = (Keyword)cAutomaticEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cApplicationEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cApplicationApplicationKeyword_1_0 = (Keyword)cApplicationEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cAutomaticLockedEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cAutomaticLockedAutomaticLockedKeyword_2_0 = (Keyword)cAutomaticLockedEnumLiteralDeclaration_2.eContents().get(0);
-		
-		//enum PortRegistrationType returns umlrt::PortRegistrationType:
-		//	automatic | application | automaticLocked;
-		public EnumRule getRule() { return rule; }
-		
-		//automatic | application | automaticLocked
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//automatic
-		public EnumLiteralDeclaration getAutomaticEnumLiteralDeclaration_0() { return cAutomaticEnumLiteralDeclaration_0; }
-		
-		//"automatic"
-		public Keyword getAutomaticAutomaticKeyword_0_0() { return cAutomaticAutomaticKeyword_0_0; }
-		
-		//application
-		public EnumLiteralDeclaration getApplicationEnumLiteralDeclaration_1() { return cApplicationEnumLiteralDeclaration_1; }
-		
-		//"application"
-		public Keyword getApplicationApplicationKeyword_1_0() { return cApplicationApplicationKeyword_1_0; }
-		
-		//automaticLocked
-		public EnumLiteralDeclaration getAutomaticLockedEnumLiteralDeclaration_2() { return cAutomaticLockedEnumLiteralDeclaration_2; }
-		
-		//"automaticLocked"
-		public Keyword getAutomaticLockedAutomaticLockedKeyword_2_0() { return cAutomaticLockedAutomaticLockedKeyword_2_0; }
-	}
-	public class RTMessageKindElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.RTMessageKind");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cInEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cInInKeyword_0_0 = (Keyword)cInEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cOutEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cOutOutKeyword_1_0 = (Keyword)cOutEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cInOutEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cInOutInOutKeyword_2_0 = (Keyword)cInOutEnumLiteralDeclaration_2.eContents().get(0);
-		
-		//enum RTMessageKind returns umlrt::RTMessageKind:
-		//	in | out | inOut;
-		public EnumRule getRule() { return rule; }
-		
-		//in | out | inOut
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//in
-		public EnumLiteralDeclaration getInEnumLiteralDeclaration_0() { return cInEnumLiteralDeclaration_0; }
-		
-		//"in"
-		public Keyword getInInKeyword_0_0() { return cInInKeyword_0_0; }
-		
-		//out
-		public EnumLiteralDeclaration getOutEnumLiteralDeclaration_1() { return cOutEnumLiteralDeclaration_1; }
-		
-		//"out"
-		public Keyword getOutOutKeyword_1_0() { return cOutOutKeyword_1_0; }
-		
-		//inOut
-		public EnumLiteralDeclaration getInOutEnumLiteralDeclaration_2() { return cInOutEnumLiteralDeclaration_2; }
-		
-		//"inOut"
-		public Keyword getInOutInOutKeyword_2_0() { return cInOutInOutKeyword_2_0; }
-	}
-	public class VisibilityKindElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.VisibilityKind");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cPublicEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cPublicPublicKeyword_0_0 = (Keyword)cPublicEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cPrivateEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cPrivatePrivateKeyword_1_0 = (Keyword)cPrivateEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cProtectedEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cProtectedProtectedKeyword_2_0 = (Keyword)cProtectedEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cPackageEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cPackagePackageKeyword_3_0 = (Keyword)cPackageEnumLiteralDeclaration_3.eContents().get(0);
-		
-		//enum VisibilityKind returns uml::VisibilityKind:
-		//	public | private | protected | package;
-		public EnumRule getRule() { return rule; }
-		
-		//public | private | protected | package
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//public
-		public EnumLiteralDeclaration getPublicEnumLiteralDeclaration_0() { return cPublicEnumLiteralDeclaration_0; }
-		
-		//"public"
-		public Keyword getPublicPublicKeyword_0_0() { return cPublicPublicKeyword_0_0; }
-		
-		//private
-		public EnumLiteralDeclaration getPrivateEnumLiteralDeclaration_1() { return cPrivateEnumLiteralDeclaration_1; }
-		
-		//"private"
-		public Keyword getPrivatePrivateKeyword_1_0() { return cPrivatePrivateKeyword_1_0; }
-		
-		//protected
-		public EnumLiteralDeclaration getProtectedEnumLiteralDeclaration_2() { return cProtectedEnumLiteralDeclaration_2; }
-		
-		//"protected"
-		public Keyword getProtectedProtectedKeyword_2_0() { return cProtectedProtectedKeyword_2_0; }
-		
-		//package
-		public EnumLiteralDeclaration getPackageEnumLiteralDeclaration_3() { return cPackageEnumLiteralDeclaration_3; }
-		
-		//"package"
-		public Keyword getPackagePackageKeyword_3_0() { return cPackagePackageKeyword_3_0; }
-	}
-	public class PseudostateKindElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.PseudostateKind");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cInitialEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cInitialInitialKeyword_0_0 = (Keyword)cInitialEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cDeepHistoryEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cDeepHistoryDeepHistoryKeyword_1_0 = (Keyword)cDeepHistoryEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cShallowHistoryEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cShallowHistoryShallowHistoryKeyword_2_0 = (Keyword)cShallowHistoryEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cJoinEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cJoinJoinKeyword_3_0 = (Keyword)cJoinEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cForkEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cForkForkKeyword_4_0 = (Keyword)cForkEnumLiteralDeclaration_4.eContents().get(0);
-		private final EnumLiteralDeclaration cJunctionEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
-		private final Keyword cJunctionJunctionKeyword_5_0 = (Keyword)cJunctionEnumLiteralDeclaration_5.eContents().get(0);
-		private final EnumLiteralDeclaration cChoiceEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
-		private final Keyword cChoiceChoiceKeyword_6_0 = (Keyword)cChoiceEnumLiteralDeclaration_6.eContents().get(0);
-		private final EnumLiteralDeclaration cEntryPointEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
-		private final Keyword cEntryPointEntryPointKeyword_7_0 = (Keyword)cEntryPointEnumLiteralDeclaration_7.eContents().get(0);
-		private final EnumLiteralDeclaration cExitPointEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
-		private final Keyword cExitPointExitPointKeyword_8_0 = (Keyword)cExitPointEnumLiteralDeclaration_8.eContents().get(0);
-		private final EnumLiteralDeclaration cTerminateEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
-		private final Keyword cTerminateTerminateKeyword_9_0 = (Keyword)cTerminateEnumLiteralDeclaration_9.eContents().get(0);
-		
-		//enum PseudostateKind returns uml::PseudostateKind:
-		//	initial | deepHistory | shallowHistory | join | fork |
-		//	junction | choice | entryPoint | exitPoint | terminate;
-		public EnumRule getRule() { return rule; }
-		
-		//initial | deepHistory | shallowHistory | join | fork | junction | choice | entryPoint | exitPoint | terminate
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//initial
-		public EnumLiteralDeclaration getInitialEnumLiteralDeclaration_0() { return cInitialEnumLiteralDeclaration_0; }
-		
-		//"initial"
-		public Keyword getInitialInitialKeyword_0_0() { return cInitialInitialKeyword_0_0; }
-		
-		//deepHistory
-		public EnumLiteralDeclaration getDeepHistoryEnumLiteralDeclaration_1() { return cDeepHistoryEnumLiteralDeclaration_1; }
-		
-		//"deepHistory"
-		public Keyword getDeepHistoryDeepHistoryKeyword_1_0() { return cDeepHistoryDeepHistoryKeyword_1_0; }
-		
-		//shallowHistory
-		public EnumLiteralDeclaration getShallowHistoryEnumLiteralDeclaration_2() { return cShallowHistoryEnumLiteralDeclaration_2; }
-		
-		//"shallowHistory"
-		public Keyword getShallowHistoryShallowHistoryKeyword_2_0() { return cShallowHistoryShallowHistoryKeyword_2_0; }
-		
-		//join
-		public EnumLiteralDeclaration getJoinEnumLiteralDeclaration_3() { return cJoinEnumLiteralDeclaration_3; }
-		
-		//"join"
-		public Keyword getJoinJoinKeyword_3_0() { return cJoinJoinKeyword_3_0; }
-		
-		//fork
-		public EnumLiteralDeclaration getForkEnumLiteralDeclaration_4() { return cForkEnumLiteralDeclaration_4; }
-		
-		//"fork"
-		public Keyword getForkForkKeyword_4_0() { return cForkForkKeyword_4_0; }
-		
-		//junction
-		public EnumLiteralDeclaration getJunctionEnumLiteralDeclaration_5() { return cJunctionEnumLiteralDeclaration_5; }
-		
-		//"junction"
-		public Keyword getJunctionJunctionKeyword_5_0() { return cJunctionJunctionKeyword_5_0; }
-		
-		//choice
-		public EnumLiteralDeclaration getChoiceEnumLiteralDeclaration_6() { return cChoiceEnumLiteralDeclaration_6; }
-		
-		//"choice"
-		public Keyword getChoiceChoiceKeyword_6_0() { return cChoiceChoiceKeyword_6_0; }
-		
-		//entryPoint
-		public EnumLiteralDeclaration getEntryPointEnumLiteralDeclaration_7() { return cEntryPointEnumLiteralDeclaration_7; }
-		
-		//"entryPoint"
-		public Keyword getEntryPointEntryPointKeyword_7_0() { return cEntryPointEntryPointKeyword_7_0; }
-		
-		//exitPoint
-		public EnumLiteralDeclaration getExitPointEnumLiteralDeclaration_8() { return cExitPointEnumLiteralDeclaration_8; }
-		
-		//"exitPoint"
-		public Keyword getExitPointExitPointKeyword_8_0() { return cExitPointExitPointKeyword_8_0; }
-		
-		//terminate
-		public EnumLiteralDeclaration getTerminateEnumLiteralDeclaration_9() { return cTerminateEnumLiteralDeclaration_9; }
-		
-		//"terminate"
-		public Keyword getTerminateTerminateKeyword_9_0() { return cTerminateTerminateKeyword_9_0; }
-	}
 	
 	private final ModelElements pModel;
 	private final PackageableElementElements pPackageableElement;
-	private final ClassElements pClass;
-	private final PropertyElements pProperty;
-	private final PortElements pPort;
-	private final ConnectorElements pConnector;
-	private final RedefinableElementElements pRedefinableElement;
 	private final PackageElements pPackage;
-	private final InterfaceElements pInterface;
-	private final CollaborationElements pCollaboration;
-	private final StateMachineElements pStateMachine;
-	private final RegionElements pRegion;
-	private final StateElements pState;
-	private final PseudostateElements pPseudostate;
-	private final OperationElements pOperation;
-	private final ConstraintElements pConstraint;
-	private final CapsuleElements pCapsule;
-	private final CapsulePartElements pCapsulePart;
-	private final ProtocolElements pProtocol;
-	private final RTPortElements pRTPort;
-	private final RTConnectorElements pRTConnector;
 	private final ProtocolContainerElements pProtocolContainer;
-	private final RTRedefinedElementElements pRTRedefinedElement;
+	private final CollaborationElements pCollaboration;
+	private final ProtocolElements pProtocol;
+	private final InterfaceElements pInterface;
 	private final RTMessageSetElements pRTMessageSet;
-	private final RTStateMachineElements pRTStateMachine;
-	private final RTRegionElements pRTRegion;
-	private final RTStateElements pRTState;
-	private final RTPseudostateElements pRTPseudostate;
-	private final RTTriggerElements pRTTrigger;
-	private final RTGuardElements pRTGuard;
-	private final TerminalRule tUML_BOOLEAN;
-	private final TerminalRule tUML_STRING;
-	private final PortRegistrationTypeElements ePortRegistrationType;
-	private final RTMessageKindElements eRTMessageKind;
-	private final VisibilityKindElements eVisibilityKind;
-	private final PseudostateKindElements ePseudostateKind;
 	
 	private final Grammar grammar;
 	
@@ -1461,40 +232,12 @@ public class UmlRtTextGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
 		this.pPackageableElement = new PackageableElementElements();
-		this.pClass = new ClassElements();
-		this.pProperty = new PropertyElements();
-		this.pPort = new PortElements();
-		this.pConnector = new ConnectorElements();
-		this.pRedefinableElement = new RedefinableElementElements();
 		this.pPackage = new PackageElements();
-		this.pInterface = new InterfaceElements();
-		this.pCollaboration = new CollaborationElements();
-		this.pStateMachine = new StateMachineElements();
-		this.pRegion = new RegionElements();
-		this.pState = new StateElements();
-		this.pPseudostate = new PseudostateElements();
-		this.pOperation = new OperationElements();
-		this.pConstraint = new ConstraintElements();
-		this.pCapsule = new CapsuleElements();
-		this.pCapsulePart = new CapsulePartElements();
-		this.pProtocol = new ProtocolElements();
-		this.pRTPort = new RTPortElements();
-		this.pRTConnector = new RTConnectorElements();
 		this.pProtocolContainer = new ProtocolContainerElements();
-		this.pRTRedefinedElement = new RTRedefinedElementElements();
+		this.pCollaboration = new CollaborationElements();
+		this.pProtocol = new ProtocolElements();
+		this.pInterface = new InterfaceElements();
 		this.pRTMessageSet = new RTMessageSetElements();
-		this.pRTStateMachine = new RTStateMachineElements();
-		this.pRTRegion = new RTRegionElements();
-		this.pRTState = new RTStateElements();
-		this.pRTPseudostate = new RTPseudostateElements();
-		this.pRTTrigger = new RTTriggerElements();
-		this.pRTGuard = new RTGuardElements();
-		this.tUML_BOOLEAN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.UML_BOOLEAN");
-		this.tUML_STRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.umlrt.UmlRtText.UML_STRING");
-		this.ePortRegistrationType = new PortRegistrationTypeElements();
-		this.eRTMessageKind = new RTMessageKindElements();
-		this.eVisibilityKind = new VisibilityKindElements();
-		this.ePseudostateKind = new PseudostateKindElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1524,7 +267,7 @@ public class UmlRtTextGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	/// **************************** CORE - UML ******************************* / / ** Model ** / Model uml::Model:
+	/// ** UML::Model ** / Model uml::Model:
 	//	'model' {uml::Model} name=ID '{'
 	//	packagedElement+=PackageableElement*
 	//	'}'
@@ -1536,8 +279,8 @@ public class UmlRtTextGrammarAccess extends AbstractGrammarElementFinder {
 		return getModelAccess().getRule();
 	}
 	
-	/// ** PackageableElement ** / PackageableElement uml::PackageableElement:
-	//	Package | Class
+	/// ** UML::PackageableElement ** / PackageableElement uml::PackageableElement:
+	//	Package
 	public PackageableElementElements getPackageableElementAccess() {
 		return pPackageableElement;
 	}
@@ -1546,59 +289,8 @@ public class UmlRtTextGrammarAccess extends AbstractGrammarElementFinder {
 		return getPackageableElementAccess().getRule();
 	}
 	
-	/// ** Class ** / Class uml::Class:
-	//	(Capsule | 'class' {uml::Class} name=ID) ('{'
-	//	'}')?
-	public ClassElements getClassAccess() {
-		return pClass;
-	}
-	
-	public ParserRule getClassRule() {
-		return getClassAccess().getRule();
-	}
-	
-	/// ** Property ** / Property uml::Property:
-	//	CapsulePart | 'property' {uml::Property} name=ID
-	public PropertyElements getPropertyAccess() {
-		return pProperty;
-	}
-	
-	public ParserRule getPropertyRule() {
-		return getPropertyAccess().getRule();
-	}
-	
-	/// ** Port ** / Port uml::Port:
-	//	RTPort | 'port' {uml::Port} name=ID
-	public PortElements getPortAccess() {
-		return pPort;
-	}
-	
-	public ParserRule getPortRule() {
-		return getPortAccess().getRule();
-	}
-	
-	/// ** Connector ** / Connector uml::Connector:
-	//	RTConnector | 'connector' {uml::Connector} name=ID
-	public ConnectorElements getConnectorAccess() {
-		return pConnector;
-	}
-	
-	public ParserRule getConnectorRule() {
-		return getConnectorAccess().getRule();
-	}
-	
-	/// ** RedefinableElement ** / RedefinableElement uml::RedefinableElement:
-	//	RTRedefinedElement | 'redefinable_element' {uml::RedefinableElement} name=ID
-	public RedefinableElementElements getRedefinableElementAccess() {
-		return pRedefinableElement;
-	}
-	
-	public ParserRule getRedefinableElementRule() {
-		return getRedefinableElementAccess().getRule();
-	}
-	
-	/// ** Package ** / Package uml::Package:
-	//	ProtocolContainer | Model | 'package' {uml::Package} name=ID
+	/// ** UML::Package ** / Package uml::Package:
+	//	ProtocolContainer | Model
 	public PackageElements getPackageAccess() {
 		return pPackage;
 	}
@@ -1607,18 +299,18 @@ public class UmlRtTextGrammarAccess extends AbstractGrammarElementFinder {
 		return getPackageAccess().getRule();
 	}
 	
-	/// ** Interface ** / Interface uml::Interface:
-	//	RTMessageSet | 'interface' {uml::Interface} name=ID
-	public InterfaceElements getInterfaceAccess() {
-		return pInterface;
+	/// ** UML-RT::ProtocolContainer ** / ProtocolContainer umlrt::ProtocolContainer:
+	//	{umlrt::ProtocolContainer} (packagedElement+=Protocol & packagedElement+=RTMessageSet*)
+	public ProtocolContainerElements getProtocolContainerAccess() {
+		return pProtocolContainer;
 	}
 	
-	public ParserRule getInterfaceRule() {
-		return getInterfaceAccess().getRule();
+	public ParserRule getProtocolContainerRule() {
+		return getProtocolContainerAccess().getRule();
 	}
 	
-	/// ** Collaboration ** / Collaboration uml::Collaboration:
-	//	Protocol | 'collaboration' {uml::Collaboration} name=ID
+	/// ** UML::Interface ** / Collaboration uml::Collaboration:
+	//	Protocol
 	public CollaborationElements getCollaborationAccess() {
 		return pCollaboration;
 	}
@@ -1627,94 +319,7 @@ public class UmlRtTextGrammarAccess extends AbstractGrammarElementFinder {
 		return getCollaborationAccess().getRule();
 	}
 	
-	/// ******************** STATE MACHINE - UML *************************** / StateMachine uml::StateMachine:
-	//	RTStateMachine | 'state_machine' {uml::StateMachine} name=ID
-	public StateMachineElements getStateMachineAccess() {
-		return pStateMachine;
-	}
-	
-	public ParserRule getStateMachineRule() {
-		return getStateMachineAccess().getRule();
-	}
-	
-	//Region uml::Region:
-	//	RTRegion | 'region' {uml::Region} name=ID
-	public RegionElements getRegionAccess() {
-		return pRegion;
-	}
-	
-	public ParserRule getRegionRule() {
-		return getRegionAccess().getRule();
-	}
-	
-	//State uml::State:
-	//	RTState | 'state' {uml::State} name=ID
-	public StateElements getStateAccess() {
-		return pState;
-	}
-	
-	public ParserRule getStateRule() {
-		return getStateAccess().getRule();
-	}
-	
-	//Pseudostate uml::Pseudostate:
-	//	RTPseudostate | 'pseudostate' {uml::Pseudostate} name=ID
-	public PseudostateElements getPseudostateAccess() {
-		return pPseudostate;
-	}
-	
-	public ParserRule getPseudostateRule() {
-		return getPseudostateAccess().getRule();
-	}
-	
-	//Operation uml::Operation:
-	//	RTTrigger | 'operation' {uml::Operation} name=ID
-	public OperationElements getOperationAccess() {
-		return pOperation;
-	}
-	
-	public ParserRule getOperationRule() {
-		return getOperationAccess().getRule();
-	}
-	
-	//Constraint uml::Constraint:
-	//	RTGuard | 'constraint' {uml::Constraint} name=ID
-	public ConstraintElements getConstraintAccess() {
-		return pConstraint;
-	}
-	
-	public ParserRule getConstraintRule() {
-		return getConstraintAccess().getRule();
-	}
-	
-	/// *************************** CORE - UMLRT ****************************** / / ** Capsule ** / Capsule umlrt::Capsule:
-	//	'capsule' {umlrt::Capsule} name=ID ('{'
-	//	ownedBehavior+=StateMachine*
-	//	'}')?
-	public CapsuleElements getCapsuleAccess() {
-		return pCapsule;
-	}
-	
-	public ParserRule getCapsuleRule() {
-		return getCapsuleAccess().getRule();
-	}
-	
-	/// ** CapsulePart ** / CapsulePart umlrt::CapsulePart:
-	//	'capsule_part' {umlrt::CapsulePart} name=ID
-	//	'is_notification' isNotification=UML_BOOLEAN
-	//	'is_publish' isPublish=UML_BOOLEAN
-	//	'is_wired' isWired=UML_BOOLEAN
-	//	'registration' registration=PortRegistrationType
-	//	'registration_override' registrationOverride=UML_STRING
-	public CapsulePartElements getCapsulePartAccess() {
-		return pCapsulePart;
-	}
-	
-	public ParserRule getCapsulePartRule() {
-		return getCapsulePartAccess().getRule();
-	}
-	
-	/// ** Protocol ** / Protocol umlrt::Protocol:
+	/// ** UML-RT::Protocol ** / Protocol umlrt::Protocol:
 	//	'protocol' {umlrt::Protocol} name=ID
 	public ProtocolElements getProtocolAccess() {
 		return pProtocol;
@@ -1724,172 +329,24 @@ public class UmlRtTextGrammarAccess extends AbstractGrammarElementFinder {
 		return getProtocolAccess().getRule();
 	}
 	
-	/// ** RTPort ** / RTPort umlrt::RTPort:
-	//	'rt_port' {umlrt::RTPort} name=ID
-	public RTPortElements getRTPortAccess() {
-		return pRTPort;
+	/// ** UML::Interface ** / Interface uml::Interface:
+	//	RTMessageSet
+	public InterfaceElements getInterfaceAccess() {
+		return pInterface;
 	}
 	
-	public ParserRule getRTPortRule() {
-		return getRTPortAccess().getRule();
+	public ParserRule getInterfaceRule() {
+		return getInterfaceAccess().getRule();
 	}
 	
-	/// ** RTConnector ** / RTConnector umlrt::RTConnector:
-	//	'rt_connector' {umlrt::RTConnector} name=ID
-	public RTConnectorElements getRTConnectorAccess() {
-		return pRTConnector;
-	}
-	
-	public ParserRule getRTConnectorRule() {
-		return getRTConnectorAccess().getRule();
-	}
-	
-	/// ** ProtocolContainer ** / ProtocolContainer umlrt::ProtocolContainer:
-	//	'protocol_container' {umlrt::ProtocolContainer} name=ID '{'
-	//	packagedElement+=(Protocol | RTMessageSet)*
-	//	'}'
-	public ProtocolContainerElements getProtocolContainerAccess() {
-		return pProtocolContainer;
-	}
-	
-	public ParserRule getProtocolContainerRule() {
-		return getProtocolContainerAccess().getRule();
-	}
-	
-	/// ** RTRedefinedElement ** / RTRedefinedElement umlrt::RTRedefinedElement:
-	//	'rt_redefined_element' {umlrt::RTRedefinedElement} name=ID ('root_fragment' rootFragment=RedefinableElement)?
-	public RTRedefinedElementElements getRTRedefinedElementAccess() {
-		return pRTRedefinedElement;
-	}
-	
-	public ParserRule getRTRedefinedElementRule() {
-		return getRTRedefinedElementAccess().getRule();
-	}
-	
-	/// ** RTMessageSet (in, out, inout) ** / RTMessageSet umlrt::RTMessageSet:
-	//	{umlrt::RTMessageSet} rtMsgKind=RTMessageKind 'rt_message_set' name=ID
+	/// ** UML-RT::RTMessageSet ** / RTMessageSet umlrt::RTMessageSet:
+	//	'interface' {umlrt::RTMessageSet} name=ID
 	public RTMessageSetElements getRTMessageSetAccess() {
 		return pRTMessageSet;
 	}
 	
 	public ParserRule getRTMessageSetRule() {
 		return getRTMessageSetAccess().getRule();
-	}
-	
-	/// ******************** STATE MACHINE - UMLRT ************************* / RTStateMachine umlrt::RTStateMachine:
-	//	{umlrt::RTStateMachine} visibility=VisibilityKind? 'rt_state_machine' name=ID ('is_passive' isPassive=UML_BOOLEAN)?
-	//	region+=Region+
-	public RTStateMachineElements getRTStateMachineAccess() {
-		return pRTStateMachine;
-	}
-	
-	public ParserRule getRTStateMachineRule() {
-		return getRTStateMachineAccess().getRule();
-	}
-	
-	//RTRegion umlrt::RTRegion:
-	//	{umlrt::RTRegion} visibility=VisibilityKind? 'rt_region' name=ID
-	//	subvertex+=(RTState | RTPseudostate)*
-	public RTRegionElements getRTRegionAccess() {
-		return pRTRegion;
-	}
-	
-	public ParserRule getRTRegionRule() {
-		return getRTRegionAccess().getRule();
-	}
-	
-	//RTState umlrt::RTState:
-	//	{umlrt::RTState} visibility=VisibilityKind? 'rt_state' name=ID
-	public RTStateElements getRTStateAccess() {
-		return pRTState;
-	}
-	
-	public ParserRule getRTStateRule() {
-		return getRTStateAccess().getRule();
-	}
-	
-	//RTPseudostate umlrt::RTPseudostate:
-	//	{umlrt::RTPseudostate} (kind=PseudostateKind & visibility=VisibilityKind?) 'rt_pseudostate' name=ID
-	public RTPseudostateElements getRTPseudostateAccess() {
-		return pRTPseudostate;
-	}
-	
-	public ParserRule getRTPseudostateRule() {
-		return getRTPseudostateAccess().getRule();
-	}
-	
-	//RTTrigger umlrt::RTTrigger:
-	//	'rt_trigger' {umlrt::RTTrigger} name=ID
-	public RTTriggerElements getRTTriggerAccess() {
-		return pRTTrigger;
-	}
-	
-	public ParserRule getRTTriggerRule() {
-		return getRTTriggerAccess().getRule();
-	}
-	
-	//RTGuard umlrt::RTGuard:
-	//	'rt_guard' {umlrt::RTGuard} name=ID
-	public RTGuardElements getRTGuardAccess() {
-		return pRTGuard;
-	}
-	
-	public ParserRule getRTGuardRule() {
-		return getRTGuardAccess().getRule();
-	}
-	
-	//terminal UML_BOOLEAN returns types::Boolean:
-	//	'true' | 'false';
-	public TerminalRule getUML_BOOLEANRule() {
-		return tUML_BOOLEAN;
-	}
-	
-	//terminal UML_STRING returns types::String:
-	//	'"' ('\\' . | !('\\' | '"'))* '"' |
-	//	"'" ('\\' . | !('\\' | "'"))* "'";
-	public TerminalRule getUML_STRINGRule() {
-		return tUML_STRING;
-	}
-	
-	//enum PortRegistrationType returns umlrt::PortRegistrationType:
-	//	automatic | application | automaticLocked;
-	public PortRegistrationTypeElements getPortRegistrationTypeAccess() {
-		return ePortRegistrationType;
-	}
-	
-	public EnumRule getPortRegistrationTypeRule() {
-		return getPortRegistrationTypeAccess().getRule();
-	}
-	
-	//enum RTMessageKind returns umlrt::RTMessageKind:
-	//	in | out | inOut;
-	public RTMessageKindElements getRTMessageKindAccess() {
-		return eRTMessageKind;
-	}
-	
-	public EnumRule getRTMessageKindRule() {
-		return getRTMessageKindAccess().getRule();
-	}
-	
-	//enum VisibilityKind returns uml::VisibilityKind:
-	//	public | private | protected | package;
-	public VisibilityKindElements getVisibilityKindAccess() {
-		return eVisibilityKind;
-	}
-	
-	public EnumRule getVisibilityKindRule() {
-		return getVisibilityKindAccess().getRule();
-	}
-	
-	//enum PseudostateKind returns uml::PseudostateKind:
-	//	initial | deepHistory | shallowHistory | join | fork |
-	//	junction | choice | entryPoint | exitPoint | terminate;
-	public PseudostateKindElements getPseudostateKindAccess() {
-		return ePseudostateKind;
-	}
-	
-	public EnumRule getPseudostateKindRule() {
-		return getPseudostateKindAccess().getRule();
 	}
 	
 	//terminal ID:

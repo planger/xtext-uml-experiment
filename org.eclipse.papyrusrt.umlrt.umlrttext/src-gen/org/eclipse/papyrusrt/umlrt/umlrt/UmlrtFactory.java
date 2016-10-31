@@ -24,22 +24,13 @@ public interface UmlrtFactory extends EFactory
   UmlrtFactory eINSTANCE = org.eclipse.papyrusrt.umlrt.umlrt.impl.UmlrtFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Capsule</em>'.
+   * Returns a new object of class '<em>Protocol Container</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Capsule</em>'.
+   * @return a new object of class '<em>Protocol Container</em>'.
    * @generated
    */
-  Capsule createCapsule();
-
-  /**
-   * Returns a new object of class '<em>Capsule Part</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Capsule Part</em>'.
-   * @generated
-   */
-  CapsulePart createCapsulePart();
+  ProtocolContainer createProtocolContainer();
 
   /**
    * Returns a new object of class '<em>Protocol</em>'.
@@ -51,42 +42,6 @@ public interface UmlrtFactory extends EFactory
   Protocol createProtocol();
 
   /**
-   * Returns a new object of class '<em>RT Port</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>RT Port</em>'.
-   * @generated
-   */
-  RTPort createRTPort();
-
-  /**
-   * Returns a new object of class '<em>RT Connector</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>RT Connector</em>'.
-   * @generated
-   */
-  RTConnector createRTConnector();
-
-  /**
-   * Returns a new object of class '<em>Protocol Container</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Protocol Container</em>'.
-   * @generated
-   */
-  ProtocolContainer createProtocolContainer();
-
-  /**
-   * Returns a new object of class '<em>RT Redefined Element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>RT Redefined Element</em>'.
-   * @generated
-   */
-  RTRedefinedElement createRTRedefinedElement();
-
-  /**
    * Returns a new object of class '<em>RT Message Set</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -94,60 +49,6 @@ public interface UmlrtFactory extends EFactory
    * @generated
    */
   RTMessageSet createRTMessageSet();
-
-  /**
-   * Returns a new object of class '<em>RT State Machine</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>RT State Machine</em>'.
-   * @generated
-   */
-  RTStateMachine createRTStateMachine();
-
-  /**
-   * Returns a new object of class '<em>RT Region</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>RT Region</em>'.
-   * @generated
-   */
-  RTRegion createRTRegion();
-
-  /**
-   * Returns a new object of class '<em>RT State</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>RT State</em>'.
-   * @generated
-   */
-  RTState createRTState();
-
-  /**
-   * Returns a new object of class '<em>RT Pseudostate</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>RT Pseudostate</em>'.
-   * @generated
-   */
-  RTPseudostate createRTPseudostate();
-
-  /**
-   * Returns a new object of class '<em>RT Trigger</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>RT Trigger</em>'.
-   * @generated
-   */
-  RTTrigger createRTTrigger();
-
-  /**
-   * Returns a new object of class '<em>RT Guard</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>RT Guard</em>'.
-   * @generated
-   */
-  RTGuard createRTGuard();
 
   /**
    * Returns the package supported by this factory.

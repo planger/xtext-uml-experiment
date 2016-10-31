@@ -3,8 +3,6 @@
  */
 package org.eclipse.papyrusrt.umlrt.validation
 
-import org.eclipse.papyrusrt.umlrt.umlrt.ProtocolContainer
-import org.eclipse.xtext.validation.Check
 
 /**
  * This class contains custom validation rules. 
@@ -12,7 +10,6 @@ import org.eclipse.xtext.validation.Check
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class UmlRtTextValidator extends AbstractUmlRtTextValidator {
-	
 	
 //	public static val INVALID_NAME = 'invalidName'
 //

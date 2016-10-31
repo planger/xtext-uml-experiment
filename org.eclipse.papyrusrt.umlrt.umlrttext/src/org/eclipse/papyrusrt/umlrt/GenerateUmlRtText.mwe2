@@ -12,57 +12,60 @@ var runtimeProject = "../${projectName}"
 
 Workflow {
 
-	bean = StandaloneSetup {
-		scanClassPath = true
-		platformUri = "${runtimeProject}/.."
-		uriMap = {
-			from = "platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.genmodel"
-			to = "platform:/resource/org.eclipse.emf.codegen.ecore/model/GenModel.genmodel"
-		}
-		uriMap = {
-			from = "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel"
-			to = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
-		}
-		uriMap = {
-			from = "platform:/plugin/org.eclipse.uml2.codegen.ecore/model/GenModel.genmodel"
-			to = "platform:/resource/org.eclipse.uml2.codegen.ecore/model/GenModel.genmodel"
-		}
-		uriMap = {
-			from = "platform:/plugin/org.eclipse.uml2.uml/model/UML.genmodel"
-			to = "platform:/resource/org.eclipse.uml2.uml/model/UML.genmodel"
-		}
-		uriMap = {
-			from = "platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.ecore"
-			to = "platform:/resource/org.eclipse.emf.codegen.ecore/model/GenModel.ecore"
-		}
-		uriMap = {
-			from = "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore"
-			to = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore"
-		}
-		uriMap = {
-			from = "platform:/plugin/org.eclipse.uml2.codegen.ecore/model/GenModel.ecore"
-			to = "platform:/resource/org.eclipse.uml2.codegen.ecore/model/GenModel.ecore"
-		}
-		uriMap = {
-			from = "platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore"
-			to = "platform:/resource/org.eclipse.uml2.uml/model/UML.ecore"
-		}
-		uriMap = {
-			from = "platform:/plugin/org.eclipse.uml2.types/model/Types.ecore"
-			to = "platform:/resource/org.eclipse.uml2.types/model/Types.ecore"
-		}
-		//
-		registerGeneratedEPackage = "org.eclipse.emf.ecore.EcorePackage"
-		registerGeneratedEPackage = "org.eclipse.uml2.uml.UMLPackage"
-		registerGeneratedEPackage = "org.eclipse.uml2.types.TypesPackage"
-		registerGeneratedEPackage = "org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage"
-		registerGeneratedEPackage = "org.eclipse.uml2.codegen.ecore.genmodel.GenModelPackage"
-		registerGenModelFile = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
-		registerGenModelFile = "platform:/resource/org.eclipse.emf.codegen.ecore/model/GenModel.genmodel"
-		registerGenModelFile = "platform:/resource/org.eclipse.uml2.uml/model/UML.genmodel"
-		registerGenModelFile = "platform:/resource/org.eclipse.uml2.codegen.ecore/model/GenModel.genmodel"
-		registerGenModelFile = "platform:/resource/org.eclipse.uml2.types/model/Types.genmodel"
-	}
+	bean = org.eclipse.emf.mwe.utils.StandaloneSetup {
+        platformUri = rootPath
+        scanClassPath = true
+        uriMap = {
+            from = "platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.genmodel"
+            to = "platform:/resource/org.eclipse.emf.codegen.ecore/model/GenModel.genmodel"
+        }
+        uriMap = {
+            from = "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel"
+            to = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
+        }
+        uriMap = {
+            from = "platform:/plugin/org.eclipse.uml2.codegen.ecore/model/GenModel.genmodel"
+            to = "platform:/resource/org.eclipse.uml2.codegen.ecore/model/GenModel.genmodel"
+        }
+        uriMap = {
+            from = "platform:/plugin/org.eclipse.uml2.uml/model/UML.genmodel"
+            to = "platform:/resource/org.eclipse.uml2.uml/model/UML.genmodel"
+        }
+        uriMap = {
+            from = "platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.ecore"
+            to = "platform:/resource/org.eclipse.emf.codegen.ecore/model/GenModel.ecore"
+        }
+        uriMap = {
+            from = "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore"
+            to = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore"
+        }
+        uriMap = {
+            from = "platform:/plugin/org.eclipse.uml2.codegen.ecore/model/GenModel.ecore"
+            to = "platform:/resource/org.eclipse.uml2.codegen.ecore/model/GenModel.ecore"
+        }
+        uriMap = {
+            from = "platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore"
+            to = "platform:/resource/org.eclipse.uml2.uml/model/UML.ecore"
+        }
+        uriMap = {
+            from = "platform:/plugin/org.eclipse.uml2.types/model/Types.genmodel"
+            to = "platform:/resource/org.eclipse.uml2.types/model/Types.genmodel"
+        }
+        uriMap = {
+            from = "platform:/plugin/org.eclipse.uml2.types/model/Types.ecore"
+            to = "platform:/resource/org.eclipse.uml2.types/model/Types.ecore"
+        }
+        registerGeneratedEPackage = "org.eclipse.emf.codegen.ecore.genmodel.GenModelPackage"
+        registerGeneratedEPackage = "org.eclipse.emf.ecore.EcorePackage"
+        registerGeneratedEPackage = "org.eclipse.uml2.types.TypesPackage"
+        registerGeneratedEPackage = "org.eclipse.uml2.codegen.ecore.genmodel.GenModelPackage"
+        registerGeneratedEPackage = "org.eclipse.uml2.uml.UMLPackage"
+        registerGenModelFile = "platform:/resource/org.eclipse.emf.codegen.ecore/model/GenModel.genmodel"
+        registerGenModelFile = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
+        registerGenModelFile = "platform:/resource/org.eclipse.uml2.types/model/Types.genmodel"
+        registerGenModelFile = "platform:/resource/org.eclipse.uml2.codegen.ecore/model/GenModel.genmodel"
+        registerGenModelFile = "platform:/resource/org.eclipse.uml2.uml/model/UML.genmodel"
+    }
 
 	component = XtextGenerator {
 		configuration = {
@@ -97,10 +100,12 @@ Workflow {
 
 			serializer = {
 				generateStub = false
+				
 			}
 			validator = {
 			// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
 			}
+			
 		}
 	}
 }

@@ -10,12 +10,6 @@ import org.eclipse.uml2.uml.Interface;
  * A representation of the model object '<em><b>RT Message Set</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link org.eclipse.papyrusrt.umlrt.umlrt.RTMessageSet#getRtMsgKind <em>Rt Msg Kind</em>}</li>
- * </ul>
  *
  * @see org.eclipse.papyrusrt.umlrt.umlrt.UmlrtPackage#getRTMessageSet()
  * @model
@@ -23,33 +17,4 @@ import org.eclipse.uml2.uml.Interface;
  */
 public interface RTMessageSet extends Interface
 {
-  /**
-   * Returns the value of the '<em><b>Rt Msg Kind</b></em>' attribute.
-   * The literals are from the enumeration {@link org.eclipse.papyrusrt.umlrt.umlrt.RTMessageKind}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Rt Msg Kind</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Rt Msg Kind</em>' attribute.
-   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTMessageKind
-   * @see #setRtMsgKind(RTMessageKind)
-   * @see org.eclipse.papyrusrt.umlrt.umlrt.UmlrtPackage#getRTMessageSet_RtMsgKind()
-   * @model
-   * @generated
-   */
-  RTMessageKind getRtMsgKind();
-
-  /**
-   * Sets the value of the '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTMessageSet#getRtMsgKind <em>Rt Msg Kind</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Rt Msg Kind</em>' attribute.
-   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTMessageKind
-   * @see #getRtMsgKind()
-   * @generated
-   */
-  void setRtMsgKind(RTMessageKind value);
-
 } // RTMessageSet

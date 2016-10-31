@@ -15,7 +15,5 @@ import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 class UmlRtTextOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	override createChildren(IOutlineNode parent, EObject modelElement){
 		super.createChildren(parent, modelElement);
-		/** TODO **/
-		println(modelElement.toString);
 	} 
 }

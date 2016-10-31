@@ -30,8 +30,8 @@ public class UmlRtTextStandaloneSetupGenerated implements ISetup {
 	}
 	
 	public void register(Injector injector) {
-		if (!EPackage.Registry.INSTANCE.containsKey("http://www.eclipse.org/papyrus/umlrt")) {
-			EPackage.Registry.INSTANCE.put("http://www.eclipse.org/papyrus/umlrt", UmlrtPackage.eINSTANCE);
+		if (!EPackage.Registry.INSTANCE.containsKey("http://www.eclipse.org/papyrus/umlrt-test")) {
+			EPackage.Registry.INSTANCE.put("http://www.eclipse.org/papyrus/umlrt-test", UmlrtPackage.eINSTANCE);
 		}
 		IResourceFactory resourceFactory = injector.getInstance(IResourceFactory.class);
 		IResourceServiceProvider serviceProvider = injector.getInstance(IResourceServiceProvider.class);

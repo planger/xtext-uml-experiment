@@ -4,7 +4,6 @@
 package org.eclipse.papyrusrt.umlrt.umlrt.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -66,116 +65,12 @@ public class UmlrtFactoryImpl extends EFactoryImpl implements UmlrtFactory
   {
     switch (eClass.getClassifierID())
     {
-      case UmlrtPackage.CAPSULE: return createCapsule();
-      case UmlrtPackage.CAPSULE_PART: return createCapsulePart();
-      case UmlrtPackage.PROTOCOL: return createProtocol();
-      case UmlrtPackage.RT_PORT: return createRTPort();
-      case UmlrtPackage.RT_CONNECTOR: return createRTConnector();
       case UmlrtPackage.PROTOCOL_CONTAINER: return createProtocolContainer();
-      case UmlrtPackage.RT_REDEFINED_ELEMENT: return createRTRedefinedElement();
+      case UmlrtPackage.PROTOCOL: return createProtocol();
       case UmlrtPackage.RT_MESSAGE_SET: return createRTMessageSet();
-      case UmlrtPackage.RT_STATE_MACHINE: return createRTStateMachine();
-      case UmlrtPackage.RT_REGION: return createRTRegion();
-      case UmlrtPackage.RT_STATE: return createRTState();
-      case UmlrtPackage.RT_PSEUDOSTATE: return createRTPseudostate();
-      case UmlrtPackage.RT_TRIGGER: return createRTTrigger();
-      case UmlrtPackage.RT_GUARD: return createRTGuard();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object createFromString(EDataType eDataType, String initialValue)
-  {
-    switch (eDataType.getClassifierID())
-    {
-      case UmlrtPackage.PORT_REGISTRATION_TYPE:
-        return createPortRegistrationTypeFromString(eDataType, initialValue);
-      case UmlrtPackage.RT_MESSAGE_KIND:
-        return createRTMessageKindFromString(eDataType, initialValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-    }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String convertToString(EDataType eDataType, Object instanceValue)
-  {
-    switch (eDataType.getClassifierID())
-    {
-      case UmlrtPackage.PORT_REGISTRATION_TYPE:
-        return convertPortRegistrationTypeToString(eDataType, instanceValue);
-      case UmlrtPackage.RT_MESSAGE_KIND:
-        return convertRTMessageKindToString(eDataType, instanceValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-    }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Capsule createCapsule()
-  {
-    CapsuleImpl capsule = new CapsuleImpl();
-    return capsule;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public CapsulePart createCapsulePart()
-  {
-    CapsulePartImpl capsulePart = new CapsulePartImpl();
-    return capsulePart;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Protocol createProtocol()
-  {
-    ProtocolImpl protocol = new ProtocolImpl();
-    return protocol;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RTPort createRTPort()
-  {
-    RTPortImpl rtPort = new RTPortImpl();
-    return rtPort;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RTConnector createRTConnector()
-  {
-    RTConnectorImpl rtConnector = new RTConnectorImpl();
-    return rtConnector;
   }
 
   /**
@@ -194,10 +89,10 @@ public class UmlrtFactoryImpl extends EFactoryImpl implements UmlrtFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public RTRedefinedElement createRTRedefinedElement()
+  public Protocol createProtocol()
   {
-    RTRedefinedElementImpl rtRedefinedElement = new RTRedefinedElementImpl();
-    return rtRedefinedElement;
+    ProtocolImpl protocol = new ProtocolImpl();
+    return protocol;
   }
 
   /**
@@ -209,116 +104,6 @@ public class UmlrtFactoryImpl extends EFactoryImpl implements UmlrtFactory
   {
     RTMessageSetImpl rtMessageSet = new RTMessageSetImpl();
     return rtMessageSet;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RTStateMachine createRTStateMachine()
-  {
-    RTStateMachineImpl rtStateMachine = new RTStateMachineImpl();
-    return rtStateMachine;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RTRegion createRTRegion()
-  {
-    RTRegionImpl rtRegion = new RTRegionImpl();
-    return rtRegion;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RTState createRTState()
-  {
-    RTStateImpl rtState = new RTStateImpl();
-    return rtState;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RTPseudostate createRTPseudostate()
-  {
-    RTPseudostateImpl rtPseudostate = new RTPseudostateImpl();
-    return rtPseudostate;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RTTrigger createRTTrigger()
-  {
-    RTTriggerImpl rtTrigger = new RTTriggerImpl();
-    return rtTrigger;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RTGuard createRTGuard()
-  {
-    RTGuardImpl rtGuard = new RTGuardImpl();
-    return rtGuard;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PortRegistrationType createPortRegistrationTypeFromString(EDataType eDataType, String initialValue)
-  {
-    PortRegistrationType result = PortRegistrationType.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertPortRegistrationTypeToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RTMessageKind createRTMessageKindFromString(EDataType eDataType, String initialValue)
-  {
-    RTMessageKind result = RTMessageKind.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertRTMessageKindToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

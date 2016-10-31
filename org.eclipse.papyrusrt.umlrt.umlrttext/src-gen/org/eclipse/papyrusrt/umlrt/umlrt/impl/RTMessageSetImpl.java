@@ -3,13 +3,8 @@
  */
 package org.eclipse.papyrusrt.umlrt.umlrt.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.papyrusrt.umlrt.umlrt.RTMessageKind;
 import org.eclipse.papyrusrt.umlrt.umlrt.RTMessageSet;
 import org.eclipse.papyrusrt.umlrt.umlrt.UmlrtPackage;
 
@@ -19,37 +14,11 @@ import org.eclipse.uml2.uml.internal.impl.InterfaceImpl;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>RT Message Set</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link org.eclipse.papyrusrt.umlrt.umlrt.impl.RTMessageSetImpl#getRtMsgKind <em>Rt Msg Kind</em>}</li>
- * </ul>
  *
  * @generated
  */
 public class RTMessageSetImpl extends InterfaceImpl implements RTMessageSet
 {
-  /**
-   * The default value of the '{@link #getRtMsgKind() <em>Rt Msg Kind</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRtMsgKind()
-   * @generated
-   * @ordered
-   */
-  protected static final RTMessageKind RT_MSG_KIND_EDEFAULT = RTMessageKind.IN;
-
-  /**
-   * The cached value of the '{@link #getRtMsgKind() <em>Rt Msg Kind</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRtMsgKind()
-   * @generated
-   * @ordered
-   */
-  protected RTMessageKind rtMsgKind = RT_MSG_KIND_EDEFAULT;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -69,112 +38,6 @@ public class RTMessageSetImpl extends InterfaceImpl implements RTMessageSet
   protected EClass eStaticClass()
   {
     return UmlrtPackage.Literals.RT_MESSAGE_SET;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RTMessageKind getRtMsgKind()
-  {
-    return rtMsgKind;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRtMsgKind(RTMessageKind newRtMsgKind)
-  {
-    RTMessageKind oldRtMsgKind = rtMsgKind;
-    rtMsgKind = newRtMsgKind == null ? RT_MSG_KIND_EDEFAULT : newRtMsgKind;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UmlrtPackage.RT_MESSAGE_SET__RT_MSG_KIND, oldRtMsgKind, rtMsgKind));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case UmlrtPackage.RT_MESSAGE_SET__RT_MSG_KIND:
-        return getRtMsgKind();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case UmlrtPackage.RT_MESSAGE_SET__RT_MSG_KIND:
-        setRtMsgKind((RTMessageKind)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case UmlrtPackage.RT_MESSAGE_SET__RT_MSG_KIND:
-        setRtMsgKind(RT_MSG_KIND_EDEFAULT);
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case UmlrtPackage.RT_MESSAGE_SET__RT_MSG_KIND:
-        return rtMsgKind != RT_MSG_KIND_EDEFAULT;
-    }
-    return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (rtMsgKind: ");
-    result.append(rtMsgKind);
-    result.append(')');
-    return result.toString();
   }
 
 } //RTMessageSetImpl

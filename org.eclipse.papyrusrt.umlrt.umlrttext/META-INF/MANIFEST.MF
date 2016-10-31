@@ -31,4 +31,5 @@ Export-Package: org.eclipse.papyrusrt.umlrt,
  org.eclipse.papyrusrt.umlrt.umlrt.impl,
  org.eclipse.papyrusrt.umlrt.umlrt.util,
  org.eclipse.papyrusrt.umlrt.validation
-Import-Package: org.apache.log4j
+Import-Package: org.apache.log4j,
+ org.eclipse.papyrusrt.umlrt.profile.UMLRealTime

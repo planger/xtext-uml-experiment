@@ -13,38 +13,19 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.papyrusrt.umlrt.umlrt.*;
 
-import org.eclipse.uml2.uml.Behavior;
-import org.eclipse.uml2.uml.BehavioralFeature;
 import org.eclipse.uml2.uml.BehavioredClassifier;
 import org.eclipse.uml2.uml.Classifier;
 import org.eclipse.uml2.uml.Collaboration;
-import org.eclipse.uml2.uml.ConnectableElement;
-import org.eclipse.uml2.uml.Connector;
-import org.eclipse.uml2.uml.Constraint;
-import org.eclipse.uml2.uml.DeploymentTarget;
 import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.EncapsulatedClassifier;
-import org.eclipse.uml2.uml.Feature;
 import org.eclipse.uml2.uml.Interface;
-import org.eclipse.uml2.uml.MultiplicityElement;
 import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Namespace;
-import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.ParameterableElement;
-import org.eclipse.uml2.uml.Port;
-import org.eclipse.uml2.uml.Property;
-import org.eclipse.uml2.uml.Pseudostate;
 import org.eclipse.uml2.uml.RedefinableElement;
-import org.eclipse.uml2.uml.Region;
-import org.eclipse.uml2.uml.State;
-import org.eclipse.uml2.uml.StateMachine;
-import org.eclipse.uml2.uml.StructuralFeature;
 import org.eclipse.uml2.uml.StructuredClassifier;
 import org.eclipse.uml2.uml.TemplateableElement;
 import org.eclipse.uml2.uml.Type;
-import org.eclipse.uml2.uml.TypedElement;
-import org.eclipse.uml2.uml.Vertex;
 
 /**
  * <!-- begin-user-doc -->
@@ -110,14 +91,9 @@ public class UmlrtAdapterFactory extends AdapterFactoryImpl
     new UmlrtSwitch<Adapter>()
     {
       @Override
-      public Adapter caseCapsule(Capsule object)
+      public Adapter caseProtocolContainer(ProtocolContainer object)
       {
-        return createCapsuleAdapter();
-      }
-      @Override
-      public Adapter caseCapsulePart(CapsulePart object)
-      {
-        return createCapsulePartAdapter();
+        return createProtocolContainerAdapter();
       }
       @Override
       public Adapter caseProtocol(Protocol object)
@@ -125,59 +101,9 @@ public class UmlrtAdapterFactory extends AdapterFactoryImpl
         return createProtocolAdapter();
       }
       @Override
-      public Adapter caseRTPort(RTPort object)
-      {
-        return createRTPortAdapter();
-      }
-      @Override
-      public Adapter caseRTConnector(RTConnector object)
-      {
-        return createRTConnectorAdapter();
-      }
-      @Override
-      public Adapter caseProtocolContainer(ProtocolContainer object)
-      {
-        return createProtocolContainerAdapter();
-      }
-      @Override
-      public Adapter caseRTRedefinedElement(RTRedefinedElement object)
-      {
-        return createRTRedefinedElementAdapter();
-      }
-      @Override
       public Adapter caseRTMessageSet(RTMessageSet object)
       {
         return createRTMessageSetAdapter();
-      }
-      @Override
-      public Adapter caseRTStateMachine(RTStateMachine object)
-      {
-        return createRTStateMachineAdapter();
-      }
-      @Override
-      public Adapter caseRTRegion(RTRegion object)
-      {
-        return createRTRegionAdapter();
-      }
-      @Override
-      public Adapter caseRTState(RTState object)
-      {
-        return createRTStateAdapter();
-      }
-      @Override
-      public Adapter caseRTPseudostate(RTPseudostate object)
-      {
-        return createRTPseudostateAdapter();
-      }
-      @Override
-      public Adapter caseRTTrigger(RTTrigger object)
-      {
-        return createRTTriggerAdapter();
-      }
-      @Override
-      public Adapter caseRTGuard(RTGuard object)
-      {
-        return createRTGuardAdapter();
       }
       @Override
       public Adapter caseEModelElement(EModelElement object)
@@ -200,11 +126,6 @@ public class UmlrtAdapterFactory extends AdapterFactoryImpl
         return createNamespaceAdapter();
       }
       @Override
-      public Adapter caseRedefinableElement(RedefinableElement object)
-      {
-        return createRedefinableElementAdapter();
-      }
-      @Override
       public Adapter caseParameterableElement(ParameterableElement object)
       {
         return createParameterableElementAdapter();
@@ -215,14 +136,24 @@ public class UmlrtAdapterFactory extends AdapterFactoryImpl
         return createPackageableElementAdapter();
       }
       @Override
-      public Adapter caseType(Type object)
-      {
-        return createTypeAdapter();
-      }
-      @Override
       public Adapter caseTemplateableElement(TemplateableElement object)
       {
         return createTemplateableElementAdapter();
+      }
+      @Override
+      public Adapter casePackage(org.eclipse.uml2.uml.Package object)
+      {
+        return createPackageAdapter();
+      }
+      @Override
+      public Adapter caseRedefinableElement(RedefinableElement object)
+      {
+        return createRedefinableElementAdapter();
+      }
+      @Override
+      public Adapter caseType(Type object)
+      {
+        return createTypeAdapter();
       }
       @Override
       public Adapter caseClassifier(Classifier object)
@@ -235,54 +166,9 @@ public class UmlrtAdapterFactory extends AdapterFactoryImpl
         return createStructuredClassifierAdapter();
       }
       @Override
-      public Adapter caseEncapsulatedClassifier(EncapsulatedClassifier object)
-      {
-        return createEncapsulatedClassifierAdapter();
-      }
-      @Override
       public Adapter caseBehavioredClassifier(BehavioredClassifier object)
       {
         return createBehavioredClassifierAdapter();
-      }
-      @Override
-      public Adapter caseClass(org.eclipse.uml2.uml.Class object)
-      {
-        return createClassAdapter();
-      }
-      @Override
-      public Adapter caseFeature(Feature object)
-      {
-        return createFeatureAdapter();
-      }
-      @Override
-      public Adapter caseTypedElement(TypedElement object)
-      {
-        return createTypedElementAdapter();
-      }
-      @Override
-      public Adapter caseMultiplicityElement(MultiplicityElement object)
-      {
-        return createMultiplicityElementAdapter();
-      }
-      @Override
-      public Adapter caseStructuralFeature(StructuralFeature object)
-      {
-        return createStructuralFeatureAdapter();
-      }
-      @Override
-      public Adapter caseConnectableElement(ConnectableElement object)
-      {
-        return createConnectableElementAdapter();
-      }
-      @Override
-      public Adapter caseDeploymentTarget(DeploymentTarget object)
-      {
-        return createDeploymentTargetAdapter();
-      }
-      @Override
-      public Adapter caseProperty(Property object)
-      {
-        return createPropertyAdapter();
       }
       @Override
       public Adapter caseCollaboration(Collaboration object)
@@ -290,69 +176,9 @@ public class UmlrtAdapterFactory extends AdapterFactoryImpl
         return createCollaborationAdapter();
       }
       @Override
-      public Adapter casePort(Port object)
-      {
-        return createPortAdapter();
-      }
-      @Override
-      public Adapter caseConnector(Connector object)
-      {
-        return createConnectorAdapter();
-      }
-      @Override
-      public Adapter casePackage(org.eclipse.uml2.uml.Package object)
-      {
-        return createPackageAdapter();
-      }
-      @Override
       public Adapter caseInterface(Interface object)
       {
         return createInterfaceAdapter();
-      }
-      @Override
-      public Adapter caseBehavior(Behavior object)
-      {
-        return createBehaviorAdapter();
-      }
-      @Override
-      public Adapter caseStateMachine(StateMachine object)
-      {
-        return createStateMachineAdapter();
-      }
-      @Override
-      public Adapter caseRegion(Region object)
-      {
-        return createRegionAdapter();
-      }
-      @Override
-      public Adapter caseVertex(Vertex object)
-      {
-        return createVertexAdapter();
-      }
-      @Override
-      public Adapter caseState(State object)
-      {
-        return createStateAdapter();
-      }
-      @Override
-      public Adapter casePseudostate(Pseudostate object)
-      {
-        return createPseudostateAdapter();
-      }
-      @Override
-      public Adapter caseBehavioralFeature(BehavioralFeature object)
-      {
-        return createBehavioralFeatureAdapter();
-      }
-      @Override
-      public Adapter caseOperation(Operation object)
-      {
-        return createOperationAdapter();
-      }
-      @Override
-      public Adapter caseConstraint(Constraint object)
-      {
-        return createConstraintAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -377,31 +203,16 @@ public class UmlrtAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.papyrusrt.umlrt.umlrt.Capsule <em>Capsule</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipse.papyrusrt.umlrt.umlrt.ProtocolContainer <em>Protocol Container</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipse.papyrusrt.umlrt.umlrt.Capsule
+   * @see org.eclipse.papyrusrt.umlrt.umlrt.ProtocolContainer
    * @generated
    */
-  public Adapter createCapsuleAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.papyrusrt.umlrt.umlrt.CapsulePart <em>Capsule Part</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.papyrusrt.umlrt.umlrt.CapsulePart
-   * @generated
-   */
-  public Adapter createCapsulePartAdapter()
+  public Adapter createProtocolContainerAdapter()
   {
     return null;
   }
@@ -422,66 +233,6 @@ public class UmlrtAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTPort <em>RT Port</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTPort
-   * @generated
-   */
-  public Adapter createRTPortAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTConnector <em>RT Connector</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTConnector
-   * @generated
-   */
-  public Adapter createRTConnectorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.papyrusrt.umlrt.umlrt.ProtocolContainer <em>Protocol Container</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.papyrusrt.umlrt.umlrt.ProtocolContainer
-   * @generated
-   */
-  public Adapter createProtocolContainerAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTRedefinedElement <em>RT Redefined Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTRedefinedElement
-   * @generated
-   */
-  public Adapter createRTRedefinedElementAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTMessageSet <em>RT Message Set</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -492,96 +243,6 @@ public class UmlrtAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRTMessageSetAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTStateMachine <em>RT State Machine</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTStateMachine
-   * @generated
-   */
-  public Adapter createRTStateMachineAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTRegion <em>RT Region</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTRegion
-   * @generated
-   */
-  public Adapter createRTRegionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTState <em>RT State</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTState
-   * @generated
-   */
-  public Adapter createRTStateAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTPseudostate <em>RT Pseudostate</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTPseudostate
-   * @generated
-   */
-  public Adapter createRTPseudostateAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTTrigger <em>RT Trigger</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTTrigger
-   * @generated
-   */
-  public Adapter createRTTriggerAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.papyrusrt.umlrt.umlrt.RTGuard <em>RT Guard</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.papyrusrt.umlrt.umlrt.RTGuard
-   * @generated
-   */
-  public Adapter createRTGuardAdapter()
   {
     return null;
   }
@@ -647,21 +308,6 @@ public class UmlrtAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.RedefinableElement <em>Redefinable Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.RedefinableElement
-   * @generated
-   */
-  public Adapter createRedefinableElementAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.ParameterableElement <em>Parameterable Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -692,21 +338,6 @@ public class UmlrtAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Type <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.Type
-   * @generated
-   */
-  public Adapter createTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.TemplateableElement <em>Templateable Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -717,6 +348,51 @@ public class UmlrtAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTemplateableElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Package <em>Package</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipse.uml2.uml.Package
+   * @generated
+   */
+  public Adapter createPackageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.RedefinableElement <em>Redefinable Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipse.uml2.uml.RedefinableElement
+   * @generated
+   */
+  public Adapter createRedefinableElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Type <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipse.uml2.uml.Type
+   * @generated
+   */
+  public Adapter createTypeAdapter()
   {
     return null;
   }
@@ -752,21 +428,6 @@ public class UmlrtAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.EncapsulatedClassifier <em>Encapsulated Classifier</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.EncapsulatedClassifier
-   * @generated
-   */
-  public Adapter createEncapsulatedClassifierAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.BehavioredClassifier <em>Behaviored Classifier</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -777,126 +438,6 @@ public class UmlrtAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBehavioredClassifierAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Class <em>Class</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.Class
-   * @generated
-   */
-  public Adapter createClassAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Feature <em>Feature</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.Feature
-   * @generated
-   */
-  public Adapter createFeatureAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.TypedElement <em>Typed Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.TypedElement
-   * @generated
-   */
-  public Adapter createTypedElementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.MultiplicityElement <em>Multiplicity Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.MultiplicityElement
-   * @generated
-   */
-  public Adapter createMultiplicityElementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.StructuralFeature <em>Structural Feature</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.StructuralFeature
-   * @generated
-   */
-  public Adapter createStructuralFeatureAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.ConnectableElement <em>Connectable Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.ConnectableElement
-   * @generated
-   */
-  public Adapter createConnectableElementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.DeploymentTarget <em>Deployment Target</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.DeploymentTarget
-   * @generated
-   */
-  public Adapter createDeploymentTargetAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Property <em>Property</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.Property
-   * @generated
-   */
-  public Adapter createPropertyAdapter()
   {
     return null;
   }
@@ -917,51 +458,6 @@ public class UmlrtAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Port <em>Port</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.Port
-   * @generated
-   */
-  public Adapter createPortAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Connector <em>Connector</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.Connector
-   * @generated
-   */
-  public Adapter createConnectorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Package <em>Package</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.Package
-   * @generated
-   */
-  public Adapter createPackageAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Interface <em>Interface</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -972,141 +468,6 @@ public class UmlrtAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createInterfaceAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Behavior <em>Behavior</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.Behavior
-   * @generated
-   */
-  public Adapter createBehaviorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.StateMachine <em>State Machine</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.StateMachine
-   * @generated
-   */
-  public Adapter createStateMachineAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Region <em>Region</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.Region
-   * @generated
-   */
-  public Adapter createRegionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Vertex <em>Vertex</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.Vertex
-   * @generated
-   */
-  public Adapter createVertexAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.State <em>State</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.State
-   * @generated
-   */
-  public Adapter createStateAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Pseudostate <em>Pseudostate</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.Pseudostate
-   * @generated
-   */
-  public Adapter createPseudostateAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.BehavioralFeature <em>Behavioral Feature</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.BehavioralFeature
-   * @generated
-   */
-  public Adapter createBehavioralFeatureAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Operation <em>Operation</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.Operation
-   * @generated
-   */
-  public Adapter createOperationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.uml2.uml.Constraint <em>Constraint</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.uml2.uml.Constraint
-   * @generated
-   */
-  public Adapter createConstraintAdapter()
   {
     return null;
   }
