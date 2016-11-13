@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.eclipse.papyrusrt.uml.umltext
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.eclipse.papyrusrt.uml.umltext; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.uml2.uml;bundle-version="[5.1.0,6.0.0)",
+ org.eclipse.xtext;bundle-version="[2.10.0,3.0.0)",
+ org.eclipse.xtext.xbase;bundle-version="[2.10.0,3.0.0)",
+ org.eclipse.equinox.common;bundle-version="[3.5.0,4.0.0)",
+ org.eclipse.uml2.codegen.ecore;bundle-version="[2.1.0,3.0.0)",
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.eclipse.xtext.common.types,
+ org.eclipse.uml2.types
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.apache.log4j;version="1.2.15"
+Export-Package: org.eclipse.papyrusrt.uml.umltext,
+ org.eclipse.papyrusrt.uml.umltext.parser.antlr.internal,
+ org.eclipse.papyrusrt.uml.umltext.generator,
+ org.eclipse.papyrusrt.uml.umltext.services,
+ org.eclipse.papyrusrt.uml.umltext.parser.antlr,
+ org.eclipse.papyrusrt.uml.umltext.scoping,
+ org.eclipse.papyrusrt.uml.umltext.validation,
+ org.eclipse.papyrusrt.uml.umltext.formatting,
+ org.eclipse.papyrusrt.uml.umltext.serializer

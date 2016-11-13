@@ -4,10 +4,25 @@
 package org.eclipse.papyrusrt.umlrt.ui
 
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
+import org.eclipse.xtext.ui.editor.model.XtextDocumentProvider
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
  */
 @FinalFieldsConstructor
 class UmlRtTextUiModule extends AbstractUmlRtTextUiModule {
+	
+	def Class<? extends XtextDocumentProvider> bindXtextDocumentProvider(){
+		XtextDocumentProvider
+	}
+	
+}
+
+/** The document provider can be kept here temporarily **/
+class CustomDocumentProvider extends XtextDocumentProvider {
+	
+	new(){
+		println("Hello, I am a custom document provider.")
+	}
+	
 }
