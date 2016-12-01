@@ -7,7 +7,6 @@ import com.google.inject.Binder;
 import com.google.inject.Provider;
 import com.google.inject.name.Names;
 import java.util.Properties;
-import org.eclipse.papyrusrt.uml.umltext.formatting.UMLTextFormatter;
 import org.eclipse.papyrusrt.uml.umltext.generator.UMLTextGenerator;
 import org.eclipse.papyrusrt.uml.umltext.parser.antlr.UMLTextAntlrTokenFileProvider;
 import org.eclipse.papyrusrt.uml.umltext.parser.antlr.UMLTextParser;
@@ -19,9 +18,6 @@ import org.eclipse.papyrusrt.uml.umltext.services.UMLTextGrammarAccess;
 import org.eclipse.papyrusrt.uml.umltext.validation.UMLTextValidator;
 import org.eclipse.xtext.Constants;
 import org.eclipse.xtext.IGrammarAccess;
-import org.eclipse.xtext.common.services.Ecore2XtextTerminalConverters;
-import org.eclipse.xtext.conversion.IValueConverterService;
-import org.eclipse.xtext.formatting.IFormatter;
 import org.eclipse.xtext.generator.IGenerator2;
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
@@ -193,16 +189,6 @@ public abstract class AbstractUMLTextRuntimeModule extends DefaultRuntimeModule 
 	// contributed by org.eclipse.xtext.xtext.generator.generator.GeneratorFragment2
 	public Class<? extends IGenerator2> bindIGenerator2() {
 		return UMLTextGenerator.class;
-	}
-	
-	// contributed by org.eclipse.xtext.xtext.generator.ecore2xtext.Ecore2XtextValueConverterServiceFragment2
-	public Class<? extends IValueConverterService> bindIValueConverterService() {
-		return Ecore2XtextTerminalConverters.class;
-	}
-	
-	// contributed by org.eclipse.xtext.generator.formatting.FormatterFragment
-	public Class<? extends IFormatter> bindIFormatter() {
-		return UMLTextFormatter.class;
 	}
 	
 }

@@ -2,3 +2,15 @@
 /.UMLTextStandaloneSetup.java._trace
 /UMLTextRuntimeModule.java
 /UMLTextStandaloneSetup.java
+/.UMLTextResource.java._trace
+/.UMLTextSerializer.java._trace
+/.PaParser.java._trace
+/.UMLText2UMLTransformation.java._trace
+/.UMLTextResourceSet.java._trace
+/.CustomUMLTextParser.java._trace
+/.Model2Text.java._trace
+/.UML2UMLText.java._trace
+/.UMLReduction.java._trace
+/.UML2ReducedUML.java._trace
+/.ReducedUML2UML.java._trace
+/.dummy.java._trace
