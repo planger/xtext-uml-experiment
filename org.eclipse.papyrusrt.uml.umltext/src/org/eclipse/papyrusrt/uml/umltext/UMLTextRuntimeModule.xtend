@@ -3,10 +3,6 @@
  */
 package org.eclipse.papyrusrt.uml.umltext
 
-import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.uml2.uml.resource.UMLResource
-import org.eclipse.xtext.linking.lazy.LazyLinkingResource
-
 /*
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
@@ -16,9 +12,9 @@ class UMLTextRuntimeModule extends AbstractUMLTextRuntimeModule {
 	 * Bind UMLText Resource 
 	 *  extending org.eclipse.xtext.linking.lazy.LazyLinkingResource 
 	 */
-	override bindXtextResource() {
-		UMLTextResource
-	}
+//	override bindXtextResource() {
+//		UMLTextResource
+//	}
 
 }
 
@@ -31,10 +27,10 @@ class UMLTextRuntimeModule extends AbstractUMLTextRuntimeModule {
  *  In order to prevent this, we define our XtextResource extension that
  * 	just binds back the UMLResource Factory with the 'uml' extension. 
  */
-class UMLTextResource extends LazyLinkingResource {
-	
-	new() {
-		Resource.Factory.Registry.INSTANCE.extensionToFactoryMap.put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE)
-	}
-	
-}
+//class UMLTextResource extends LazyLinkingResource {
+//	
+//	new() {
+//		Resource.Factory.Registry.INSTANCE.extensionToFactoryMap.put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE)
+//	}
+//	
+//}

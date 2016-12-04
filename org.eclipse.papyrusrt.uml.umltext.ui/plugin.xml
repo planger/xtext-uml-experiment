@@ -204,7 +204,8 @@
 			</activeWhen>
 		</handler>
 	</extension>
-	<!-- adding resource factories -->
+
+	<!-- adding resource factories 
 	<extension
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
@@ -218,7 +219,9 @@
 			uriExtension="uml">
 		</resourceServiceProvider>
 	</extension>
+	adding resource factories -->
 	<!-- marker definitions for org.eclipse.papyrusrt.uml.umltext.UMLText -->
+
 	<extension
 			id="umltext.check.fast"
 			name="UMLText Problem"
@@ -240,11 +243,15 @@
 		<super type="org.eclipse.xtext.ui.check.expensive"/>
 		<persistent value="true"/>
 	</extension>
+	
+	<!--
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
 			class="org.eclipse.papyrusrt.uml.umltext.ui.UMLTextExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
 			fileExtensions="uml"/>
 	</extension>
+	-->
+	
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
 			category="org.eclipse.papyrusrt.uml.umltext.UMLText"

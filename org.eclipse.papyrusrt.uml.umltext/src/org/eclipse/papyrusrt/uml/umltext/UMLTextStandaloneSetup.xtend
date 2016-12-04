@@ -3,7 +3,6 @@
  */
 package org.eclipse.papyrusrt.uml.umltext
 
-
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
  */
@@ -12,4 +11,5 @@ class UMLTextStandaloneSetup extends UMLTextStandaloneSetupGenerated {
 	def static void doSetup() {
 		new UMLTextStandaloneSetup().createInjectorAndDoEMFRegistration()
 	}
+	
 }

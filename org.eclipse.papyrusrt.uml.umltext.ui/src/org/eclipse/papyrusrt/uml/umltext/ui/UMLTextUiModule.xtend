@@ -21,6 +21,7 @@ import org.eclipse.uml2.uml.resource.UMLResource
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 import org.eclipse.xtext.ui.editor.model.XtextDocumentProvider
 import org.eclipse.xtext.util.StringInputStream
+import org.eclipse.uml2.uml.Element
 
 /*
  * Use this class to register components to be used within the Eclipse IDE.
@@ -283,4 +284,35 @@ class UMLTextDocumentProvider extends XtextDocumentProvider {
 		}
 
 	}
+	
+	/*
+	 * ReducedUML2UML : M2M Transformation
+	 * 
+	 * The reference grammar metamodel for input models is the one generated 
+	 * from the grammar in:
+	 * 		org.eclipse.papyrusrt.uml.umltext.UMLText 
+	 */
+	 class ReducedUML2UML {
+	 	
+	 	def static dispatch transform(org.eclipse.uml2.uml.Model _model) {
+	 		for (_packagedElement : _model.packagedElements) 
+	 			transform(_packagedElement)
+	 		_model as org.eclipse.uml2.uml.Model
+	 	}
+	 	
+	 	def static dispatch transform(org.eclipse.uml2.uml.Package _package) {
+	 		for (_packagedElement : _package.packagedElements) 
+	 			transform(_packagedElement)
+	 		_package as org.eclipse.uml2.uml.Package
+	 	}
+	 	
+	 	def static dispatch transform(org.eclipse.uml2.uml.Class _class) {
+	 		_class as org.eclipse.uml2.uml.Class
+	 	}
+	 	
+	 	def static dispatch transform(org.eclipse.uml2.uml.Element _object) {
+	 		_object as org.eclipse.uml2.uml.Element
+	 	}
+	 	
+	 }
 	
