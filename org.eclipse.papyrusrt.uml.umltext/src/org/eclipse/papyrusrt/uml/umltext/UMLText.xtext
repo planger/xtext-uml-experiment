@@ -1,6 +1,7 @@
 grammar org.eclipse.papyrusrt.uml.umltext.UMLText with org.eclipse.xtext.common.Terminals
 
 import "http://www.eclipse.org/uml2/5.0.0/UML" as uml 
+import "platform:/resource/org.eclipse.papyrusrt.uml.xuml/model/xUML.ecore" as xuml 
 
 // generate uMLText "http://www.eclipse.org/papyrusrt/uml/umltext/UMLText"
 Model returns uml::Model :
@@ -11,8 +12,16 @@ Model returns uml::Model :
 
 Package returns uml::Package :
 	'package' {uml::Package} name=ID '{'
-		packagedElement+=Class*	
+		packagedElement+=PackagableElement*
 	'}'
+;
+
+PackagableElement returns uml::PackageableElement :
+	Class | Protocol
+;
+
+Protocol returns xuml::Protocol:
+	'protocol' name=ID ';'
 ;
 
 Class returns uml::Class :

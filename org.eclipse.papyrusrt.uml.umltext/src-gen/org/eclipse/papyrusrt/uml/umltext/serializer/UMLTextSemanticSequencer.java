@@ -8,6 +8,8 @@ import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.papyrusrt.uml.umltext.services.UMLTextGrammarAccess;
+import org.eclipse.papyrusrt.uml.xUML.Protocol;
+import org.eclipse.papyrusrt.uml.xUML.XUMLPackage;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.xtext.Action;
@@ -42,12 +44,19 @@ public class UMLTextSemanticSequencer extends AbstractDelegatingSemanticSequence
 				sequence_Package(context, (org.eclipse.uml2.uml.Package) semanticObject); 
 				return; 
 			}
+		else if (epackage == XUMLPackage.eINSTANCE)
+			switch (semanticObject.eClass().getClassifierID()) {
+			case XUMLPackage.PROTOCOL:
+				sequence_Protocol(context, (Protocol) semanticObject); 
+				return; 
+			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
 	
 	/**
 	 * Contexts:
+	 *     PackagableElement returns Class
 	 *     Class returns Class
 	 *
 	 * Constraint:
@@ -81,10 +90,29 @@ public class UMLTextSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Package returns Package
 	 *
 	 * Constraint:
-	 *     (name=ID packagedElement+=Class*)
+	 *     (name=ID packagedElement+=PackagableElement*)
 	 */
 	protected void sequence_Package(ISerializationContext context, org.eclipse.uml2.uml.Package semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PackagableElement returns Protocol
+	 *     Protocol returns Protocol
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_Protocol(ISerializationContext context, Protocol semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getProtocolAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

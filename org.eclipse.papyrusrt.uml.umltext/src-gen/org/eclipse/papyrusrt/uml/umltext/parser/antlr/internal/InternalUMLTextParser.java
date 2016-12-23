@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalUMLTextParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'model'", "'{'", "'}'", "'package'", "'class'", "';'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'model'", "'{'", "'}'", "'package'", "'protocol'", "';'", "'class'"
     };
     public static final int RULE_ID=4;
     public static final int RULE_WS=9;
@@ -30,6 +30,7 @@ public class InternalUMLTextParser extends AbstractInternalAntlrParser {
     public static final int RULE_SL_COMMENT=8;
     public static final int T__15=15;
     public static final int T__16=16;
+    public static final int T__17=17;
     public static final int RULE_INT=5;
     public static final int T__11=11;
     public static final int RULE_ML_COMMENT=7;
@@ -292,7 +293,7 @@ public class InternalUMLTextParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePackage"
-    // InternalUMLText.g:146:1: rulePackage returns [EObject current=null] : (otherlv_0= 'package' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_packagedElement_4_0= ruleClass ) )* otherlv_5= '}' ) ;
+    // InternalUMLText.g:146:1: rulePackage returns [EObject current=null] : (otherlv_0= 'package' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_packagedElement_4_0= rulePackagableElement ) )* otherlv_5= '}' ) ;
     public final EObject rulePackage() throws RecognitionException {
         EObject current = null;
 
@@ -307,11 +308,11 @@ public class InternalUMLTextParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalUMLText.g:152:2: ( (otherlv_0= 'package' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_packagedElement_4_0= ruleClass ) )* otherlv_5= '}' ) )
-            // InternalUMLText.g:153:2: (otherlv_0= 'package' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_packagedElement_4_0= ruleClass ) )* otherlv_5= '}' )
+            // InternalUMLText.g:152:2: ( (otherlv_0= 'package' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_packagedElement_4_0= rulePackagableElement ) )* otherlv_5= '}' ) )
+            // InternalUMLText.g:153:2: (otherlv_0= 'package' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_packagedElement_4_0= rulePackagableElement ) )* otherlv_5= '}' )
             {
-            // InternalUMLText.g:153:2: (otherlv_0= 'package' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_packagedElement_4_0= ruleClass ) )* otherlv_5= '}' )
-            // InternalUMLText.g:154:3: otherlv_0= 'package' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_packagedElement_4_0= ruleClass ) )* otherlv_5= '}'
+            // InternalUMLText.g:153:2: (otherlv_0= 'package' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_packagedElement_4_0= rulePackagableElement ) )* otherlv_5= '}' )
+            // InternalUMLText.g:154:3: otherlv_0= 'package' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_packagedElement_4_0= rulePackagableElement ) )* otherlv_5= '}'
             {
             otherlv_0=(Token)match(input,14,FOLLOW_3); 
 
@@ -358,29 +359,29 @@ public class InternalUMLTextParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_3, grammarAccess.getPackageAccess().getLeftCurlyBracketKeyword_3());
             		
-            // InternalUMLText.g:187:3: ( (lv_packagedElement_4_0= ruleClass ) )*
+            // InternalUMLText.g:187:3: ( (lv_packagedElement_4_0= rulePackagableElement ) )*
             loop2:
             do {
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( (LA2_0==15) ) {
+                if ( (LA2_0==15||LA2_0==17) ) {
                     alt2=1;
                 }
 
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalUMLText.g:188:4: (lv_packagedElement_4_0= ruleClass )
+            	    // InternalUMLText.g:188:4: (lv_packagedElement_4_0= rulePackagableElement )
             	    {
-            	    // InternalUMLText.g:188:4: (lv_packagedElement_4_0= ruleClass )
-            	    // InternalUMLText.g:189:5: lv_packagedElement_4_0= ruleClass
+            	    // InternalUMLText.g:188:4: (lv_packagedElement_4_0= rulePackagableElement )
+            	    // InternalUMLText.g:189:5: lv_packagedElement_4_0= rulePackagableElement
             	    {
 
-            	    					newCompositeNode(grammarAccess.getPackageAccess().getPackagedElementClassParserRuleCall_4_0());
+            	    					newCompositeNode(grammarAccess.getPackageAccess().getPackagedElementPackagableElementParserRuleCall_4_0());
             	    				
             	    pushFollow(FOLLOW_6);
-            	    lv_packagedElement_4_0=ruleClass();
+            	    lv_packagedElement_4_0=rulePackagableElement();
 
             	    state._fsp--;
 
@@ -392,7 +393,7 @@ public class InternalUMLTextParser extends AbstractInternalAntlrParser {
             	    						current,
             	    						"packagedElement",
             	    						lv_packagedElement_4_0,
-            	    						"org.eclipse.papyrusrt.uml.umltext.UMLText.Class");
+            	    						"org.eclipse.papyrusrt.uml.umltext.UMLText.PackagableElement");
             	    					afterParserOrEnumRuleCall();
             	    				
 
@@ -433,8 +434,247 @@ public class InternalUMLTextParser extends AbstractInternalAntlrParser {
     // $ANTLR end "rulePackage"
 
 
+    // $ANTLR start "entryRulePackagableElement"
+    // InternalUMLText.g:214:1: entryRulePackagableElement returns [EObject current=null] : iv_rulePackagableElement= rulePackagableElement EOF ;
+    public final EObject entryRulePackagableElement() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_rulePackagableElement = null;
+
+
+        try {
+            // InternalUMLText.g:214:58: (iv_rulePackagableElement= rulePackagableElement EOF )
+            // InternalUMLText.g:215:2: iv_rulePackagableElement= rulePackagableElement EOF
+            {
+             newCompositeNode(grammarAccess.getPackagableElementRule()); 
+            pushFollow(FOLLOW_1);
+            iv_rulePackagableElement=rulePackagableElement();
+
+            state._fsp--;
+
+             current =iv_rulePackagableElement; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRulePackagableElement"
+
+
+    // $ANTLR start "rulePackagableElement"
+    // InternalUMLText.g:221:1: rulePackagableElement returns [EObject current=null] : (this_Class_0= ruleClass | this_Protocol_1= ruleProtocol ) ;
+    public final EObject rulePackagableElement() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_Class_0 = null;
+
+        EObject this_Protocol_1 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalUMLText.g:227:2: ( (this_Class_0= ruleClass | this_Protocol_1= ruleProtocol ) )
+            // InternalUMLText.g:228:2: (this_Class_0= ruleClass | this_Protocol_1= ruleProtocol )
+            {
+            // InternalUMLText.g:228:2: (this_Class_0= ruleClass | this_Protocol_1= ruleProtocol )
+            int alt3=2;
+            int LA3_0 = input.LA(1);
+
+            if ( (LA3_0==17) ) {
+                alt3=1;
+            }
+            else if ( (LA3_0==15) ) {
+                alt3=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 3, 0, input);
+
+                throw nvae;
+            }
+            switch (alt3) {
+                case 1 :
+                    // InternalUMLText.g:229:3: this_Class_0= ruleClass
+                    {
+
+                    			newCompositeNode(grammarAccess.getPackagableElementAccess().getClassParserRuleCall_0());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_Class_0=ruleClass();
+
+                    state._fsp--;
+
+
+                    			current = this_Class_0;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 2 :
+                    // InternalUMLText.g:238:3: this_Protocol_1= ruleProtocol
+                    {
+
+                    			newCompositeNode(grammarAccess.getPackagableElementAccess().getProtocolParserRuleCall_1());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_Protocol_1=ruleProtocol();
+
+                    state._fsp--;
+
+
+                    			current = this_Protocol_1;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "rulePackagableElement"
+
+
+    // $ANTLR start "entryRuleProtocol"
+    // InternalUMLText.g:250:1: entryRuleProtocol returns [EObject current=null] : iv_ruleProtocol= ruleProtocol EOF ;
+    public final EObject entryRuleProtocol() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleProtocol = null;
+
+
+        try {
+            // InternalUMLText.g:250:49: (iv_ruleProtocol= ruleProtocol EOF )
+            // InternalUMLText.g:251:2: iv_ruleProtocol= ruleProtocol EOF
+            {
+             newCompositeNode(grammarAccess.getProtocolRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleProtocol=ruleProtocol();
+
+            state._fsp--;
+
+             current =iv_ruleProtocol; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleProtocol"
+
+
+    // $ANTLR start "ruleProtocol"
+    // InternalUMLText.g:257:1: ruleProtocol returns [EObject current=null] : (otherlv_0= 'protocol' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ';' ) ;
+    public final EObject ruleProtocol() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_name_1_0=null;
+        Token otherlv_2=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalUMLText.g:263:2: ( (otherlv_0= 'protocol' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ';' ) )
+            // InternalUMLText.g:264:2: (otherlv_0= 'protocol' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ';' )
+            {
+            // InternalUMLText.g:264:2: (otherlv_0= 'protocol' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ';' )
+            // InternalUMLText.g:265:3: otherlv_0= 'protocol' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ';'
+            {
+            otherlv_0=(Token)match(input,15,FOLLOW_3); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getProtocolAccess().getProtocolKeyword_0());
+            		
+            // InternalUMLText.g:269:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalUMLText.g:270:4: (lv_name_1_0= RULE_ID )
+            {
+            // InternalUMLText.g:270:4: (lv_name_1_0= RULE_ID )
+            // InternalUMLText.g:271:5: lv_name_1_0= RULE_ID
+            {
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_7); 
+
+            					newLeafNode(lv_name_1_0, grammarAccess.getProtocolAccess().getNameIDTerminalRuleCall_1_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getProtocolRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"name",
+            						lv_name_1_0,
+            						"org.eclipse.xtext.common.Terminals.ID");
+            				
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,16,FOLLOW_2); 
+
+            			newLeafNode(otherlv_2, grammarAccess.getProtocolAccess().getSemicolonKeyword_2());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleProtocol"
+
+
     // $ANTLR start "entryRuleClass"
-    // InternalUMLText.g:214:1: entryRuleClass returns [EObject current=null] : iv_ruleClass= ruleClass EOF ;
+    // InternalUMLText.g:295:1: entryRuleClass returns [EObject current=null] : iv_ruleClass= ruleClass EOF ;
     public final EObject entryRuleClass() throws RecognitionException {
         EObject current = null;
 
@@ -442,8 +682,8 @@ public class InternalUMLTextParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalUMLText.g:214:46: (iv_ruleClass= ruleClass EOF )
-            // InternalUMLText.g:215:2: iv_ruleClass= ruleClass EOF
+            // InternalUMLText.g:295:46: (iv_ruleClass= ruleClass EOF )
+            // InternalUMLText.g:296:2: iv_ruleClass= ruleClass EOF
             {
              newCompositeNode(grammarAccess.getClassRule()); 
             pushFollow(FOLLOW_1);
@@ -470,7 +710,7 @@ public class InternalUMLTextParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleClass"
-    // InternalUMLText.g:221:1: ruleClass returns [EObject current=null] : (otherlv_0= 'class' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ';' ) ;
+    // InternalUMLText.g:302:1: ruleClass returns [EObject current=null] : (otherlv_0= 'class' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ';' ) ;
     public final EObject ruleClass() throws RecognitionException {
         EObject current = null;
 
@@ -482,18 +722,18 @@ public class InternalUMLTextParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalUMLText.g:227:2: ( (otherlv_0= 'class' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ';' ) )
-            // InternalUMLText.g:228:2: (otherlv_0= 'class' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ';' )
+            // InternalUMLText.g:308:2: ( (otherlv_0= 'class' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ';' ) )
+            // InternalUMLText.g:309:2: (otherlv_0= 'class' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ';' )
             {
-            // InternalUMLText.g:228:2: (otherlv_0= 'class' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ';' )
-            // InternalUMLText.g:229:3: otherlv_0= 'class' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ';'
+            // InternalUMLText.g:309:2: (otherlv_0= 'class' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ';' )
+            // InternalUMLText.g:310:3: otherlv_0= 'class' () ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ';'
             {
-            otherlv_0=(Token)match(input,15,FOLLOW_3); 
+            otherlv_0=(Token)match(input,17,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getClassAccess().getClassKeyword_0());
             		
-            // InternalUMLText.g:233:3: ()
-            // InternalUMLText.g:234:4: 
+            // InternalUMLText.g:314:3: ()
+            // InternalUMLText.g:315:4: 
             {
 
             				current = forceCreateModelElement(
@@ -503,11 +743,11 @@ public class InternalUMLTextParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalUMLText.g:240:3: ( (lv_name_2_0= RULE_ID ) )
-            // InternalUMLText.g:241:4: (lv_name_2_0= RULE_ID )
+            // InternalUMLText.g:321:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalUMLText.g:322:4: (lv_name_2_0= RULE_ID )
             {
-            // InternalUMLText.g:241:4: (lv_name_2_0= RULE_ID )
-            // InternalUMLText.g:242:5: lv_name_2_0= RULE_ID
+            // InternalUMLText.g:322:4: (lv_name_2_0= RULE_ID )
+            // InternalUMLText.g:323:5: lv_name_2_0= RULE_ID
             {
             lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_7); 
 
@@ -564,7 +804,7 @@ public class InternalUMLTextParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000006000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x000000000000A000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x000000000002A000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000010000L});
 
 }

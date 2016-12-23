@@ -7,6 +7,7 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
 import org.eclipse.xtext.Action;
+import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
@@ -77,16 +78,16 @@ public class UMLTextGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cPackagedElementAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cPackagedElementClassParserRuleCall_4_0 = (RuleCall)cPackagedElementAssignment_4.eContents().get(0);
+		private final RuleCall cPackagedElementPackagableElementParserRuleCall_4_0 = (RuleCall)cPackagedElementAssignment_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Package uml::Package:
 		//	'package' {uml::Package} name=ID '{'
-		//	packagedElement+=Class*
+		//	packagedElement+=PackagableElement*
 		//	'}'
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'package' {uml::Package} name=ID '{' packagedElement+=Class* '}'
+		//'package' {uml::Package} name=ID '{' packagedElement+=PackagableElement* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'package'
@@ -104,14 +105,60 @@ public class UMLTextGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
-		//packagedElement+=Class*
+		//packagedElement+=PackagableElement*
 		public Assignment getPackagedElementAssignment_4() { return cPackagedElementAssignment_4; }
 		
-		//Class
-		public RuleCall getPackagedElementClassParserRuleCall_4_0() { return cPackagedElementClassParserRuleCall_4_0; }
+		//PackagableElement
+		public RuleCall getPackagedElementPackagableElementParserRuleCall_4_0() { return cPackagedElementPackagableElementParserRuleCall_4_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class PackagableElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.uml.umltext.UMLText.PackagableElement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cClassParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cProtocolParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//PackagableElement uml::PackageableElement:
+		//	Class | Protocol
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Class | Protocol
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Class
+		public RuleCall getClassParserRuleCall_0() { return cClassParserRuleCall_0; }
+		
+		//Protocol
+		public RuleCall getProtocolParserRuleCall_1() { return cProtocolParserRuleCall_1; }
+	}
+	public class ProtocolElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.uml.umltext.UMLText.Protocol");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cProtocolKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//Protocol xuml::Protocol:
+		//	'protocol' name=ID ';'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'protocol' name=ID ';'
+		public Group getGroup() { return cGroup; }
+		
+		//'protocol'
+		public Keyword getProtocolKeyword_0() { return cProtocolKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class ClassElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.papyrusrt.uml.umltext.UMLText.Class");
@@ -148,6 +195,8 @@ public class UMLTextGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final ModelElements pModel;
 	private final PackageElements pPackage;
+	private final PackagableElementElements pPackagableElement;
+	private final ProtocolElements pProtocol;
 	private final ClassElements pClass;
 	
 	private final Grammar grammar;
@@ -161,6 +210,8 @@ public class UMLTextGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
 		this.pPackage = new PackageElements();
+		this.pPackagableElement = new PackagableElementElements();
+		this.pProtocol = new ProtocolElements();
 		this.pClass = new ClassElements();
 	}
 	
@@ -206,7 +257,7 @@ public class UMLTextGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Package uml::Package:
 	//	'package' {uml::Package} name=ID '{'
-	//	packagedElement+=Class*
+	//	packagedElement+=PackagableElement*
 	//	'}'
 	public PackageElements getPackageAccess() {
 		return pPackage;
@@ -214,6 +265,26 @@ public class UMLTextGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getPackageRule() {
 		return getPackageAccess().getRule();
+	}
+	
+	//PackagableElement uml::PackageableElement:
+	//	Class | Protocol
+	public PackagableElementElements getPackagableElementAccess() {
+		return pPackagableElement;
+	}
+	
+	public ParserRule getPackagableElementRule() {
+		return getPackagableElementAccess().getRule();
+	}
+	
+	//Protocol xuml::Protocol:
+	//	'protocol' name=ID ';'
+	public ProtocolElements getProtocolAccess() {
+		return pProtocol;
+	}
+	
+	public ParserRule getProtocolRule() {
+		return getProtocolAccess().getRule();
 	}
 	
 	//Class uml::Class:

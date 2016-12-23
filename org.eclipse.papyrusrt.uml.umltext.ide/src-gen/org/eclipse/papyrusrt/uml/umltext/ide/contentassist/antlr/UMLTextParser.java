@@ -35,13 +35,16 @@ public class UMLTextParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getPackagableElementAccess().getAlternatives(), "rule__PackagableElement__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getPackageAccess().getGroup(), "rule__Package__Group__0");
+					put(grammarAccess.getProtocolAccess().getGroup(), "rule__Protocol__Group__0");
 					put(grammarAccess.getClassAccess().getGroup(), "rule__Class__Group__0");
 					put(grammarAccess.getModelAccess().getNameAssignment_2(), "rule__Model__NameAssignment_2");
 					put(grammarAccess.getModelAccess().getPackagedElementAssignment_4(), "rule__Model__PackagedElementAssignment_4");
 					put(grammarAccess.getPackageAccess().getNameAssignment_2(), "rule__Package__NameAssignment_2");
 					put(grammarAccess.getPackageAccess().getPackagedElementAssignment_4(), "rule__Package__PackagedElementAssignment_4");
+					put(grammarAccess.getProtocolAccess().getNameAssignment_1(), "rule__Protocol__NameAssignment_1");
 					put(grammarAccess.getClassAccess().getNameAssignment_2(), "rule__Class__NameAssignment_2");
 				}
 			};

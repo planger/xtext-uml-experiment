@@ -187,9 +187,9 @@ rulePackage returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPackageAccess().getPackagedElementClassParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getPackageAccess().getPackagedElementPackagableElementParserRuleCall_4_0());
 				}
-				lv_packagedElement_4_0=ruleClass
+				lv_packagedElement_4_0=rulePackagableElement
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPackageRule());
@@ -198,7 +198,7 @@ rulePackage returns [EObject current=null]
 						$current,
 						"packagedElement",
 						lv_packagedElement_4_0,
-						"org.eclipse.papyrusrt.uml.umltext.UMLText.Class");
+						"org.eclipse.papyrusrt.uml.umltext.UMLText.PackagableElement");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -206,6 +206,87 @@ rulePackage returns [EObject current=null]
 		otherlv_5='}'
 		{
 			newLeafNode(otherlv_5, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_5());
+		}
+	)
+;
+
+// Entry rule entryRulePackagableElement
+entryRulePackagableElement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPackagableElementRule()); }
+	iv_rulePackagableElement=rulePackagableElement
+	{ $current=$iv_rulePackagableElement.current; }
+	EOF;
+
+// Rule PackagableElement
+rulePackagableElement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getPackagableElementAccess().getClassParserRuleCall_0());
+		}
+		this_Class_0=ruleClass
+		{
+			$current = $this_Class_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getPackagableElementAccess().getProtocolParserRuleCall_1());
+		}
+		this_Protocol_1=ruleProtocol
+		{
+			$current = $this_Protocol_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleProtocol
+entryRuleProtocol returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getProtocolRule()); }
+	iv_ruleProtocol=ruleProtocol
+	{ $current=$iv_ruleProtocol.current; }
+	EOF;
+
+// Rule Protocol
+ruleProtocol returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='protocol'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getProtocolAccess().getProtocolKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getProtocolAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getProtocolRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2=';'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getProtocolAccess().getSemicolonKeyword_2());
 		}
 	)
 ;

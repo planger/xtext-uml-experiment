@@ -99,6 +99,56 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRulePackagableElement
+entryRulePackagableElement
+:
+{ before(grammarAccess.getPackagableElementRule()); }
+	 rulePackagableElement
+{ after(grammarAccess.getPackagableElementRule()); } 
+	 EOF 
+;
+
+// Rule PackagableElement
+rulePackagableElement 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getPackagableElementAccess().getAlternatives()); }
+		(rule__PackagableElement__Alternatives)
+		{ after(grammarAccess.getPackagableElementAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRuleProtocol
+entryRuleProtocol
+:
+{ before(grammarAccess.getProtocolRule()); }
+	 ruleProtocol
+{ after(grammarAccess.getProtocolRule()); } 
+	 EOF 
+;
+
+// Rule Protocol
+ruleProtocol 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getProtocolAccess().getGroup()); }
+		(rule__Protocol__Group__0)
+		{ after(grammarAccess.getProtocolAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleClass
 entryRuleClass
 :
@@ -118,6 +168,27 @@ ruleClass
 		{ before(grammarAccess.getClassAccess().getGroup()); }
 		(rule__Class__Group__0)
 		{ after(grammarAccess.getClassAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PackagableElement__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPackagableElementAccess().getClassParserRuleCall_0()); }
+		ruleClass
+		{ after(grammarAccess.getPackagableElementAccess().getClassParserRuleCall_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getPackagableElementAccess().getProtocolParserRuleCall_1()); }
+		ruleProtocol
+		{ after(grammarAccess.getPackagableElementAccess().getProtocolParserRuleCall_1()); }
 	)
 ;
 finally {
@@ -448,6 +519,87 @@ finally {
 }
 
 
+rule__Protocol__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Protocol__Group__0__Impl
+	rule__Protocol__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Protocol__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getProtocolAccess().getProtocolKeyword_0()); }
+	'protocol'
+	{ after(grammarAccess.getProtocolAccess().getProtocolKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Protocol__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Protocol__Group__1__Impl
+	rule__Protocol__Group__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Protocol__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getProtocolAccess().getNameAssignment_1()); }
+	(rule__Protocol__NameAssignment_1)
+	{ after(grammarAccess.getProtocolAccess().getNameAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Protocol__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Protocol__Group__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Protocol__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getProtocolAccess().getSemicolonKeyword_2()); }
+	';'
+	{ after(grammarAccess.getProtocolAccess().getSemicolonKeyword_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 rule__Class__Group__0
 	@init {
 		int stackSize = keepStackSize();
@@ -607,9 +759,24 @@ rule__Package__PackagedElementAssignment_4
 	}
 :
 	(
-		{ before(grammarAccess.getPackageAccess().getPackagedElementClassParserRuleCall_4_0()); }
-		ruleClass
-		{ after(grammarAccess.getPackageAccess().getPackagedElementClassParserRuleCall_4_0()); }
+		{ before(grammarAccess.getPackageAccess().getPackagedElementPackagableElementParserRuleCall_4_0()); }
+		rulePackagableElement
+		{ after(grammarAccess.getPackageAccess().getPackagedElementPackagableElementParserRuleCall_4_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Protocol__NameAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getProtocolAccess().getNameIDTerminalRuleCall_1_0()); }
+		RULE_ID
+		{ after(grammarAccess.getProtocolAccess().getNameIDTerminalRuleCall_1_0()); }
 	)
 ;
 finally {

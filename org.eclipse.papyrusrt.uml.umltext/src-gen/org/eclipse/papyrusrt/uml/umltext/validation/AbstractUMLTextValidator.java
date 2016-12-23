@@ -14,6 +14,7 @@ public abstract class AbstractUMLTextValidator extends AbstractDeclarativeValida
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
 		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/uml2/5.0.0/UML"));
+		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/uml2/5.0.0/xUML"));
 		return result;
 	}
 	
