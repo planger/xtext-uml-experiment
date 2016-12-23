@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="umlrt" nsURI="http://www.eclipse.org/papyrus/umlrt-test" nsPrefix="umlrt">
-  <eClassifiers xsi:type="ecore:EClass" name="ProtocolContainer" eSuperTypes="platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//Package"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Protocol" eSuperTypes="platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//Collaboration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RTMessageSet" eSuperTypes="platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//Interface"/>
-</ecore:EPackage>
