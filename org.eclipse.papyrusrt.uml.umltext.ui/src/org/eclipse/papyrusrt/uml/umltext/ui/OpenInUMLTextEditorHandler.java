@@ -5,6 +5,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.uml2.uml.Element;
@@ -20,7 +21,8 @@ public class OpenInUMLTextEditorHandler extends AbstractHandler {
 			if (selectedEObject instanceof Element) {
 				Element selectedUmlElement = (Element) selectedEObject;
 				Model model = selectedUmlElement.getModel();
-				UMLTextModelEditorInput editorInput = new UMLTextModelEditorInput(model);
+				IEditorPart papyrusEditor = HandlerUtil.getActiveEditor(event);
+				UMLTextModelEditorInput editorInput = new UMLTextModelEditorInput(model, papyrusEditor);
 				try {
 					HandlerUtil.getActiveWorkbenchWindow(event).getActivePage().openEditor(editorInput,
 							UMLTextEditor.EDITOR_ID, true);

@@ -13,4 +13,8 @@ class UMLTextUiModule extends AbstractUMLTextUiModule {
 		UMLTextDocumentProvider
 	}
 	
+	override bindIResourceForEditorInputFactory() {
+		ResourceForUMLTextModelEditorInputFactory
+	}
+	
 }
