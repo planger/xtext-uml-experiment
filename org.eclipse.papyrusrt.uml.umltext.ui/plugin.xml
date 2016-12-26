@@ -4,7 +4,7 @@
 	<extension
 		point="org.eclipse.ui.editors">
 		<editor
-			class="org.eclipse.papyrusrt.uml.umltext.ui.UMLTextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+			class="org.eclipse.papyrusrt.uml.umltext.ui.UMLTextExecutableExtensionFactory:org.eclipse.papyrusrt.uml.umltext.ui.UMLTextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
 			extensions="uml"
@@ -414,4 +414,38 @@
 			type="text">
 		</fileTypes>
 	</extension>
+	
+	<!-- add a pop-up menu item to the model explorer -->
+	<extension point="org.eclipse.ui.menus">
+	  <menuContribution locationURI="popup:org.eclipse.papyrus.views.modelexplorer.modelexplorer.popup">
+		 <command
+			   commandId="org.eclipse.papyrusrt.uml.umltext.ui.openInUmlTextEditorCommand"
+			   id="org.eclipse.papyrusrt.uml.umltext.ui.openInUmlTextEditor"
+			   label="Open in UML Text Editor"
+			   style="push">
+			<visibleWhen checkEnabled="false">
+			   <iterate ifEmpty="false" operator="and">
+				  <adapt type="org.eclipse.emf.ecore.EObject">
+					 <instanceof  value="org.eclipse.uml2.uml.Model"/>
+				  </adapt>
+			   </iterate>
+			</visibleWhen>
+		 </command>
+	  </menuContribution>
+	</extension>
+	<extension
+	       point="org.eclipse.ui.commands">
+	    <command
+	          description="Opens the model in a text editor"
+	          id="org.eclipse.papyrusrt.uml.umltext.ui.openInUmlTextEditorCommand"
+	          name="Open in UML Text Editor">
+	    </command>
+	</extension>
+ <extension
+       point="org.eclipse.ui.handlers">
+    <handler
+          class="org.eclipse.papyrusrt.uml.umltext.ui.OpenInUMLTextEditorHandler"
+          commandId="org.eclipse.papyrusrt.uml.umltext.ui.openInUmlTextEditorCommand">
+    </handler>
+ </extension>
 </plugin>
