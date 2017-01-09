@@ -32,6 +32,11 @@ public class UMLTextFormatter extends AbstractDeclarativeFormatter {
 			c.setNoSpace().before(comma);
 			c.setLinewrap().after(comma);
 		}
+		for(Keyword semicolon : f.findKeywords(";")) {
+			c.setNoLinewrap().before(semicolon);
+			c.setNoSpace().before(semicolon);
+			c.setLinewrap().after(semicolon);
+		}
 		c.setLinewrap(0, 1, 2).before(f.getSL_COMMENTRule());
 		c.setLinewrap(0, 1, 2).before(f.getML_COMMENTRule());
 		c.setLinewrap(0, 1, 1).after(f.getML_COMMENTRule());

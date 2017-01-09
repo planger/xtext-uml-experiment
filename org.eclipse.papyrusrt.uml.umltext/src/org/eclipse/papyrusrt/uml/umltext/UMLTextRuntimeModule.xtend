@@ -3,34 +3,15 @@
  */
 package org.eclipse.papyrusrt.uml.umltext
 
+import org.eclipse.papyrusrt.uml.umltext.formatting.UMLTextFormatter
+
 /*
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class UMLTextRuntimeModule extends AbstractUMLTextRuntimeModule {
-
-	/* 
-	 * Bind UMLText Resource 
-	 *  extending org.eclipse.xtext.linking.lazy.LazyLinkingResource 
-	 */
-//	override bindXtextResource() {
-//		UMLTextResource
-//	}
+	
+	override bindIFormatter() {
+		UMLTextFormatter
+	}
 
 }
-
-/* 
- * UMLTextResource 
- * 	Creating an Xtext grammar using 'uml' as file extension will cause
- *  the default resource factory to be overwritten. The UML editor will
- *  therefore stop using ordinary UMLResources.
- * 
- *  In order to prevent this, we define our XtextResource extension that
- * 	just binds back the UMLResource Factory with the 'uml' extension. 
- */
-//class UMLTextResource extends LazyLinkingResource {
-//	
-//	new() {
-//		Resource.Factory.Registry.INSTANCE.extensionToFactoryMap.put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE)
-//	}
-//	
-//}
