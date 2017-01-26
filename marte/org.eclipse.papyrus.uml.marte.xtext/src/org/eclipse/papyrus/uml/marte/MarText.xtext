@@ -1,0 +1,9 @@
+grammar org.eclipse.papyrus.uml.marte.MarText with org.eclipse.xtext.common.Terminals
+
+generate marText "http://www.eclipse.org/papyrus/uml/marte/MarText"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
