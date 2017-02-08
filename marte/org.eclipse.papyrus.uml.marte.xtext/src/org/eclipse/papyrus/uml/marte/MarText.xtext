@@ -1,9 +1,32 @@
 grammar org.eclipse.papyrus.uml.marte.MarText with org.eclipse.xtext.common.Terminals
 
+import "http://www.eclipse.org/uml2/5.0.0/UML" as uml
 generate marText "http://www.eclipse.org/papyrus/uml/marte/MarText"
 
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+// our models can contain components, possibly stereotyped as hwProcessors or HwCaches.
+// Each component with an hwProcessor stereotype application can contain one or
+// more components with an hwCache stereotype application.
+Model returns uml::Model : 
+	'model' {uml::Model} name=ID ('{'
+		packagedElement+=Component*
+	'};'|';')
+;
+
+Component returns uml::Component : 
+	HwCache | HwProcessor | 'component' {uml::Component} name=ID ('{' 
+		packagedElement+=Component*
+	'};'|';')
+;
+
+HwProcessor returns HwProcessor:
+	'processor' {HwProcessor} name=ID ('{'
+		('cores:' nbCores=INT ';')? &
+		('caches:' '{' packagedElement+=Component* '};')?
+	'};' | ';')
+;
+
+HwCache returns HwCache:
+	'cache' {HwCache} name=ID ('{'
+		('level:' level=INT ';')?	
+	'};' | ';')
+;

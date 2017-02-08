@@ -5,7 +5,31 @@ Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.eclipse.papyrus.uml.marte.xtext; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.xtext,
- org.eclipse.xtext.xbase,
- org.eclipse.equinox.common;bundle-version="3.5.0"
+Require-Bundle: org.eclipse.uml2.uml;bundle-version="[5.1.0,6.0.0)",
+ org.eclipse.xtext;bundle-version="[2.10.0,3.0.0)";visibility:=reexport,
+ org.eclipse.xtext.xbase;bundle-version="[2.10.0,3.0.0)",
+ org.eclipse.equinox.common;bundle-version="[3.5.0,4.0.0)",
+ org.eclipse.uml2.codegen.ecore;bundle-version="[2.1.0,3.0.0)",
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.eclipse.xtext.common.types,
+ org.eclipse.uml2.types
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.apache.log4j;version="1.2.15"
+Export-Package: org.eclipse.papyrus.uml.marte.scoping,
+ org.eclipse.papyrus.uml.marte.parser.antlr,
+ org.eclipse.papyrus.uml.marte,
+ org.eclipse.papyrus.uml.marte.parser.antlr.internal,
+ org.eclipse.papyrus.uml.marte.services,
+ org.eclipse.papyrus.uml.marte.validation,
+ org.eclipse.papyrus.uml.marte.formatting,
+ org.eclipse.papyrus.uml.marte.generator,
+ org.eclipse.papyrus.uml.marte.serializer,
+ org.eclipse.papyrus.uml.marte.marText,
+ org.eclipse.papyrus.uml.marte.marText.impl,
+ org.eclipse.papyrus.uml.marte.marText.util
+
