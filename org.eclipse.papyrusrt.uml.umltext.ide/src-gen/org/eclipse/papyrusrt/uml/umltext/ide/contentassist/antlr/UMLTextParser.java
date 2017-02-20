@@ -35,14 +35,23 @@ public class UMLTextParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getPackagedElementAccess().getAlternatives(), "rule__PackagedElement__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getPackageAccess().getGroup(), "rule__Package__Group__0");
 					put(grammarAccess.getClassAccess().getGroup(), "rule__Class__Group__0");
+					put(grammarAccess.getClassAccess().getGroup_3(), "rule__Class__Group_3__0");
+					put(grammarAccess.getPropertyAccess().getGroup(), "rule__Property__Group__0");
+					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
+					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getModelAccess().getNameAssignment_2(), "rule__Model__NameAssignment_2");
 					put(grammarAccess.getModelAccess().getPackagedElementAssignment_4(), "rule__Model__PackagedElementAssignment_4");
 					put(grammarAccess.getPackageAccess().getNameAssignment_2(), "rule__Package__NameAssignment_2");
 					put(grammarAccess.getPackageAccess().getPackagedElementAssignment_4(), "rule__Package__PackagedElementAssignment_4");
 					put(grammarAccess.getClassAccess().getNameAssignment_2(), "rule__Class__NameAssignment_2");
+					put(grammarAccess.getClassAccess().getSuperClassAssignment_3_1(), "rule__Class__SuperClassAssignment_3_1");
+					put(grammarAccess.getClassAccess().getOwnedAttributeAssignment_5(), "rule__Class__OwnedAttributeAssignment_5");
+					put(grammarAccess.getPropertyAccess().getNameAssignment_2(), "rule__Property__NameAssignment_2");
+					put(grammarAccess.getPropertyAccess().getTypeAssignment_4(), "rule__Property__TypeAssignment_4");
 				}
 			};
 		}

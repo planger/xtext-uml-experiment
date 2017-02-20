@@ -59,10 +59,10 @@ public class UMLTextDocument extends XtextDocument implements ResourceSetListene
 	}
 
 	protected TransactionalEditingDomain getEditingDomain() {
-		if (umlModel == null || umlModel.eResource() == null) {
+		if (xtextResource == null) {
 			return null;
 		}
-		return TransactionUtil.getEditingDomain(umlModel);
+		return TransactionUtil.getEditingDomain(xtextResource);
 	}
 
 	public void setPapyrusEditor(IEditorPart papyrusEditor) {
@@ -90,7 +90,9 @@ public class UMLTextDocument extends XtextDocument implements ResourceSetListene
 
 	@Override
 	public void disposeInput() {
-		getEditingDomain().removeResourceSetListener(this);
+		TransactionalEditingDomain editingDomain = getEditingDomain();
+		if(editingDomain != null)
+			editingDomain.removeResourceSetListener(this);
 		super.disposeInput();
 	}
 

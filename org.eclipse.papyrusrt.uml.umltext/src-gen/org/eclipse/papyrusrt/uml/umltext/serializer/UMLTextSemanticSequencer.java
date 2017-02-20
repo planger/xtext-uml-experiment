@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.papyrusrt.uml.umltext.services.UMLTextGrammarAccess;
 import org.eclipse.uml2.uml.Model;
+import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
@@ -41,6 +42,9 @@ public class UMLTextSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case UMLPackage.PACKAGE:
 				sequence_Package(context, (org.eclipse.uml2.uml.Package) semanticObject); 
 				return; 
+			case UMLPackage.PROPERTY:
+				sequence_Property(context, (Property) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -48,19 +52,14 @@ public class UMLTextSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     PackagedElement returns Class
 	 *     Class returns Class
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID superClass+=[Class|QualifiedName]? ownedAttribute+=Property*)
 	 */
 	protected void sequence_Class(ISerializationContext context, org.eclipse.uml2.uml.Class semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getClassAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -79,12 +78,34 @@ public class UMLTextSemanticSequencer extends AbstractDelegatingSemanticSequence
 	/**
 	 * Contexts:
 	 *     Package returns Package
+	 *     PackagedElement returns Package
 	 *
 	 * Constraint:
-	 *     (name=ID packagedElement+=Class*)
+	 *     (name=ID packagedElement+=PackagedElement*)
 	 */
 	protected void sequence_Package(ISerializationContext context, org.eclipse.uml2.uml.Package semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Property returns Property
+	 *
+	 * Constraint:
+	 *     (name=ID type=[Type|QualifiedName])
+	 */
+	protected void sequence_Property(ISerializationContext context, Property semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UMLPackage.Literals.NAMED_ELEMENT__NAME));
+			if (transientValues.isValueTransient(semanticObject, UMLPackage.Literals.TYPED_ELEMENT__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UMLPackage.Literals.TYPED_ELEMENT__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPropertyAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getPropertyAccess().getTypeTypeQualifiedNameParserRuleCall_4_0_1(), semanticObject.getType());
+		feeder.finish();
 	}
 	
 	

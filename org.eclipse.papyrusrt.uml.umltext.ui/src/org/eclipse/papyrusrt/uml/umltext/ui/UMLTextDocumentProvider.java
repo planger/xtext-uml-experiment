@@ -2,14 +2,7 @@ package org.eclipse.papyrusrt.uml.umltext.ui;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.transaction.RecordingCommand;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.text.IDocument;
-import org.eclipse.uml2.uml.Model;
 import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.ui.editor.model.XtextDocumentProvider;
 
@@ -68,27 +61,6 @@ public class UMLTextDocumentProvider extends XtextDocumentProvider {
 	@Override
 	protected void doSaveDocument(IProgressMonitor monitor, Object element, IDocument document, boolean overwrite)
 			throws CoreException {
-		if (document instanceof UMLTextDocument) {
-			SubMonitor subMonitor = SubMonitor.convert(monitor, 2);
-			UMLTextDocument umlTextDocument = (UMLTextDocument) document;
-			Model umlModel = umlTextDocument.getUmlModel();
-			Model xtextModel = umlTextDocument.getXtextModel();
-			Resource umlResource = umlModel.eResource();
-			TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(umlModel);
-			if (xtextModel != null && umlResource != null && editingDomain != null) {
-				Model newModel = EcoreUtil.copy(xtextModel);
-				editingDomain.getCommandStack().execute(new RecordingCommand(editingDomain, "Text edit") {
-					@Override
-					protected void doExecute() {
-						EcoreUtil.replace(umlModel, newModel);
-						umlTextDocument.connectToUmlModel(newModel);
-						subMonitor.worked(1);
-					}
-				});
-				//umlTextDocument.getPapyrusEditor().doSave(subMonitor.split(1));
-			}
-			return;
-		}
 		super.doSaveDocument(monitor, element, document, overwrite);
 	}
 

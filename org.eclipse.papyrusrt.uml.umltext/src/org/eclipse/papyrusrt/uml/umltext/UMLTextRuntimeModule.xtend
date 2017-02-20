@@ -4,6 +4,10 @@
 package org.eclipse.papyrusrt.uml.umltext
 
 import org.eclipse.papyrusrt.uml.umltext.formatting.UMLTextFormatter
+import org.eclipse.papyrusrt.uml.umltext.scoping.QualifiedNameFragmentProvider
+import org.eclipse.papyrusrt.uml.umltext.scoping.UMLTextGlobalScopeProvider
+import org.eclipse.papyrusrt.uml.umltext.services.resourceloading.UMLTextResourceSet
+import org.eclipse.xtext.parser.antlr.IReferableElementsUnloader
 
 /*
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -13,5 +17,28 @@ class UMLTextRuntimeModule extends AbstractUMLTextRuntimeModule {
 	override bindIFormatter() {
 		UMLTextFormatter
 	}
+	
+	override bindIFragmentProvider() {
+		QualifiedNameFragmentProvider
+	}
+	
+	override bindIGlobalScopeProvider() {
+		UMLTextGlobalScopeProvider
+	}
+	
+	def Class<? extends IReferableElementsUnloader> bindIIReferableElementsUnloader() {
+		IReferableElementsUnloader.GenericUnloader
+	}
+
+	override bindXtextResourceSet() {
+		UMLTextResourceSet
+	}
+	
+//	override configure(Binder binder) {
+//		super.configure(binder)
+//		binder.bind(IResourceSetInitializer).to(ProjectResourceSetInitializer);
+//		binder.bind(XtextResourceSet).to(UMLTextResourceSet);
+//		binder.bind(IResourceSetProvider).to(UMLTextResourceSetProvider);
+//	}
 
 }

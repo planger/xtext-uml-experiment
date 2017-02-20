@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Uml
+Bundle-SymbolicName: org.eclipse.xtext.ui.uml;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipse.xtext.ui.uml.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.google.inject,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.uml,
+ org.eclipse.xtext.ui,
+ org.eclipse.uml2.uml.editor;bundle-version="5.2.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.papyrus.infra.core.service">
+      <serviceFactory
+            classname="org.eclipse.papyrusrt.uml.umltext.services.resourceloading.UMLTextOnDemandLoadingModelSetServiceFactory"
+            description="Replaces the original service with one that supports Xtext resources."
+            id="org.eclipse.papyrus.infra.core.resource.ModelSet"
+            priority="100"
+            startKind="startup">
+      </serviceFactory>
+   </extension>
+   <extension
+         point="org.eclipse.papyrus.infra.core.model">
+      <model
+            classname="org.eclipse.papyrusrt.uml.umltext.services.resourceloading.UMLTextUmlModel"
+            description="Model for UML"
+            fileExtension="uml">
+         <modelSnippet
+               classname="org.eclipse.papyrus.uml.tools.model.UmlSnippet"
+               description="Complete the UML model.">
+         </modelSnippet>
+      </model>
+   </extension>
+   <extension
+         point="org.eclipse.xtext.ui.shared.sharedStateContributingModule">
+      <module
+            class="org.eclipse.papyrusrt.uml.umltext.SharedContributionWithUMLText">
+      </module>
+   </extension>
+
+</plugin>

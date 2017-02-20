@@ -3,7 +3,6 @@
  */
 package org.eclipse.papyrusrt.uml.umltext.scoping
 
-
 /**
  * This class contains custom scoping description.
  * 
@@ -11,5 +10,5 @@ package org.eclipse.papyrusrt.uml.umltext.scoping
  * on how and when to use it.
  */
 class UMLTextScopeProvider extends AbstractUMLTextScopeProvider {
-
+	
 }
